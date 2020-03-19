@@ -1,6 +1,5 @@
 function EASI() {
     this.SYS_ERROR = {code: 100, data: ''};
-
     this.setupWebViewJavascriptBridge = function (callback) {
         if (window.WebViewJavascriptBridge) {
             return callback(WebViewJavascriptBridge);
@@ -24,7 +23,6 @@ function EASI() {
         setTimeout(function () {
             document.documentElement.removeChild(WVJBIframe);
         }, 0);
-
     };
     this.call = function (methodName, data, callback) {
         this.setupWebViewJavascriptBridge(function (bridge) {
