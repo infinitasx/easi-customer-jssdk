@@ -1,7 +1,7 @@
 # easi_js_sdk
 
 ## 使用方法
-    var easi = new EASI();
+    var easi = new Easi();
     
     //获取app版本号
     easi.getVersion((result) => {

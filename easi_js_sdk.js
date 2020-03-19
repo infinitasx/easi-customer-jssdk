@@ -1,4 +1,4 @@
-function EASI() {
+function Easi() {
     this.SYS_ERROR = {code: 100, data: ''};
     this.setupWebViewJavascriptBridge = function (callback) {
         if (window.WebViewJavascriptBridge) {
