@@ -80,7 +80,7 @@ function Easi() {
     };
 }
 
-EASI.prototype.getVersion = function (callback) {
+Easi.prototype.getVersion = function (callback) {
     var v = this.version();
     if (!v) {
         callback(this.SYS_ERROR);
@@ -89,7 +89,7 @@ EASI.prototype.getVersion = function (callback) {
     callback({code: 0, data: v});
 };
 
-EASI.prototype.getLocation = function (callback) {
+Easi.prototype.getLocation = function (callback) {
     var v = this.version();
     if (!v) {
         callback(this.SYS_ERROR);
@@ -112,7 +112,7 @@ EASI.prototype.getLocation = function (callback) {
     }
 };
 
-EASI.prototype.scan = function (callback) {
+Easi.prototype.scan = function (callback) {
     var v = this.version();
     if (!v) {
         callback(this.SYS_ERROR);
