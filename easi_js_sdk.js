@@ -138,9 +138,9 @@ Easi.prototype.scan = function (callback) {
 Easi.prototype.wx_share = function (url, title, desc, mode) {
     var v = this.version();
     if (!v) {
-        callback(this.SYS_ERROR);
-        return;
+        return false;
     }
     var easi_schema = 'au.com.easi.courier://share/text'
     window.location.href = easi_schema + '?url=' + encodeURIComponent(url) + '&title=' + title + '&text=' + desc + '&mode='+mode+'&channel=1';
+    return true;
 };
