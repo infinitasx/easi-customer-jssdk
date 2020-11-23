@@ -33,6 +33,11 @@
             alert("data:" + result.data);
         });
     }
+
+    function scan() {
+        easi.wx_share('跳转链接', '标题', '描述', 1);// mode=1代表分享微信好友
+        easi.wx_share('跳转链接', '标题', '描述', 2);// mode=2代表分享微信朋友圈
+    }
 </script>
 </body>
 </html>
