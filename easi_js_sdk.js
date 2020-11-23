@@ -31,7 +31,7 @@ function Easi() {
                 data = '';
             }
             bridge.callHandler(methodName, data, function responseCallback(responseData) {
-                if (typeof(responseData) == 'string') {
+                if (typeof (responseData) == 'string') {
                     responseData = JSON.parse(responseData);
                 }
                 callback && callback(responseData);
@@ -133,4 +133,14 @@ Easi.prototype.scan = function (callback) {
     } else {
         callback(this.SYS_ERROR);
     }
+};
+
+Easi.prototype.wx_share = function (url, title, desc, mode) {
+    var v = this.version();
+    if (!v) {
+        callback(this.SYS_ERROR);
+        return;
+    }
+    var easi_schema = 'au.com.easi.courier://share/text'
+    window.location.href = easi_schema + '?url=' + encodeURIComponent(url) + '&title=' + title + '&text=' + desc + '&mode='+mode+'&channel=1';
 };
