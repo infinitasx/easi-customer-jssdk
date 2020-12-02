@@ -140,7 +140,7 @@ Easi.prototype.wx_share = function (url, title, desc, mode) {
     if (!v) {
         return false;
     }
-    var easi_schema = 'au.com.easi.courier://share/text'
+    var easi_schema = 'au.com.easi.customer://share/text'
     window.location.href = easi_schema + '?url=' + encodeURIComponent(url) + '&title=' + title + '&text=' + desc + '&mode='+mode+'&channel=1';
     return true;
 };
