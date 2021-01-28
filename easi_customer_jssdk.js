@@ -135,6 +135,29 @@ Easi.prototype.scan = function (callback) {
     }
 };
 
+Easi.prototype.user = function (callback) {
+    var v = this.version();
+    if (!v) {
+        callback(this.SYS_ERROR);
+        return;
+    }
+    if (this.isIos()) {
+        if (this.compareVersionEle(v, "1.9.60")) {
+            easi.call("easi.user", callback);
+        } else {
+            callback(this.SYS_ERROR);
+        }
+    } else if (this.isAndroid()) {
+        if (this.compareVersionEle(v, "1.9.60")) {
+            easi.call("easi.user", callback);
+        } else {
+            callback(this.SYS_ERROR);
+        }
+    } else {
+        callback(this.SYS_ERROR);
+    }
+};
+
 Easi.prototype.wx_share = function (url, title, desc, mode) {
     var v = this.version();
     if (!v) {

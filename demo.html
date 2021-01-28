@@ -9,7 +9,8 @@
 <button onclick="getVersion()">get version</button>
 <button onclick="getLocation()">get location</button>
 <button onclick="scan()">scan</button>
-<script src="easi_js_sdk.js" type="application/javascript"></script>
+<button onclick="user()">user</button>
+<script src="easi_customer_jssdk.js" type="application/javascript"></script>
 <script type="application/javascript">
     var easi = new Easi();
 
@@ -29,6 +30,13 @@
 
     function scan() {
         easi.scan((result) => {
+            alert("code:" + result.code);
+            alert("data:" + result.data);
+        });
+    }
+
+    function user() {
+        easi.user((result) => {
             alert("code:" + result.code);
             alert("data:" + result.data);
         });
