@@ -1,44 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>EASI JSSDK Demo</title>
 <body>
 
 <button onclick="getVersion()">get version</button>
 <button onclick="getLocation()">get location</button>
-<button onclick="scan()">scan</button>
-<button onclick="user()">user</button>
+<button onclick="scan()">scan qrcode</button>
+<button onclick="user()">get user</button>
 <script src="easi_customer_jssdk.js" type="application/javascript"></script>
 <script type="application/javascript">
     var easi = new Easi();
 
     function getVersion() {
         easi.getVersion((result) => {
-            alert("code:" + result.code);
-            alert("data:" + result.data);
+            alert(JSON.stringify(result));
         });
     }
 
     function getLocation() {
         easi.getLocation((result) => {
-            alert("code:" + result.code);
-            alert("data:" + result.data);
+            alert(JSON.stringify(result));
         });
     }
 
     function scan() {
         easi.scan((result) => {
-            alert("code:" + result.code);
-            alert("data:" + result.data);
+            alert(JSON.stringify(result));
         });
     }
 
     function user() {
         easi.user((result) => {
-            alert("code:" + result.code);
-            alert("data:" + result.data);
+            alert(JSON.stringify(result));
         });
     }
 
@@ -49,5 +46,3 @@
 </script>
 </body>
 </html>
-
-
