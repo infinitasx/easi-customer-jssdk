@@ -1,5 +1,13 @@
 function Easi() {
     this.SYS_ERROR = {code: 100, data: ''};
+    this.SYS_CONFIG = {
+        easiAgent: 'EasiCustomer/',
+        easiVersion: '1.8.10',
+        easiUserVersion: '1.9.60',
+        easiMalaysiaAgent: 'EasiMalaysia/',
+        easiMalaysiaVersion: '4.9.40',
+        easiMalaysiaUserVersion: '4.9.40'
+    };
     this.setupWebViewJavascriptBridge = function (callback) {
         if (window.WebViewJavascriptBridge) {
             return callback(WebViewJavascriptBridge);
@@ -39,16 +47,38 @@ function Easi() {
         });
     };
     this.version = function () {
-        var app_version = '';
+        var appVersion = '';
         var easiUa = navigator.userAgent.split(' ');
         if (easiUa.length > 0) {
-            var easi_mark = "EasiCustomer/";
-            var easiUaStartIndex = easiUa[0].indexOf(easi_mark);
+            var easiMark = this.isMalaysia() ? this.SYS_CONFIG.easiMalaysiaAgent : this.SYS_CONFIG.easiAgent;
+            var easiUaStartIndex = easiUa[0].indexOf(easiMark);
             if (easiUaStartIndex != -1) {
-                app_version = easiUa[0].substring(easiUaStartIndex + easi_mark.length);
+                appVersion = easiUa[0].substring(easiUaStartIndex + easiMark.length);
             }
         }
-        return app_version;
+        return appVersion;
+    };
+    this.isEasi = function () {
+        var isEasi = false;
+        var easiUa = navigator.userAgent.split(' ');
+        if (easiUa.length > 0) {
+            var easiUaStartIndex = easiUa[0].indexOf(this.SYS_CONFIG.easiAgent);
+            if (easiUaStartIndex != -1) {
+                isEasi = true;
+            }
+        }
+        return isEasi;
+    };
+    this.isMalaysia = function () {
+        var isMalaysia = false;
+        var easiUa = navigator.userAgent.split(' ');
+        if (easiUa.length > 0) {
+            var easiUaStartIndex = easiUa[0].indexOf(this.SYS_CONFIG.easiMalaysiaAgent);
+            if (easiUaStartIndex != -1) {
+                isMalaysia = true;
+            }
+        }
+        return isMalaysia;
     };
     this.compareVersionEle = function (currVersion, targetVerison) {
         if (!currVersion || !targetVerison) return false;
@@ -95,21 +125,18 @@ Easi.prototype.getLocation = function (callback) {
         callback(this.SYS_ERROR);
         return;
     }
-    if (this.isIos()) {
-        if (this.compareVersionEle(v, "1.8.10")) {
+    if (this.isEasi()) {
+        if (this.compareVersionEle(v, this.SYS_CONFIG.easiVersion)) {
             easi.call("easi.location", callback);
-        } else {
-            callback(this.SYS_ERROR);
+            return;
         }
-    } else if (this.isAndroid()) {
-        if (this.compareVersionEle(v, "1.8.10")) {
+    } else if (this.isMalaysia()) {
+        if (this.compareVersionEle(v, this.SYS_CONFIG.easiMalaysiaVersion)) {
             easi.call("easi.location", callback);
-        } else {
-            callback(this.SYS_ERROR);
+            return;
         }
-    } else {
-        callback(this.SYS_ERROR);
     }
+    callback(this.SYS_ERROR);
 };
 
 Easi.prototype.scan = function (callback) {
@@ -118,21 +145,38 @@ Easi.prototype.scan = function (callback) {
         callback(this.SYS_ERROR);
         return;
     }
-    if (this.isIos()) {
-        if (this.compareVersionEle(v, "1.8.10")) {
+    if (this.isEasi()) {
+        if (this.compareVersionEle(v, this.SYS_CONFIG.easiVersion)) {
             easi.call("easi.scan", callback);
-        } else {
-            callback(this.SYS_ERROR);
+            return;
         }
-    } else if (this.isAndroid()) {
-        if (this.compareVersionEle(v, "1.8.10")) {
+    } else if (this.isMalaysia()) {
+        if (this.compareVersionEle(v, this.SYS_CONFIG.easiMalaysiaVersion)) {
             easi.call("easi.scan", callback);
-        } else {
-            callback(this.SYS_ERROR);
+            return;
         }
-    } else {
-        callback(this.SYS_ERROR);
     }
+    callback(this.SYS_ERROR);
+};
+
+Easi.prototype.user = function (callback) {
+    var v = this.version();
+    if (!v) {
+        callback(this.SYS_ERROR);
+        return;
+    }
+    if (this.isEasi()) {
+        if (this.compareVersionEle(v, this.SYS_CONFIG.easiUserVersion)) {
+            easi.call("easi.user", callback);
+            return;
+        }
+    } else if (this.isMalaysia()) {
+        if (this.compareVersionEle(v, this.SYS_CONFIG.easiMalaysiaUserVersion)) {
+            easi.call("easi.user", callback);
+            return;
+        }
+    }
+    callback(this.SYS_ERROR);
 };
 
 Easi.prototype.wx_share = function (url, title, desc, mode) {
