@@ -9,27 +9,27 @@ export default {
   output: [
     {
       file: "dist/iife/index.js",
-      name: "easiCustomerJssdk",
+      name: "Easi",
       format: "iife",
     },
     {
       file: "dist/es/index.js",
-      name: "easiCustomerJssdk",
+      name: "Easi",
       format: "es",
     },
     {
       file: "dist/amd/index.js",
-      name: "easiCustomerJssdk",
+      name: "Easi",
       format: "amd",
     },
     {
       file: "dist/cjs/index.js",
-      name: "easiCustomerJssdk",
+      name: "Easi",
       format: "cjs",
     },
     {
       file: "dist/umd/index.js",
-      name: "easiCustomerJssdk",
+      name: "Easi",
       format: "umd",
     },
   ],

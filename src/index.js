@@ -109,19 +109,17 @@ export class Easi {
     return false;
   }
 
-  getVersion = function (callback) {
+  getVersion(callback) {
     var v = this.version();
     if (!v) {
-      callback(this.SYS_ERROR);
-      return;
+      return callback(this.SYS_ERROR);
     }
-    callback({ code: 0, data: v });
-  };
-  getLocation = function (callback) {
+    return callback({ code: 0, data: v });
+  }
+  getLocation(callback) {
     var v = this.version();
     if (!v) {
-      callback(this.SYS_ERROR);
-      return;
+      return callback(this.SYS_ERROR);
     }
     if (this.isEasi()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiVersion)) {
@@ -135,7 +133,7 @@ export class Easi {
       }
     }
     callback(this.SYS_ERROR);
-  };
+  }
 
   scan(callback) {
     var v = this.version();

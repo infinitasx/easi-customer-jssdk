@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../dist/umd/index.js"></script>
+    <script>
+        let easi = new Easi.Easi();
+        function getVersion() {
+            easi.getVersion((result) => {
+                alert(JSON.stringify(result));
+            });
+        }
+
+        function getLocation() {
+            easi.getLocation((result) => {
+                alert(JSON.stringify(result));
+            });
+        }
+
+        function scan() {
+            easi.scan((result) => {
+                alert(JSON.stringify(result));
+            });
+        }
+
+        function user() {
+            easi.user((result) => {
+                alert(JSON.stringify(result));
+            });
+        }
+
+        function share() {
+            easi.wx_share('跳转链接', '标题', '描述', 1);// mode=1代表分享微信好友
+            easi.wx_share('跳转链接', '标题', '描述', 2);// mode=2代表分享微信朋友圈
+        }
+    </script>
+</body>
+
+</html>
