@@ -123,56 +123,48 @@ export class Easi {
     }
     if (this.isEasi()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiVersion)) {
-        easi.call("easi.location", callback);
-        return;
+        return easi.call("easi.location", callback);
       }
     } else if (this.isMalaysia()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiMalaysiaVersion)) {
-        easi.call("easi.location", callback);
-        return;
+        return easi.call("easi.location", callback);
       }
     }
-    callback(this.SYS_ERROR);
+    return callback(this.SYS_ERROR);
   }
 
   scan(callback) {
     var v = this.version();
     if (!v) {
-      callback(this.SYS_ERROR);
-      return;
+      return callback(this.SYS_ERROR);
     }
     if (this.isEasi()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiVersion)) {
-        easi.call("easi.scan", callback);
-        return;
+        return easi.call("easi.scan", callback);
       }
     } else if (this.isMalaysia()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiMalaysiaVersion)) {
-        easi.call("easi.scan", callback);
-        return;
+        return easi.call("easi.scan", callback);
       }
     }
-    callback(this.SYS_ERROR);
+    return callback(this.SYS_ERROR);
   }
 
   user(callback) {
     var v = this.version();
     if (!v) {
-      callback(this.SYS_ERROR);
-      return;
+      return callback(this.SYS_ERROR);
     }
     if (this.isEasi()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiUserVersion)) {
-        easi.call("easi.user", callback);
-        return;
+        return easi.call("easi.user", callback);
       }
     } else if (this.isMalaysia()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiMalaysiaUserVersion)) {
-        easi.call("easi.user", callback);
-        return;
+        return easi.call("easi.user", callback);
       }
     }
-    callback(this.SYS_ERROR);
+    return callback(this.SYS_ERROR);
   }
 
   wx_share(url, title, desc, mode) {
