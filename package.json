@@ -1,0 +1,35 @@
+{
+  "name": "easiCustomerJssdk",
+  "version": "1.0.0",
+  "description": "easi-customer-jssdk",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinitasx/easi-customer-jssdk.git"
+  },
+  "keywords": [
+    "easi-customer-jssdk"
+  ],
+  "author": "810839700@qq.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infinitasx/easi-customer-jssdk/issues"
+  },
+  "homepage": "https://github.com/infinitasx/easi-customer-jssdk#readme",
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-arrow-functions": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "rollup": "^2.38.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
