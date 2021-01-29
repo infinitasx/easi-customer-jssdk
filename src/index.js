@@ -123,11 +123,11 @@ export class Easi {
     }
     if (this.isEasi()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiVersion)) {
-        return easi.call("easi.location", callback);
+        return this.call("easi.location", callback);
       }
     } else if (this.isMalaysia()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiMalaysiaVersion)) {
-        return easi.call("easi.location", callback);
+        return this.call("easi.location", callback);
       }
     }
     return callback(this.SYS_ERROR);
@@ -140,11 +140,11 @@ export class Easi {
     }
     if (this.isEasi()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiVersion)) {
-        return easi.call("easi.scan", callback);
+        return this.call("easi.scan", callback);
       }
     } else if (this.isMalaysia()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiMalaysiaVersion)) {
-        return easi.call("easi.scan", callback);
+        return this.call("easi.scan", callback);
       }
     }
     return callback(this.SYS_ERROR);
@@ -157,11 +157,11 @@ export class Easi {
     }
     if (this.isEasi()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiUserVersion)) {
-        return easi.call("easi.user", callback);
+        return this.call("easi.user", callback);
       }
     } else if (this.isMalaysia()) {
       if (this.compareVersionEle(v, this.SYS_CONFIG.easiMalaysiaUserVersion)) {
-        return easi.call("easi.user", callback);
+        return this.call("easi.user", callback);
       }
     }
     return callback(this.SYS_ERROR);
