@@ -7,7 +7,8 @@
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
-    "easi-assets-deploy": "easi-assets-deploy"
+    "easi-assets-deploy": "easi-assets-deploy",
+    "easi-auto-tag": "easi-auto-tag"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "easi-assets-deploy": "https://github.com/infinitasx/easi-assets-deploy.git#feature/Feature-Library-20210520",
+    "easi-auto-tag": "https://github.com/infinitasx/easi-auto-tag.git#main",
     "jest": "^26.6.3",
     "rollup": "^2.38.1",
     "rollup-plugin-babel": "^4.4.0",
