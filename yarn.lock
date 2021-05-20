@@ -1886,9 +1886,9 @@ domexception@^2.0.1:
   dependencies:
     webidl-conversions "^5.0.0"
 
-"easi-assets-deploy@https://github.com/infinitasx/easi-assets-deploy.git#feature/Feature-Library-20210520":
+"easi-assets-deploy@https://github.com/infinitasx/easi-assets-deploy.git#main":
   version "0.4.0"
-  resolved "https://github.com/infinitasx/easi-assets-deploy.git#9766d51b44ce10cbd280c7304070fcca182b1170"
+  resolved "https://github.com/infinitasx/easi-assets-deploy.git#63752cbf7863ea31d78d9bc507b3df92df100563"
   dependencies:
     chalk "^4.1.0"
     glob "^7.1.6"
