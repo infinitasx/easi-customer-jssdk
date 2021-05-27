@@ -30,7 +30,7 @@
     "@babel/preset-env": "^7.12.11",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
-    "easi-assets-deploy": "https://github.com/infinitasx/easi-assets-deploy.git#main",
+    "easi-assets-deploy": "https://github.com/infinitasx/easi-assets-deploy.git#feature/Feature-DeployDirOpt-20210527",
     "easi-auto-tag": "https://github.com/infinitasx/easi-auto-tag.git#main",
     "jest": "^26.6.3",
     "markdown-it": "^12.0.6",
