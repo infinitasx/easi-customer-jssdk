@@ -8,6 +8,13 @@
 </head>
 
 <body>
+    <button onclick="getVersion()">获取版本信息</button>
+    <button onclick="getLocation()">获取经纬度</button>
+    <button onclick="scan()">扫码</button>
+    <button onclick="user()">获取用户信息</button>
+    <button onclick="login()">唤起登录</button>
+    <button onclick="test()">测试异常</button>
+    <button onclick="share()">分享</button>
     <script src="../dist/umd/index.js"></script>
     <script>
         let easi = new Easi.Easi();
@@ -31,6 +38,18 @@
 
         function user() {
             easi.user((result) => {
+                alert(JSON.stringify(result));
+            });
+        }
+
+        function login() {
+            easi.login((result) => {
+                alert(JSON.stringify(result));
+            });
+        }
+
+        function test() {
+            easi.test((result) => {
                 alert(JSON.stringify(result));
             });
         }

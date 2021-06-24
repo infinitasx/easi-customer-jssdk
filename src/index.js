@@ -13,6 +13,35 @@ export class Easi {
     easiMalaysiaUserVersion: '4.9.39',
   };
 
+  appVersion = null;
+
+  constructor() {
+    this.ua = navigator.userAgent;
+    this.isEasi = this.ua.includes(this.SYS_CONFIG.easiAgent);
+    this.isMalaysia = this.ua.includes(this.SYS_CONFIG.easiMalaysiaAgent);
+    this.isAndroid =
+      this.ua.includes('Android') || this.ua.includes('android') || this.ua.includes('Linux');
+    this.isIos = this.ua.includes('iPhone') || this.ua.includes('iOS');
+    this.version();
+  }
+
+  // 兼容
+  isIos() {
+    return this.isIos;
+  }
+
+  isAndroid() {
+    return this.isAndroid;
+  }
+
+  isEasi() {
+    return this.isEasi;
+  }
+
+  isMalaysia() {
+    return this.isMalaysia;
+  }
+
   setupWebViewJavascriptBridge(callback) {
     if (window.WebViewJavascriptBridge) {
       return callback(WebViewJavascriptBridge);
@@ -22,7 +51,7 @@ export class Easi {
         function () {
           callback(WebViewJavascriptBridge);
         },
-        false
+        false,
       );
     }
 
@@ -32,7 +61,7 @@ export class Easi {
 
     window.WVJBCallbacks = [callback];
 
-    const WVJBIframe = document.createElement('iframe')
+    const WVJBIframe = document.createElement('iframe');
     WVJBIframe.style.display = 'none';
     WVJBIframe.src = 'https://__bridge_loaded__';
     document.documentElement.appendChild(WVJBIframe);
@@ -42,11 +71,13 @@ export class Easi {
   }
 
   call(methodName, data, callback) {
+    let _this = this;
     this.setupWebViewJavascriptBridge(function (bridge) {
       if (data && typeof data === 'function') {
         callback = data;
         data = '';
       }
+      if (!_this.lowVersionTips(methodName, callback)) return;
       bridge.callHandler(methodName, data, function responseCallback(response) {
         if (typeof response === 'string') {
           response = JSON.parse(response);
@@ -56,48 +87,72 @@ export class Easi {
     });
   }
 
+  /**
+   *  在新版本App中可以识别到不存在的Bridge,该方法处理老版本的app，不支持的Bridge返回错误code给业务方
+   * @param {*} methodName Bridge名称
+   * @returns
+   */
+  lowVersionTips(methodName, callback) {
+    // 老的Bridge列表
+    const oldMethodName = ['easi.location', 'easi.scan', 'easi.user'];
+    if (this.isEasi) {
+      if (
+        !oldMethodName.includes(methodName) &&
+        !this.compareVersionEle(this.appVersion, '2.4.0')
+      ) {
+        return callback(this.SYS_ERROR);
+      }
+    }
+    if (this.isMalaysia) {
+      if (
+        !oldMethodName.includes(methodName) &&
+        !this.compareVersionEle(this.appVersion, '5.4.0')
+      ) {
+        return callback(this.SYS_ERROR);
+      }
+    }
+    return true;
+  }
+
+  /**
+   *  调用APP Bridge
+   * @param {*} bridgeType 执行Bridge类型
+   * @param {*} callback 回调
+   * @returns
+   */
+  callMyApp(bridgeType, callback) {
+    if (this.isEasi) {
+      if (this.compareVersionEle(this.appVersion, this.SYS_CONFIG.easiVersion)) {
+        return this.call(bridgeType, callback);
+      }
+    } else if (this.isMalaysia) {
+      if (this.compareVersionEle(this.appVersion, this.SYS_CONFIG.easiMalaysiaVersion)) {
+        return this.call(bridgeType, callback);
+      }
+    }
+    return callback(this.SYS_ERROR);
+  }
+
   version() {
-    let appVersion = '';
-    const uaFragments = navigator.userAgent.split(' ');
+    const uaFragments = this.ua.split(' ');
     if (uaFragments.length > 0) {
-      const easiMark = this.isMalaysia() ? this.SYS_CONFIG.easiMalaysiaAgent : this.SYS_CONFIG.easiAgent;
-      const easiUaStartIndex = uaFragments[0].indexOf(easiMark)
-      if (easiUaStartIndex !== -1) {
-        appVersion = uaFragments[0].substring(easiUaStartIndex + easiMark.length);
+      const easiMark = this.isMalaysia
+        ? this.SYS_CONFIG.easiMalaysiaAgent
+        : this.SYS_CONFIG.easiAgent;
+      const easiUaStart = uaFragments[0].includes(easiMark);
+      if (easiUaStart) {
+        this.appVersion = uaFragments[0].replace(easiMark, '');
       }
     }
-    return appVersion;
   }
 
-  isEasi() {
-    let isEasi = false;
-    const uaFragments = navigator.userAgent.split(' ');
-    if (uaFragments.length > 0) {
-      const easiUaStartIndex = uaFragments[0].indexOf(this.SYS_CONFIG.easiAgent);
-      if (easiUaStartIndex !== -1) {
-        isEasi = true;
-      }
-    }
-    return isEasi;
-  }
-
-  isMalaysia() {
-    let isMalaysia = false;
-    const uaFragments = navigator.userAgent.split(' ');
-    if (uaFragments.length > 0) {
-      const easiUaStartIndex = uaFragments[0].indexOf(this.SYS_CONFIG.easiMalaysiaAgent);
-      if (easiUaStartIndex !== -1) {
-        isMalaysia = true;
-      }
-    }
-    return isMalaysia;
-  }
-
+  //比较Bridge执行环境是否与预设的版本匹配
   compareVersionEle(currVersion, targetVersion) {
     if (!currVersion || !targetVersion) return false;
     const curr = currVersion.split('.');
     const target = targetVersion.split('.');
-    for (let i = 0; i < curr.length; i++) {
+    let lenth = curr.length > target.length ? curr.length : target.length;
+    for (let i = 0; i < lenth; i++) {
       if (parseInt(curr[i]) > parseInt(target[i])) {
         return true;
       }
@@ -105,95 +160,48 @@ export class Easi {
         return false;
       }
     }
-    return false;
-  }
-
-  isAndroid() {
-    const ua = navigator.userAgent
-    return ua.indexOf('Android') > -1 || ua.indexOf('android') > -1 || ua.indexOf('Linux') > -1;
-  }
-
-  isIos() {
-    const ua = navigator.userAgent
-    return ua.indexOf('iPhone') > -1 || ua.indexOf('iOS') > -1;
-  }
-
-  getVersion(callback) {
-    const version = this.version()
-    if (!version) {
-      return callback(this.SYS_ERROR);
-    }
-    return callback({ code: 0, data: version });
-  }
-  getLocation(callback) {
-    const version = this.version()
-
-    if (!version) {
-      return callback(this.SYS_ERROR);
-    }
-
-    if (this.isEasi()) {
-      if (this.compareVersionEle(v, this.SYS_CONFIG.easiVersion)) {
-        return this.call('easi.location', callback);
-      }
-    } else if (this.isMalaysia()) {
-      if (this.compareVersionEle(v, this.SYS_CONFIG.easiMalaysiaVersion)) {
-        return this.call('easi.location', callback);
-      }
-    }
-
-    return callback(this.SYS_ERROR);
-  }
-
-  scan(callback) {
-    const version = this.version();
-
-    if (!version) {
-      return callback(this.SYS_ERROR);
-    }
-
-    if (this.isEasi()) {
-      if (this.compareVersionEle(version, this.SYS_CONFIG.easiVersion)) {
-        return this.call('easi.scan', callback);
-      }
-    } else if (this.isMalaysia()) {
-      if (this.compareVersionEle(version, this.SYS_CONFIG.easiMalaysiaVersion)) {
-        return this.call('easi.scan', callback);
-      }
-    }
-
-    return callback(this.SYS_ERROR);
-  }
-
-  user(callback) {
-    const version = this.version();
-
-    if (!version) {
-      return callback(this.SYS_ERROR);
-    }
-
-    if (this.isEasi()) {
-      if (this.compareVersionEle(version, this.SYS_CONFIG.easiUserVersion)) {
-        return this.call('easi.user', callback);
-      }
-    } else if (this.isMalaysia()) {
-      if (this.compareVersionEle(version, this.SYS_CONFIG.easiMalaysiaUserVersion)) {
-        return this.call('easi.user', callback);
-      }
-    }
-
-    return callback(this.SYS_ERROR);
-  }
-
-  wx_share(url, title, desc, mode) {
-    const version = this.version();
-    
-    if (!version) {
-      return false;
-    }
-
-    const easi_schema = 'au.com.easi.customer://share/text';
-    window.location.href = easi_schema + '?url=' + encodeURIComponent(url) + '&title=' + title + '&text=' + desc + '&mode=' + mode + '&channel=1';
     return true;
+  }
+
+  // 获取系统版本
+  getVersion(callback) {
+    if (!this.appVersion) return callback(this.SYS_ERROR);
+    return callback({ code: 0, data: this.appVersion });
+  }
+
+  // 获取经纬度
+  getLocation(callback) {
+    if (!this.appVersion) return callback(this.SYS_ERROR);
+    this.callMyApp('easi.location', callback);
+  }
+
+  // 调用扫码
+  scan(callback) {
+    if (!this.appVersion) return callback(this.SYS_ERROR);
+    this.callMyApp('easi.scan', callback);
+  }
+
+  // 获取用户信息
+  user(callback) {
+    if (!this.appVersion) return callback(this.SYS_ERROR);
+    this.callMyApp('easi.user', callback);
+  }
+
+  // 调用分享到朋友圈
+  wx_share(url, title, desc, mode) {
+    if (!this.appVersion) return callback(this.SYS_ERROR);
+    window.location.href = `au.com.easi.customer://share/text?url=${encodeURIComponent(
+      url,
+    )}&title=${title}&text=${desc}&mode=${mode}&channel=1`;
+    return true;
+  }
+
+  login(callback) {
+    if (!this.appVersion) return callback(this.SYS_ERROR);
+    this.callMyApp('easi.login', callback);
+  }
+
+  test(callback) {
+    return this.call('easi.test', callback);
   }
 }
