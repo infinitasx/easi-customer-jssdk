@@ -1,7 +1,12 @@
 export class Easi {
   SYS_ERROR = {
     code: 100,
-    data: '',
+    data: '获取数据异常',
+  };
+
+  SYS_VERSION_ERROR = {
+    code: 100,
+    data: '该Bridge在当前版本不支持，请升级APP',
   };
 
   SYS_CONFIG = {
@@ -100,7 +105,7 @@ export class Easi {
         !oldMethodName.includes(methodName) &&
         !this.compareVersionEle(this.appVersion, '2.4.0')
       ) {
-        return callback(this.SYS_ERROR);
+        return callback(this.SYS_VERSION_ERROR);
       }
     }
     if (this.isMalaysia) {
@@ -108,7 +113,7 @@ export class Easi {
         !oldMethodName.includes(methodName) &&
         !this.compareVersionEle(this.appVersion, '5.4.0')
       ) {
-        return callback(this.SYS_ERROR);
+        return callback(this.SYS_VERSION_ERROR);
       }
     }
     return true;
