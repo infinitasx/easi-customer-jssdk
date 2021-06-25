@@ -4,11 +4,11 @@
 <h1>easi-customer-jssdk</h1>
 <h2>使用方法</h2>
 <h4>es6</h4>
-<pre><code class="language-javascript">import { Easi } from &quot;easi-customer-jssdk&quot;;
+<pre><code class="language-javascript">import { Easi } from 'easi-customer-jssdk';
 let easi = new Easi();
 </code></pre>
 <h4>CommonJS</h4>
-<pre><code class="language-javascript">const { Easi } = require(&quot;easi-customer-jssdk/dist/es&quot;);
+<pre><code class="language-javascript">const { Easi } = require('easi-customer-jssdk/dist/es');
 let easi = new Easi();
 </code></pre>
 <h4>Browser</h4>
@@ -18,7 +18,7 @@ let easi = new Easi();
 const isEASI = easi.isEasi();
 
 // 获取 app 版本号
-easi.getVersion((result) =&gt; {
+easi.getVersion(result =&gt; {
   if (result.code === 0) {
     // 调用成功
     console.log(result.data);
@@ -26,7 +26,7 @@ easi.getVersion((result) =&gt; {
 });
 
 // 获取位置
-easi.getLocation((result) =&gt; {
+easi.getLocation(result =&gt; {
   if (result.code === 0) {
     // 调用成功
     console.log(result.data);
@@ -34,7 +34,7 @@ easi.getLocation((result) =&gt; {
 });
 
 // 用扫码接口
-easi.scan((result) =&gt; {
+easi.scan(result =&gt; {
   if (result.code === 0) {
     // 调用成功
     console.log(result.data);
@@ -42,7 +42,15 @@ easi.scan((result) =&gt; {
 });
 
 // 获取用户信息
-easi.user((result) =&gt; {
+easi.user(result =&gt; {
+  if (result.code === 0) {
+    // 调用成功
+    console.log(result.data);
+  }
+});
+
+// 唤起登录
+easi.login(result =&gt; {
   if (result.code === 0) {
     // 调用成功
     console.log(result.data);
@@ -50,8 +58,8 @@ easi.user((result) =&gt; {
 });
 
 // 微信分享接口
-easi.wx_share(&quot;跳转链接&quot;, &quot;标题&quot;, &quot;描述&quot;, 1); // mode=1 代表分享微信好友
-easi.wx_share(&quot;跳转链接&quot;, &quot;标题&quot;, &quot;描述&quot;, 2); // mode=2 代表分享微信朋友圈
+easi.wx_share('跳转链接', '标题', '描述', 1); // mode=1 代表分享微信好友
+easi.wx_share('跳转链接', '标题', '描述', 2); // mode=2 代表分享微信朋友圈
 </code></pre>
 <p>code 为 0 代表调用成功</p>
 
