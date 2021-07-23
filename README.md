@@ -64,6 +64,64 @@ easi.login(result => {
   }
 });
 
+/**
+ * 唤起购物车
+ * @param {Function} callback 回调函数
+ * @param {int} itemId 商品itemId - 必传
+ * @param {boolean} openDetails 是否强制展示商品规格 true-显示 false-不显示
+ * @returns
+ */
+easi.addCart(
+  result => {
+    if (result.code === 0) {
+      // 调用成功
+      console.log(result.data);
+    }
+  },
+  {
+    itemId: 1234,
+    openDetails: true,
+  },
+);
+
+/**
+ * 唤起购物车
+ * @param {Function} callback 回调函数
+ * @param {Object.int} itemId 商品itemId - 必传
+ * @param {Object.boolean} openDetails 是否强制展示商品规格 true-显示 false-不显示
+ * @returns
+ */
+easi.addCart(
+  result => {
+    if (result.code === 0) {
+      // 调用成功
+      console.log(result.data);
+    }
+  },
+  {
+    itemId: 1234,
+    openDetails: true,
+  },
+);
+
+/**
+ * 全局购物车
+ * @param {Function} callback 回调函数
+ * @param {Object.boolean} show 是否显示全局购物车 true - 显示 false - 不显示
+ * @returns
+ */
+easi.addCart(
+  result => {
+    if (result.code === 0) {
+      // 调用成功
+      console.log(result.data);
+    }
+  },
+  {
+    show: true,
+  },
+);
+
 // 微信分享接口
 easi.wx_share('跳转链接', '标题', '描述', 1); // mode=1 代表分享微信好友
 easi.wx_share('跳转链接', '标题', '描述', 2); // mode=2 代表分享微信朋友圈

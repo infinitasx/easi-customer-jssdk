@@ -9,6 +9,11 @@ export class Easi {
     data: '该Bridge在当前版本不支持，请升级APP',
   };
 
+  PARAMES_ERROR = {
+    code: 100,
+    data: '参数错误',
+  };
+
   SYS_CONFIG = {
     easiAgent: 'EasiCustomer/',
     easiVersion: '1.8.10',
@@ -75,13 +80,13 @@ export class Easi {
     }, 0);
   }
 
-  call(methodName, data, callback) {
+  call(methodName, callback, data) {
     let _this = this;
     this.setupWebViewJavascriptBridge(function (bridge) {
-      if (data && typeof data === 'function') {
-        callback = data;
-        data = '';
-      }
+      // if (data && typeof data === 'function') {
+      //   callback = data;
+      //   data = '';
+      // }
       if (!_this.lowVersionTips(methodName, callback)) return;
       bridge.callHandler(methodName, data, function responseCallback(response) {
         if (typeof response === 'string') {
@@ -125,14 +130,14 @@ export class Easi {
    * @param {*} callback 回调
    * @returns
    */
-  callMyApp(bridgeType, callback) {
+  callMyApp(bridgeType, callback, data = '') {
     if (this.isEasi) {
       if (this.compareVersionEle(this.appVersion, this.SYS_CONFIG.easiVersion)) {
-        return this.call(bridgeType, callback);
+        return this.call(bridgeType, callback, data);
       }
     } else if (this.isMalaysia) {
       if (this.compareVersionEle(this.appVersion, this.SYS_CONFIG.easiMalaysiaVersion)) {
-        return this.call(bridgeType, callback);
+        return this.call(bridgeType, callback), data;
       }
     }
     return callback(this.SYS_ERROR);
@@ -194,16 +199,52 @@ export class Easi {
 
   // 调用分享到朋友圈
   wx_share(url, title, desc, mode) {
-    if (!this.appVersion) return callback(this.SYS_ERROR);
     window.location.href = `au.com.easi.customer://share/text?url=${encodeURIComponent(
       url,
     )}&title=${title}&text=${desc}&mode=${mode}&channel=1`;
     return true;
   }
 
+  // 登录
   login(callback) {
     if (!this.appVersion) return callback(this.SYS_ERROR);
     this.callMyApp('easi.login', callback);
+  }
+
+  /**
+   * 唤起购物车
+   * @param {Function} callback 回调函数
+   * @param {string} id 商品id
+   * @returns
+   */
+  addCart(callback, id) {
+    if (!this.appVersion) return callback(this.SYS_ERROR);
+    this.callMyApp('easi.login', callback);
+  }
+
+  /**
+   * 添加购物车
+   * @param {Function} callback 回调函数
+   * @param {Object.int} itemId 商品itemId - 必传
+   * @param {Object.boolean} openDetails 是否强制展示商品规格 true-显示 false-不显示
+   * @returns
+   */
+  addCart(callback, { itemId, openDetails = true }) {
+    if (!this.appVersion) return callback(this.SYS_ERROR);
+    if (!itemId) return callback(this.PARAMES_ERROR);
+    if (!!itemId && typeof itemId === 'string') itemId = Number(itemId);
+    this.callMyApp('easi.addCart', callback, { itemId: itemId, openDetails: openDetails });
+  }
+
+  /**
+   * 全局购物车
+   * @param {Function} callback 回调函数
+   * @param {Object.boolean} show 是否显示全局购物车 true - 显示 false - 不显示
+   * @returns
+   */
+  showCart(callback, { show = false }) {
+    if (!this.appVersion) return callback(this.SYS_ERROR);
+    this.callMyApp('easi.showCart', callback, { show: show });
   }
 
   test(callback) {

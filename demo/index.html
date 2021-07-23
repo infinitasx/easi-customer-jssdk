@@ -13,11 +13,19 @@
     <button onclick="scan()">扫码</button>
     <button onclick="user()">获取用户信息</button>
     <button onclick="login()">唤起登录</button>
+    <button onclick="addCart(4167467,true)">添加到购物车-单规格(显示)</button>
+    <button onclick="addCart(4167467,false)">添加到购物车-单规格(不显示)</button>
+    <button onclick="addCart(4167473,true)">添加到购物车-多规格(显示)</button>
+    <button onclick="addCart(4167473,false)">添加到购物车-多规格(不显示)</button>
+    <button onclick="showCart(true)">全局购物车(显示)</button>
+    <button onclick="showCart(false)">全局购物车(不显示)</button>
     <button onclick="test()">测试异常</button>
     <button onclick="share()">分享</button>
     <script src="../dist/umd/index.js"></script>
     <script>
         let easi = new Easi.Easi();
+        let isShow = true; // 是否显示
+
         function getVersion() {
             easi.getVersion((result) => {
                 alert(JSON.stringify(result));
@@ -45,6 +53,25 @@
         function login() {
             easi.login((result) => {
                 alert(JSON.stringify(result));
+            });
+        }
+
+
+        function addCart(id, show) {
+            let idx = Math.floor(Math.random() + 0.5)
+            easi.addCart((result) => {
+                alert(JSON.stringify(result));
+            }, {
+                itemId: id,
+                openDetails: show
+            });
+        }
+
+        function showCart(show) {
+            easi.showCart((result) => {
+                alert(JSON.stringify(result));
+            }, {
+                show: show
             });
         }
 
