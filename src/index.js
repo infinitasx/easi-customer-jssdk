@@ -108,7 +108,7 @@ export class Easi {
     if (this.isEasi) {
       if (
         !oldMethodName.includes(methodName) &&
-        !this.compareVersionEle(this.appVersion, '2.4.0')
+        !this.compareVersionEle(this.appVersion, this.isAndroid ? '2.5.0' : '2.4.0')
       ) {
         return callback(this.SYS_VERSION_ERROR);
       }
@@ -116,7 +116,7 @@ export class Easi {
     if (this.isMalaysia) {
       if (
         !oldMethodName.includes(methodName) &&
-        !this.compareVersionEle(this.appVersion, '5.4.0')
+        !this.compareVersionEle(this.appVersion, this.isAndroid ? '5.5.0' : '5.4.0')
       ) {
         return callback(this.SYS_VERSION_ERROR);
       }
