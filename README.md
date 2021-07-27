@@ -110,7 +110,7 @@ easi.addCart(
  * @param {Object.boolean} show 是否显示全局购物车 true - 显示 false - 不显示
  * @returns
  */
-easi.addCart(
+easi.showCart(
   result => {
     if (result.code === 0) {
       // 调用成功
