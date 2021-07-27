@@ -67,26 +67,6 @@ easi.login(result => {
 /**
  * 唤起购物车
  * @param {Function} callback 回调函数
- * @param {int} itemId 商品itemId - 必传
- * @param {boolean} openDetails 是否强制展示商品规格 true-显示 false-不显示
- * @returns
- */
-easi.addCart(
-  result => {
-    if (result.code === 0) {
-      // 调用成功
-      console.log(result.data);
-    }
-  },
-  {
-    itemId: 1234,
-    openDetails: true,
-  },
-);
-
-/**
- * 唤起购物车
- * @param {Function} callback 回调函数
  * @param {Object.int} itemId 商品itemId - 必传
  * @param {Object.boolean} openDetails 是否强制展示商品规格 true-显示 false-不显示
  * @returns
