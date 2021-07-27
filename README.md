@@ -69,7 +69,7 @@ easi.login(result => {
  * @param {Function} callback 回调函数
  * @param {Object.int} itemId 商品itemId - 必传
  * @param {Object.boolean} openDetails 是否强制展示商品规格 true-显示 false-不显示
- * @returns
+ * @returns {code:0, success:true, data:obj}
  */
 easi.addCart(
   result => {
@@ -88,7 +88,7 @@ easi.addCart(
  * 全局购物车
  * @param {Function} callback 回调函数
  * @param {Object.boolean} show 是否显示全局购物车 true - 显示 false - 不显示
- * @returns
+ * @returns {code:0, success:true, data:obj}
  */
 easi.showCart(
   result => {
