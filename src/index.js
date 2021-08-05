@@ -212,17 +212,6 @@ export class Easi {
   }
 
   /**
-   * 唤起购物车
-   * @param {Function} callback 回调函数
-   * @param {string} id 商品id
-   * @returns
-   */
-  addCart(callback, id) {
-    if (!this.appVersion) return callback(this.SYS_ERROR);
-    this.callMyApp('easi.login', callback);
-  }
-
-  /**
    * 添加购物车
    * @param {Function} callback 回调函数
    * @param {Object.int} itemId 商品itemId - 必传
