@@ -1,6 +1,6 @@
 {
   "name": "easi-customer-jssdk",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "easi-customer-jssdk",
   "main": "src/index.js",
   "module": "./dist/cjs/index.js",

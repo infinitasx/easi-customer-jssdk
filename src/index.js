@@ -137,7 +137,7 @@ export class Easi {
       }
     } else if (this.isMalaysia) {
       if (this.compareVersionEle(this.appVersion, this.SYS_CONFIG.easiMalaysiaVersion)) {
-        return this.call(bridgeType, callback), data;
+        return this.call(bridgeType, callback, data);
       }
     }
     return callback(this.SYS_ERROR);

@@ -4,6 +4,12 @@
 
 本文件格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/) ，并且遵循 [Semantic Versioning](https://semver.org/spec/v2.0.0.html) 。
 
+## [1.3.3] - 2021-08-6
+
+### Fixed
+
+- 修复代码异常
+
 ## [1.3.2] - 2021-06-26
 
 ### Added
