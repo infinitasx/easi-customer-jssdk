@@ -1,19 +1,54 @@
+// Bridge类型
 export interface Bridge {
   callHandler: Function;
 }
 
+// app返回类型
 export interface AppResponse {
   code: string | number;
 }
 
+// 用户参数类型
 export interface baseParames {
-  methodName: string;
-  data?: any;
   success?: Function;
   fail?: Function;
   cancel?: Function;
-  complete: Function;
+  complete?: Function;
+  [props: string]: any;
 }
+
+/**
+ * 处理app返回数据
+ * @param res app返回的原始数据
+ * @param userOption 用户配置项
+ */
+export const callBackOperation = (res: any, userOption: baseParames, methodName: string) => {
+  userOption.complete &&
+    userOption.complete({
+      errMsg: `${methodName}:complete`,
+    });
+  switch (res.code) {
+    case 0:
+      userOption.success &&
+        userOption.success({
+          errMsg: `${methodName}:ok`,
+          result: res?.data,
+        });
+      break;
+    case 1:
+      userOption.cancel &&
+        userOption.cancel({
+          errMsg: `${methodName}:cancel`,
+        });
+      break;
+    default:
+      userOption.fail &&
+        userOption.fail({
+          errMsg: `${methodName}:fail`,
+        });
+      break;
+  }
+};
 
 /**
  *  Bridge桥接
@@ -32,13 +67,10 @@ export const setupWebViewJavascriptBridge = (callback: Function) => {
       false,
     );
   }
-
   if (window.WVJBCallbacks) {
     return window.WVJBCallbacks.push(callback);
   }
-
   window.WVJBCallbacks = [callback];
-
   const WVJBIframe = document.createElement('iframe');
   WVJBIframe.style.display = 'none';
   WVJBIframe.src = 'https://__bridge_loaded__';
@@ -48,23 +80,20 @@ export const setupWebViewJavascriptBridge = (callback: Function) => {
   }, 0);
 };
 
-const appResult = () => {};
-
 /**
  * 调用Bridge
  * @param methodName Bridge方法名
  * @param callback 回调函数
- * @param data 传递的数据
+ * @param data 传递给app的参数
+ * @param userOption 用户配置项
  */
-export const call = (parames: baseParames) => {
-  const { methodName, data, success, cancel, fail, complete } = parames;
+export const call = (methodName: string, data: any, callback: Function, userOption: any) => {
   setupWebViewJavascriptBridge((bridge: Bridge) => {
     bridge.callHandler(`easi.${methodName}`, data, (response: AppResponse) => {
       if (typeof response === 'string') {
         response = JSON.parse(response);
       }
-      response.code === 0 ? success && success(response) : fail && fail(response);
-      complete && complete(response);
+      callback(response, userOption, methodName);
     });
   });
 };
