@@ -4,34 +4,35 @@ import commonjs from 'rollup-plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import copy from 'rollup-plugin-copy';
+import esbuild from 'rollup-plugin-esbuild';
 import MarkdownIt from 'markdown-it';
 
 export default {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   output: [
     {
       file: 'dist/iife/index.js',
-      name: 'Easi',
+      name: 'easi',
       format: 'iife',
     },
     {
       file: 'dist/es/index.js',
-      name: 'Easi',
+      name: 'easi',
       format: 'es',
     },
     {
       file: 'dist/amd/index.js',
-      name: 'Easi',
+      name: 'easi',
       format: 'amd',
     },
     {
       file: 'dist/cjs/index.js',
-      name: 'Easi',
+      name: 'easi',
       format: 'cjs',
     },
     {
       file: 'dist/umd/index.js',
-      name: 'Easi',
+      name: 'easi',
       format: 'umd',
     },
   ],
@@ -44,6 +45,7 @@ export default {
       exclude: 'node_modules/**',
       runtimeHelpers: true,
     }),
+    esbuild(),
     copy({
       targets: [
         {

@@ -1,8 +1,8 @@
 {
   "name": "easi-customer-jssdk",
-  "version": "1.3.3",
+  "version": "2.0.0",
   "description": "easi-customer-jssdk",
-  "main": "src/index.js",
+  "main": "src/umd/index.js",
   "module": "./dist/cjs/index.js",
   "scripts": {
     "build": "rollup -c",
@@ -49,5 +49,10 @@
     },
     "assetsFilePattern": "*.html",
     "asLibrary": true
+  },
+  "devDependencies": {
+    "esbuild": "^0.12.22",
+    "rollup-plugin-esbuild": "^4.5.0",
+    "typescript": "^4.3.5"
   }
 }
