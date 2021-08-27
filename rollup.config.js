@@ -44,6 +44,7 @@ export default {
     babel({
       exclude: 'node_modules/**',
       runtimeHelpers: true,
+      tsconfig: 'tsconfig.json',
     }),
     esbuild(),
     copy({

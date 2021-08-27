@@ -5,10 +5,16 @@
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
-    "sourceMap": true,
+    "sourceMap": false,
     "resolveJsonModule": true,
+    "noUnusedLocals": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom"],
+    "outDir": "lib",
+    "declaration": true,
+    "declarationDir": "lib/types",
+    "typeRoots": ["./typings"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "typings/*"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "typings/*"],
+  "exclude": ["node_modules/*"]
 }
