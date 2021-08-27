@@ -11,27 +11,7 @@ export default {
   input: 'src/index.ts',
   output: [
     {
-      file: 'dist/iife/index.js',
-      name: 'easi',
-      format: 'iife',
-    },
-    {
-      file: 'dist/es/index.js',
-      name: 'easi',
-      format: 'es',
-    },
-    {
-      file: 'dist/amd/index.js',
-      name: 'easi',
-      format: 'amd',
-    },
-    {
-      file: 'dist/cjs/index.js',
-      name: 'easi',
-      format: 'cjs',
-    },
-    {
-      file: 'dist/umd/index.js',
+      file: 'dist/index.js',
       name: 'easi',
       format: 'umd',
     },
