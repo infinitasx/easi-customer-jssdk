@@ -11,7 +11,18 @@ export const initResult: Result = {
   data: {},
 };
 
-export const config = (userOption: baseParames) => {
+type jsApiList = [];
+
+export interface configParames {
+  debug?: boolean;
+  appId: string; // 必填，公众号的唯一标识
+  timestamp: number; // 必填，生成签名的时间戳
+  nonceStr: string; // 必填，生成签名的随机串
+  signature: string; // 必填，签名，见附录1
+  jsApiList: jsApiList; // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+}
+
+export const config = (userOption: configParames) => {
   if (userOption.debug) {
     console.log(`debug:${JSON.stringify(userOption)}`);
   }
@@ -32,11 +43,11 @@ export const config = (userOption: baseParames) => {
 
 export const checkJsApi = () => {};
 
-export const ready = (callback: Function) => {
+export const ready = (callback: () => void): void => {
   initResult.state !== 0 ? callback && callback() : (initResult.completes = callback);
 };
 
-export const error = (callback: Function) => {
+export const error = (callback: (err: { errMsg: string }) => void): void => {
   initResult.state === -1 ? callback && callback(initResult.data) : (initResult.fail = callback);
 };
 

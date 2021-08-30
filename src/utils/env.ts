@@ -1,5 +1,14 @@
 import { baseInfo } from '../constants';
 
+export type typeEnv = {
+  ua: string;
+  isEasi: boolean;
+  isMalaysia: boolean;
+  isAndroid: boolean;
+  isIos: boolean;
+  version: number | null | string;
+};
+
 const getVersion = (parmes: { ua: string; isMalaysia: boolean }): string | null => {
   const uaFragments = parmes.ua.split(' ');
   if (uaFragments.length > 0) {
@@ -12,7 +21,7 @@ const getVersion = (parmes: { ua: string; isMalaysia: boolean }): string | null 
   return null;
 };
 
-export const getEnv = () => {
+export const getEnv = (): typeEnv => {
   const ua = navigator.userAgent;
   const isEasi = ua.includes(baseInfo.easiAgent);
   const isMalaysia = ua.includes(baseInfo.easiMalaysiaAgent);

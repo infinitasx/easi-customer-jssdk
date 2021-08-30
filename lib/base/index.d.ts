@@ -6,9 +6,20 @@ interface Result {
     fail?: Function;
 }
 export declare const initResult: Result;
-export declare const config: (userOption: baseParames) => void;
+declare type jsApiList = [];
+export interface configParames {
+    debug?: boolean;
+    appId: string;
+    timestamp: number;
+    nonceStr: string;
+    signature: string;
+    jsApiList: jsApiList;
+}
+export declare const config: (userOption: configParames) => void;
 export declare const checkJsApi: () => void;
-export declare const ready: (callback: Function) => void;
-export declare const error: (callback: Function) => void;
+export declare const ready: (callback: () => void) => void;
+export declare const error: (callback: (err: {
+    errMsg: string;
+}) => void) => void;
 export declare const test: (userOption: baseParames) => void;
 export {};

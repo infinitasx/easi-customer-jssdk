@@ -9,7 +9,6 @@ export interface baseParames {
     fail?: Function;
     cancel?: Function;
     complete?: Function;
-    [props: string]: any;
 }
 /**
  * 处理app返回数据

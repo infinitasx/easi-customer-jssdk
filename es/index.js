@@ -1,1 +1,144 @@
-const e="EasiCustomer/",i="EasiMalaysia/",a=(e,i,a)=>{switch(i.complete&&i.complete({errMsg:`${a}:complete`}),e.code){case 0:i.success&&i.success({errMsg:`${a}:ok`,result:e?.data});break;case 1:i.cancel&&i.cancel({errMsg:`${a}:cancel`});break;default:i.fail&&i.fail({errMsg:`${a}:fail`})}},s=(e,i,a,s)=>{(e=>{if(window.WebViewJavascriptBridge)return e(window.WebViewJavascriptBridge);if(document.addEventListener("WebViewJavascriptBridgeReady",(function(){e(window.WebViewJavascriptBridge)}),!1),window.WVJBCallbacks)return window.WVJBCallbacks.push(e);window.WVJBCallbacks=[e];const i=document.createElement("iframe");i.style.display="none",i.src="https://__bridge_loaded__",document.documentElement.appendChild(i),setTimeout((function(){document.documentElement.removeChild(i)}),0)})((t=>{t.callHandler(`easi.${e}`,i,(i=>{"string"==typeof i&&(i=JSON.parse(i)),a(i,s,e)}))}))},t={state:0,data:{}},n={config:e=>{e.debug&&console.log(`debug:${JSON.stringify(e)}`),s("login",{},(i=>{if(-1===i.code)return t.data=e,t.fail&&t.fail();t.state=1,t.completes&&t.completes()}),e)},checkJsApi:()=>{},ready:e=>{0!==t.state?e&&e():t.completes=e},error:e=>{-1===t.state?e&&e(t.data):t.fail=e},test:e=>{s("login",{},a,e)},getEnv:()=>{const a=navigator.userAgent,s=a.includes(e),t=a.includes(i),n=a.includes("Android")||a.includes("android")||a.includes("Linux"),c=a.includes("iPhone")||a.includes("iOS");return{ua:a,isEasi:s,isMalaysia:t,isAndroid:n,isIos:c,version:(a=>{const s=a.ua.split(" ");if(s.length>0){const t=a.isMalaysia?i:e;if(s[0].includes(t))return s[0].replace(t,"")}return null})({ua:a,isMalaysia:t})}}};export default n;
+const baseInfo = {
+    easiAgent: 'EasiCustomer/',
+    easiVersion: '1.8.10',
+    easiUserVersion: '1.9.59',
+    easiMalaysiaAgent: 'EasiMalaysia/',
+    easiMalaysiaVersion: '4.9.39',
+    easiMalaysiaUserVersion: '4.9.39',
+};
+
+const getVersion = (parmes) => {
+    const uaFragments = parmes.ua.split(' ');
+    if (uaFragments.length > 0) {
+        const easiMark = parmes.isMalaysia ? baseInfo.easiMalaysiaAgent : baseInfo.easiAgent;
+        const easiUaStart = uaFragments[0].includes(easiMark);
+        if (easiUaStart) {
+            return uaFragments[0].replace(easiMark, '');
+        }
+    }
+    return null;
+};
+const getEnv = () => {
+    const ua = navigator.userAgent;
+    const isEasi = ua.includes(baseInfo.easiAgent);
+    const isMalaysia = ua.includes(baseInfo.easiMalaysiaAgent);
+    const isAndroid = ua.includes('Android') || ua.includes('android') || ua.includes('Linux');
+    const isIos = ua.includes('iPhone') || ua.includes('iOS');
+    const version = getVersion({ ua, isMalaysia });
+    return { ua, isEasi, isMalaysia, isAndroid, isIos, version };
+};
+
+/**
+ * 处理app返回数据
+ * @param res app返回的原始数据
+ * @param userOption 用户配置项
+ */
+const callBackOperation = (res, userOption, methodName) => {
+    userOption.complete &&
+        userOption.complete({
+            errMsg: `${methodName}:complete`,
+        });
+    switch (res.code) {
+        case 0:
+            userOption.success &&
+                userOption.success({
+                    errMsg: `${methodName}:ok`,
+                    result: res?.data,
+                });
+            break;
+        case 1:
+            userOption.cancel &&
+                userOption.cancel({
+                    errMsg: `${methodName}:cancel`,
+                });
+            break;
+        default:
+            userOption.fail &&
+                userOption.fail({
+                    errMsg: `${methodName}:fail`,
+                });
+            break;
+    }
+};
+/**
+ *  Bridge桥接
+ * @param callback 回调函数
+ * @returns
+ */
+const setupWebViewJavascriptBridge = (callback) => {
+    if (window.WebViewJavascriptBridge) {
+        return callback(window.WebViewJavascriptBridge);
+    }
+    else {
+        document.addEventListener('WebViewJavascriptBridgeReady', function () {
+            callback(window.WebViewJavascriptBridge);
+        }, false);
+    }
+    if (window.WVJBCallbacks) {
+        return window.WVJBCallbacks.push(callback);
+    }
+    window.WVJBCallbacks = [callback];
+    const WVJBIframe = document.createElement('iframe');
+    WVJBIframe.style.display = 'none';
+    WVJBIframe.src = 'https://__bridge_loaded__';
+    document.documentElement.appendChild(WVJBIframe);
+    setTimeout(function () {
+        document.documentElement.removeChild(WVJBIframe);
+    }, 0);
+};
+/**
+ * 调用Bridge
+ * @param methodName Bridge方法名
+ * @param callback 回调函数
+ * @param data 传递给app的参数
+ * @param userOption 用户配置项
+ */
+const call = (methodName, data, callback, userOption) => {
+    setupWebViewJavascriptBridge((bridge) => {
+        bridge.callHandler(`easi.${methodName}`, data, (response) => {
+            if (typeof response === 'string') {
+                response = JSON.parse(response);
+            }
+            callback(response, userOption, methodName);
+        });
+    });
+};
+
+const initResult = {
+    state: 0,
+    data: {},
+};
+const config = (userOption) => {
+    if (userOption.debug) {
+        console.log(`debug:${JSON.stringify(userOption)}`);
+    }
+    call('login', {}, (response) => {
+        if (response.code === -1) {
+            initResult.data = userOption;
+            return initResult.fail && initResult.fail();
+        }
+        initResult.state = 1;
+        initResult.completes && initResult.completes();
+    }, userOption);
+};
+const checkJsApi = () => { };
+const ready = (callback) => {
+    initResult.state !== 0 ? callback && callback() : (initResult.completes = callback);
+};
+const error = (callback) => {
+    initResult.state === -1 ? callback && callback(initResult.data) : (initResult.fail = callback);
+};
+const test = (userOption) => {
+    call('login', {}, callBackOperation, userOption);
+};
+
+const easi = {
+    config,
+    checkJsApi,
+    ready,
+    error,
+    test,
+    getEnv,
+};
+
+export default easi;

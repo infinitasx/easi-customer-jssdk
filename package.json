@@ -6,9 +6,7 @@
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "yarn build:lib && yarn build:dist",
-    "build:dist": "rm -rf dist && rollup -c ./build/rollup.config.js",
-    "build:lib": "rm -rf lib && rm -rf es && rollup --c ./build/lib.config.js",
+    "build": "rm -rf dist && rm -rf lib && rm -rf es && rollup -c",
     "test": "jest",
     "easi-assets-deploy": "easi-assets-deploy",
     "easi-auto-tag": "easi-auto-tag"

@@ -14,7 +14,6 @@ export interface baseParames {
   fail?: Function;
   cancel?: Function;
   complete?: Function;
-  [props: string]: any;
 }
 
 /**
