@@ -11,7 +11,7 @@ export default {
   input: 'src/index.ts',
   output: [
     {
-      file: 'dist/index.js',
+      file: 'dist/index.min.js',
       name: 'easi',
       format: 'umd',
     },

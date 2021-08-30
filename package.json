@@ -2,10 +2,13 @@
   "name": "easi-customer-jssdk",
   "version": "2.0.0",
   "description": "easi-customer-jssdk",
-  "main": "src/umd/index.js",
-  "module": "./dist/cjs/index.js",
+  "main": "es/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist && rollup -c",
+    "build": "yarn build:lib && yarn build:dist",
+    "build:dist": "rm -rf dist && rollup -c ./build/rollup.config.js",
+    "build:lib": "rm -rf lib && rm -rf es && rollup --c ./build/lib.config.js",
     "test": "jest",
     "easi-assets-deploy": "easi-assets-deploy",
     "easi-auto-tag": "easi-auto-tag"
@@ -53,6 +56,7 @@
   "devDependencies": {
     "esbuild": "^0.12.22",
     "rollup-plugin-esbuild": "^4.5.0",
+    "rollup-plugin-typescript2": "^0.30.0",
     "typescript": "^4.3.5"
   }
 }

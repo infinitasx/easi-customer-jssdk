@@ -5,25 +5,18 @@
 #### es6
 
 ```javascript
-import { Easi } from 'easi-customer-jssdk';
-let easi = new Easi();
+import easi from 'easi-customer-jssdk';
 ```
 
 #### CommonJS
 
 ```javascript
-const { Easi } = require('easi-customer-jssdk/dist/es');
-let easi = new Easi();
+const easi = require('easi-customer-jssdk');
 ```
 
 #### Browser
 
 ```javascript
-let easi = new Easi.Easi();
-
-// 判断是否 EASI 客户端
-const isEASI = easi.isEasi();
-
 // 获取 app 版本号
 easi.getVersion(result => {
   if (result.code === 0) {

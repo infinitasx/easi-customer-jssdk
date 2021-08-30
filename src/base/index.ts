@@ -2,7 +2,7 @@ import { call, baseParames, AppResponse, callBackOperation } from '../setup';
 interface Result {
   state: number;
   data: any;
-  completes: Function;
+  completes?: Function;
   fail?: Function;
 }
 
