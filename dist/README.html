@@ -4,20 +4,13 @@
 <h1>easi-customer-jssdk</h1>
 <h2>使用方法</h2>
 <h4>es6</h4>
-<pre><code class="language-javascript">import { Easi } from 'easi-customer-jssdk';
-let easi = new Easi();
+<pre><code class="language-javascript">import easi from 'easi-customer-jssdk';
 </code></pre>
 <h4>CommonJS</h4>
-<pre><code class="language-javascript">const { Easi } = require('easi-customer-jssdk/dist/es');
-let easi = new Easi();
+<pre><code class="language-javascript">const easi = require('easi-customer-jssdk');
 </code></pre>
 <h4>Browser</h4>
-<pre><code class="language-javascript">let easi = new Easi.Easi();
-
-// 判断是否 EASI 客户端
-const isEASI = easi.isEasi();
-
-// 获取 app 版本号
+<pre><code class="language-javascript">// 获取 app 版本号
 easi.getVersion(result =&gt; {
   if (result.code === 0) {
     // 调用成功

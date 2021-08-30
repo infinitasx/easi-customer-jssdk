@@ -1,7 +1,7 @@
 import { getEnv } from './utils/env';
 import { config, checkJsApi, ready, error, test } from './base';
 interface EASI {
-  [props: string]: unknown;
+  [props: string]: Function;
 }
 
 const easi: EASI = {

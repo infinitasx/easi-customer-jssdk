@@ -1,5 +1,5 @@
 interface EASI {
-    [props: string]: unknown;
+    [props: string]: Function;
 }
 declare const easi: EASI;
 export default easi;
