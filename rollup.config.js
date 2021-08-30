@@ -16,11 +16,13 @@ export default [
         file: 'lib/index.js',
         name: 'named',
         format: 'cjs',
+        exports: 'auto',
       },
       {
         file: 'es/index.js',
         name: 'easi',
         format: 'es',
+        exports: 'auto',
       },
     ],
     plugins: [ts()],

@@ -16,22 +16,31 @@ export interface baseParamesType {
   complete?: Function;
 }
 
+// Bridge方法类型
+export type callBackOperationType = {
+  (response: any, userOption: baseParamesType, methodName: string): void;
+};
+
 /**
  * 处理app返回数据
  * @param res app返回的原始数据
  * @param userOption 用户配置项
  */
-export const callBackOperation = (res: any, userOption: baseParamesType, methodName: string) => {
+export const callBackOperation: callBackOperationType = (
+  response: any,
+  userOption: baseParamesType,
+  methodName: string,
+) => {
   userOption.complete &&
     userOption.complete({
       errMsg: `${methodName}:complete`,
     });
-  switch (res.code) {
+  switch (response.code) {
     case 0:
       userOption.success &&
         userOption.success({
           errMsg: `${methodName}:ok`,
-          result: res?.data,
+          result: response?.data,
         });
       break;
     case 1:
@@ -54,7 +63,7 @@ export const callBackOperation = (res: any, userOption: baseParamesType, methodN
  * @param callback 回调函数
  * @returns
  */
-export const setupWebViewJavascriptBridge = (callback: Function) => {
+export const setupWebViewJavascriptBridge = (callback: (arg: any) => void): any => {
   if (window.WebViewJavascriptBridge) {
     return callback(window.WebViewJavascriptBridge);
   } else {
@@ -86,7 +95,12 @@ export const setupWebViewJavascriptBridge = (callback: Function) => {
  * @param data 传递给app的参数
  * @param userOption 用户配置项
  */
-export const call = (methodName: string, data: any, callback: Function, userOption: any) => {
+export const call = (
+  methodName: string,
+  data: any,
+  callback: callBackOperationType,
+  userOption: any,
+) => {
   setupWebViewJavascriptBridge((bridge: Bridge) => {
     bridge.callHandler(`easi.${methodName}`, data, (response: AppResponse) => {
       if (typeof response === 'string') {

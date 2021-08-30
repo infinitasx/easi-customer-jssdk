@@ -33,17 +33,17 @@ const getEnv = () => {
  * @param res app返回的原始数据
  * @param userOption 用户配置项
  */
-const callBackOperation = (res, userOption, methodName) => {
+const callBackOperation = (response, userOption, methodName) => {
     userOption.complete &&
         userOption.complete({
             errMsg: `${methodName}:complete`,
         });
-    switch (res.code) {
+    switch (response.code) {
         case 0:
             userOption.success &&
                 userOption.success({
                     errMsg: `${methodName}:ok`,
-                    result: res?.data,
+                    result: response?.data,
                 });
             break;
         case 1:
@@ -104,6 +104,7 @@ const call = (methodName, data, callback, userOption) => {
     });
 };
 
+// 初始化结果
 const initResult = {
     state: 0,
     data: {},

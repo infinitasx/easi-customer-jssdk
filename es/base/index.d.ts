@@ -1,11 +1,11 @@
 import { baseParamesType } from '../setup';
-interface Result {
+interface appResultType {
     state: number;
     data: any;
     completes?: Function;
     fail?: Function;
 }
-export declare const initResult: Result;
+export declare const initResult: appResultType;
 declare type jsApiList = [];
 export interface configParamesType {
     debug?: boolean;

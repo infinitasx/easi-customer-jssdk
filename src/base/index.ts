@@ -1,25 +1,26 @@
 import { call, baseParamesType, AppResponse, callBackOperation } from '../setup';
-interface Result {
+interface appResultType {
   state: number;
   data: any;
   completes?: Function;
   fail?: Function;
 }
-
-export const initResult: Result = {
+// 初始化结果
+export const initResult: appResultType = {
   state: 0,
   data: {},
 };
 
 type jsApiList = [];
 
+// wx.config参数类型
 export interface configParamesType {
   debug?: boolean;
-  appId: string; // 必填，公众号的唯一标识
-  timestamp: number; // 必填，生成签名的时间戳
-  nonceStr: string; // 必填，生成签名的随机串
-  signature: string; // 必填，签名，见附录1
-  jsApiList: jsApiList; // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+  appId: string;
+  timestamp: number;
+  nonceStr: string;
+  signature: string;
+  jsApiList: jsApiList;
 }
 
 export const config = (userOption: configParamesType) => {
