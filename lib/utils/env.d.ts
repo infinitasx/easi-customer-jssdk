@@ -1,4 +1,4 @@
-export declare type typeEnv = {
+export declare type envType = {
     ua: string;
     isEasi: boolean;
     isMalaysia: boolean;
@@ -6,4 +6,4 @@ export declare type typeEnv = {
     isIos: boolean;
     version: number | null | string;
 };
-export declare const getEnv: () => typeEnv;
+export declare const getEnv: () => envType;

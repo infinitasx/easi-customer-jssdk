@@ -1,14 +1,14 @@
-export interface Bridge {
-    callHandler: Function;
-}
 export interface AppResponse {
     code: string | number;
 }
+export interface Bridge {
+    callHandler: (methodName: string, data: any, callBack: (response: AppResponse) => void) => void;
+}
 export interface baseParamesType {
-    success?: Function;
-    fail?: Function;
-    cancel?: Function;
-    complete?: Function;
+    success?: (...args: any[]) => void;
+    fail?: (...args: any[]) => void;
+    cancel?: (...args: any[]) => void;
+    complete?: (...args: any[]) => void;
 }
 export declare type callBackOperationType = {
     (response: any, userOption: baseParamesType, methodName: string): void;

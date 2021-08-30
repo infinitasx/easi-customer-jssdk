@@ -1,6 +1,6 @@
 import { baseInfo } from '../constants';
 
-export type typeEnv = {
+export type envType = {
   ua: string;
   isEasi: boolean;
   isMalaysia: boolean;
@@ -21,7 +21,7 @@ const getVersion = (parmes: { ua: string; isMalaysia: boolean }): string | null 
   return null;
 };
 
-export const getEnv = (): typeEnv => {
+export const getEnv = (): envType => {
   const ua = navigator.userAgent;
   const isEasi = ua.includes(baseInfo.easiAgent);
   const isMalaysia = ua.includes(baseInfo.easiMalaysiaAgent);

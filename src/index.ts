@@ -1,13 +1,14 @@
-import { getEnv, typeEnv } from './utils/env';
+import { getEnv, envType } from './utils/env';
 import { baseParamesType } from './setup';
-import { config, configParamesType, checkJsApi, ready, error, test } from './base';
+import { config, checkJsApi, ready, error, test } from './base';
+import type { configParamesType, checkJsApiType } from './base';
 interface EASI {
   config: (conf: configParamesType) => void;
-  checkJsApi: Function;
+  checkJsApi: (conf: checkJsApiType) => void;
   ready: (callback: () => void) => void;
   error: (callback: (err: { errMsg: string }) => void) => void;
-  getEnv: () => typeEnv;
-  test: (params: baseParamesType) => void;
+  getEnv: () => envType;
+  test: (conf: baseParamesType) => void;
 }
 
 const easi: EASI = {
@@ -19,5 +20,5 @@ const easi: EASI = {
   getEnv,
 };
 
+export type { configParamesType, baseParamesType, envType };
 export default easi;
-export type { configParamesType, baseParamesType };

@@ -1,16 +1,16 @@
-import { typeEnv } from './utils/env';
+import { envType } from './utils/env';
 import { baseParamesType } from './setup';
-import { configParamesType } from './base';
+import type { configParamesType, checkJsApiType } from './base';
 interface EASI {
     config: (conf: configParamesType) => void;
-    checkJsApi: Function;
+    checkJsApi: (conf: checkJsApiType) => void;
     ready: (callback: () => void) => void;
     error: (callback: (err: {
         errMsg: string;
     }) => void) => void;
-    getEnv: () => typeEnv;
-    test: (params: baseParamesType) => void;
+    getEnv: () => envType;
+    test: (conf: baseParamesType) => void;
 }
 declare const easi: EASI;
+export type { configParamesType, baseParamesType, envType };
 export default easi;
-export type { configParamesType, baseParamesType };

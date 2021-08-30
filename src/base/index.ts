@@ -1,9 +1,11 @@
-import { call, baseParamesType, AppResponse, callBackOperation } from '../setup';
+import { call, AppResponse, callBackOperation } from '../setup';
+import type { baseParamesType } from '../setup';
+
 interface appResultType {
   state: number;
   data: any;
-  completes?: Function;
-  fail?: Function;
+  completes?: () => void;
+  fail?: (err: { errMsg: string }) => void;
 }
 // 初始化结果
 export const initResult: appResultType = {
@@ -33,7 +35,7 @@ export const config = (userOption: configParamesType) => {
     (response: AppResponse) => {
       if (response.code === -1) {
         initResult.data = userOption;
-        return initResult.fail && initResult.fail();
+        return initResult.fail && initResult.fail(initResult.data);
       }
       initResult.state = 1;
       initResult.completes && initResult.completes();
@@ -42,7 +44,10 @@ export const config = (userOption: configParamesType) => {
   );
 };
 
-export const checkJsApi = () => {};
+export interface checkJsApiType extends baseParamesType {
+  jsApiList: string[];
+}
+export const checkJsApi = (userOption: checkJsApiType) => {};
 
 export const ready = (callback: () => void): void => {
   initResult.state !== 0 ? callback && callback() : (initResult.completes = callback);

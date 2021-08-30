@@ -116,13 +116,13 @@ const config = (userOption) => {
     call('login', {}, (response) => {
         if (response.code === -1) {
             initResult.data = userOption;
-            return initResult.fail && initResult.fail();
+            return initResult.fail && initResult.fail(initResult.data);
         }
         initResult.state = 1;
         initResult.completes && initResult.completes();
     }, userOption);
 };
-const checkJsApi = () => { };
+const checkJsApi = (userOption) => { };
 const ready = (callback) => {
     initResult.state !== 0 ? callback && callback() : (initResult.completes = callback);
 };

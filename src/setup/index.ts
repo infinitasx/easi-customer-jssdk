@@ -1,19 +1,19 @@
-// Bridge类型
-export interface Bridge {
-  callHandler: Function;
-}
-
 // app返回类型
 export interface AppResponse {
   code: string | number;
 }
 
+// Bridge类型
+export interface Bridge {
+  callHandler: (methodName: string, data: any, callBack: (response: AppResponse) => void) => void;
+}
+
 // 用户参数类型
 export interface baseParamesType {
-  success?: Function;
-  fail?: Function;
-  cancel?: Function;
-  complete?: Function;
+  success?: (...args: any[]) => void;
+  fail?: (...args: any[]) => void;
+  cancel?: (...args: any[]) => void;
+  complete?: (...args: any[]) => void;
 }
 
 // Bridge方法类型
