@@ -1,4 +1,4 @@
-import { call, baseParames, AppResponse, callBackOperation } from '../setup';
+import { call, baseParamesType, AppResponse, callBackOperation } from '../setup';
 interface Result {
   state: number;
   data: any;
@@ -13,7 +13,7 @@ export const initResult: Result = {
 
 type jsApiList = [];
 
-export interface configParames {
+export interface configParamesType {
   debug?: boolean;
   appId: string; // 必填，公众号的唯一标识
   timestamp: number; // 必填，生成签名的时间戳
@@ -22,7 +22,7 @@ export interface configParames {
   jsApiList: jsApiList; // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 }
 
-export const config = (userOption: configParames) => {
+export const config = (userOption: configParamesType) => {
   if (userOption.debug) {
     console.log(`debug:${JSON.stringify(userOption)}`);
   }
@@ -51,6 +51,6 @@ export const error = (callback: (err: { errMsg: string }) => void): void => {
   initResult.state === -1 ? callback && callback(initResult.data) : (initResult.fail = callback);
 };
 
-export const test = (userOption: baseParames) => {
+export const test = (userOption: baseParamesType) => {
   call('login', {}, callBackOperation, userOption);
 };

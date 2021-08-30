@@ -1,4 +1,4 @@
-import { baseParames } from '../setup';
+import { baseParamesType } from '../setup';
 interface Result {
     state: number;
     data: any;
@@ -7,7 +7,7 @@ interface Result {
 }
 export declare const initResult: Result;
 declare type jsApiList = [];
-export interface configParames {
+export interface configParamesType {
     debug?: boolean;
     appId: string;
     timestamp: number;
@@ -15,11 +15,11 @@ export interface configParames {
     signature: string;
     jsApiList: jsApiList;
 }
-export declare const config: (userOption: configParames) => void;
+export declare const config: (userOption: configParamesType) => void;
 export declare const checkJsApi: () => void;
 export declare const ready: (callback: () => void) => void;
 export declare const error: (callback: (err: {
     errMsg: string;
 }) => void) => void;
-export declare const test: (userOption: baseParames) => void;
+export declare const test: (userOption: baseParamesType) => void;
 export {};

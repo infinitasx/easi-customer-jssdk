@@ -4,7 +4,7 @@ export interface Bridge {
 export interface AppResponse {
     code: string | number;
 }
-export interface baseParames {
+export interface baseParamesType {
     success?: Function;
     fail?: Function;
     cancel?: Function;
@@ -15,7 +15,7 @@ export interface baseParames {
  * @param res app返回的原始数据
  * @param userOption 用户配置项
  */
-export declare const callBackOperation: (res: any, userOption: baseParames, methodName: string) => void;
+export declare const callBackOperation: (res: any, userOption: baseParamesType, methodName: string) => void;
 /**
  *  Bridge桥接
  * @param callback 回调函数

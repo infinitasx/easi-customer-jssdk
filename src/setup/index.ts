@@ -9,7 +9,7 @@ export interface AppResponse {
 }
 
 // 用户参数类型
-export interface baseParames {
+export interface baseParamesType {
   success?: Function;
   fail?: Function;
   cancel?: Function;
@@ -21,7 +21,7 @@ export interface baseParames {
  * @param res app返回的原始数据
  * @param userOption 用户配置项
  */
-export const callBackOperation = (res: any, userOption: baseParames, methodName: string) => {
+export const callBackOperation = (res: any, userOption: baseParamesType, methodName: string) => {
   userOption.complete &&
     userOption.complete({
       errMsg: `${methodName}:complete`,
