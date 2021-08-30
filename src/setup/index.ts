@@ -9,7 +9,7 @@ export interface Bridge {
 }
 
 // 用户参数类型
-export interface baseParamesType {
+export interface BaseParamesType {
   success?: (...args: any[]) => void;
   fail?: (...args: any[]) => void;
   cancel?: (...args: any[]) => void;
@@ -17,8 +17,8 @@ export interface baseParamesType {
 }
 
 // Bridge方法类型
-export type callBackOperationType = {
-  (response: any, userOption: baseParamesType, methodName: string): void;
+export type CallBackOperationType = {
+  (response: any, userOption: BaseParamesType, methodName: string): void;
 };
 
 /**
@@ -26,9 +26,9 @@ export type callBackOperationType = {
  * @param res app返回的原始数据
  * @param userOption 用户配置项
  */
-export const callBackOperation: callBackOperationType = (
+export const callBackOperation: CallBackOperationType = (
   response: any,
-  userOption: baseParamesType,
+  userOption: BaseParamesType,
   methodName: string,
 ) => {
   userOption.complete &&
@@ -98,7 +98,7 @@ export const setupWebViewJavascriptBridge = (callback: (arg: any) => void): any 
 export const call = (
   methodName: string,
   data: any,
-  callback: callBackOperationType,
+  callback: CallBackOperationType,
   userOption: any,
 ) => {
   setupWebViewJavascriptBridge((bridge: Bridge) => {

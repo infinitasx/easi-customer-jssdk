@@ -52,6 +52,7 @@
     "asLibrary": true
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.15.0",
     "esbuild": "^0.12.22",
     "rollup-plugin-esbuild": "^4.5.0",
     "rollup-plugin-typescript2": "^0.30.0",

@@ -1,14 +1,14 @@
 import { call, AppResponse, callBackOperation } from '../setup';
-import type { baseParamesType } from '../setup';
+import type { BaseParamesType } from '../setup';
 
-interface appResultType {
+interface AppResultType {
   state: number;
   data: any;
   completes?: () => void;
   fail?: (err: { errMsg: string }) => void;
 }
 // 初始化结果
-export const initResult: appResultType = {
+export const initResult: AppResultType = {
   state: 0,
   data: {},
 };
@@ -16,7 +16,7 @@ export const initResult: appResultType = {
 type jsApiList = [];
 
 // wx.config参数类型
-export interface configParamesType {
+export interface ConfigParamesType {
   debug?: boolean;
   appId: string;
   timestamp: number;
@@ -25,7 +25,7 @@ export interface configParamesType {
   jsApiList: jsApiList;
 }
 
-export const config = (userOption: configParamesType) => {
+export const config = (userOption: ConfigParamesType) => {
   if (userOption.debug) {
     console.log(`debug:${JSON.stringify(userOption)}`);
   }
@@ -44,10 +44,10 @@ export const config = (userOption: configParamesType) => {
   );
 };
 
-export interface checkJsApiType extends baseParamesType {
+export interface CheckJsApiType extends BaseParamesType {
   jsApiList: string[];
 }
-export const checkJsApi = (userOption: checkJsApiType) => {};
+export const checkJsApi = (userOption: CheckJsApiType) => {};
 
 export const ready = (callback: () => void): void => {
   initResult.state !== 0 ? callback && callback() : (initResult.completes = callback);
@@ -57,6 +57,6 @@ export const error = (callback: (err: { errMsg: string }) => void): void => {
   initResult.state === -1 ? callback && callback(initResult.data) : (initResult.fail = callback);
 };
 
-export const test = (userOption: baseParamesType) => {
+export const test = (userOption: BaseParamesType) => {
   call('login', {}, callBackOperation, userOption);
 };

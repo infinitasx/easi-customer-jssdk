@@ -4,21 +4,21 @@ export interface AppResponse {
 export interface Bridge {
     callHandler: (methodName: string, data: any, callBack: (response: AppResponse) => void) => void;
 }
-export interface baseParamesType {
+export interface BaseParamesType {
     success?: (...args: any[]) => void;
     fail?: (...args: any[]) => void;
     cancel?: (...args: any[]) => void;
     complete?: (...args: any[]) => void;
 }
-export declare type callBackOperationType = {
-    (response: any, userOption: baseParamesType, methodName: string): void;
+export declare type CallBackOperationType = {
+    (response: any, userOption: BaseParamesType, methodName: string): void;
 };
 /**
  * 处理app返回数据
  * @param res app返回的原始数据
  * @param userOption 用户配置项
  */
-export declare const callBackOperation: callBackOperationType;
+export declare const callBackOperation: CallBackOperationType;
 /**
  *  Bridge桥接
  * @param callback 回调函数
@@ -32,4 +32,4 @@ export declare const setupWebViewJavascriptBridge: (callback: (arg: any) => void
  * @param data 传递给app的参数
  * @param userOption 用户配置项
  */
-export declare const call: (methodName: string, data: any, callback: callBackOperationType, userOption: any) => void;
+export declare const call: (methodName: string, data: any, callback: CallBackOperationType, userOption: any) => void;
