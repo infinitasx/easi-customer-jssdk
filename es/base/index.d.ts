@@ -1,30 +1,25 @@
 import type { BaseParamesType } from '../setup';
-interface AppResultType {
-    state: number;
-    data: any;
-    completes?: () => void;
-    fail?: (err: {
-        errMsg: string;
-    }) => void;
-}
-export declare const initResult: AppResultType;
-declare type jsApiList = [];
-export interface ConfigParamesType {
+declare type location = 'wgs84';
+interface ConfigParamesType {
     debug?: boolean;
-    appId: string;
-    timestamp: number;
-    nonceStr: string;
-    signature: string;
-    jsApiList: jsApiList;
-}
-export declare const config: (userOption: ConfigParamesType) => void;
-export interface CheckJsApiType extends BaseParamesType {
     jsApiList: string[];
 }
-export declare const checkJsApi: (userOption: CheckJsApiType) => void;
-export declare const ready: (callback: () => void) => void;
-export declare const error: (callback: (err: {
+interface CheckJsApiType extends BaseParamesType {
+    jsApiList: string[];
+}
+interface scanCodeType extends BaseParamesType {
+    needContent: boolean;
+}
+interface locationType extends BaseParamesType {
+    type: location;
+}
+declare const config: (userOption: ConfigParamesType) => void;
+declare const ready: (callback: () => void) => void;
+declare const error: (callback: (err: {
     errMsg: string;
 }) => void) => void;
-export declare const test: (userOption: BaseParamesType) => void;
-export {};
+declare const checkJsApi: (userOption: CheckJsApiType) => void;
+declare const scanQRCode: (userOption: scanCodeType) => void;
+declare const getLocation: (userOption: locationType) => void;
+export type { CheckJsApiType, ConfigParamesType, scanCodeType, locationType };
+export { config, ready, error, checkJsApi, scanQRCode, getLocation };

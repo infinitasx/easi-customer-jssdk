@@ -1,16 +1,21 @@
-export interface AppResponse {
-    code: string | number;
+declare enum appType {
+    'success' = 0,
+    'fail' = 1,
+    'cancel' = 2
 }
-export interface Bridge {
-    callHandler: (methodName: string, data: any, callBack: (response: AppResponse) => void) => void;
+interface AppResponseType {
+    status: appType;
+    message: string | null;
+    data: Object | string;
 }
-export interface BaseParamesType {
+interface BaseParamesType {
     success?: (...args: any[]) => void;
     fail?: (...args: any[]) => void;
     cancel?: (...args: any[]) => void;
     complete?: (...args: any[]) => void;
+    trigger?: (...args: any[]) => void;
 }
-export declare type CallBackOperationType = {
+declare type CallBackOperationType = {
     (response: any, userOption: BaseParamesType, methodName: string): void;
 };
 /**
@@ -18,13 +23,13 @@ export declare type CallBackOperationType = {
  * @param res app返回的原始数据
  * @param userOption 用户配置项
  */
-export declare const callBackOperation: CallBackOperationType;
+declare const callBackOperation: CallBackOperationType;
 /**
  *  Bridge桥接
  * @param callback 回调函数
  * @returns
  */
-export declare const setupWebViewJavascriptBridge: (callback: (arg: any) => void) => any;
+declare const setupWebViewJavascriptBridge: (callback: (arg: any) => void) => any;
 /**
  * 调用Bridge
  * @param methodName Bridge方法名
@@ -32,4 +37,6 @@ export declare const setupWebViewJavascriptBridge: (callback: (arg: any) => void
  * @param data 传递给app的参数
  * @param userOption 用户配置项
  */
-export declare const call: (methodName: string, data: any, callback: CallBackOperationType, userOption: any) => void;
+declare const call: (methodName: string, data: any, callback: CallBackOperationType, userOption: any) => void;
+export type { CallBackOperationType, BaseParamesType, AppResponseType };
+export { call, setupWebViewJavascriptBridge, callBackOperation, appType };

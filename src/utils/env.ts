@@ -1,4 +1,4 @@
-import { baseInfo } from '../constants';
+import { baseEasiInfo } from '../constants';
 
 export type EnvType = {
   ua: string;
@@ -12,7 +12,7 @@ export type EnvType = {
 const getVersion = (parmes: { ua: string; isMalaysia: boolean }): string | null => {
   const uaFragments = parmes.ua.split(' ');
   if (uaFragments.length > 0) {
-    const easiMark = parmes.isMalaysia ? baseInfo.easiMalaysiaAgent : baseInfo.easiAgent;
+    const easiMark = parmes.isMalaysia ? baseEasiInfo.easiMalaysiaAgent : baseEasiInfo.easiAgent;
     const easiUaStart = uaFragments[0].includes(easiMark);
     if (easiUaStart) {
       return uaFragments[0].replace(easiMark, '');
@@ -23,8 +23,8 @@ const getVersion = (parmes: { ua: string; isMalaysia: boolean }): string | null 
 
 export const getEnv = (): EnvType => {
   const ua = navigator.userAgent;
-  const isEasi = ua.includes(baseInfo.easiAgent);
-  const isMalaysia = ua.includes(baseInfo.easiMalaysiaAgent);
+  const isEasi = ua.includes(baseEasiInfo.easiAgent);
+  const isMalaysia = ua.includes(baseEasiInfo.easiMalaysiaAgent);
   const isAndroid = ua.includes('Android') || ua.includes('android') || ua.includes('Linux');
   const isIos = ua.includes('iPhone') || ua.includes('iOS');
   const version = getVersion({ ua, isMalaysia });

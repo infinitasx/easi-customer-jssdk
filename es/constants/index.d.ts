@@ -1,4 +1,4 @@
-export declare const baseInfo: {
+export declare const baseEasiInfo: {
     easiAgent: string;
     easiVersion: string;
     easiUserVersion: string;

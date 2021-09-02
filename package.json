@@ -1,7 +1,7 @@
 {
-  "name": "easi-customer-jssdk",
-  "version": "2.0.0",
-  "description": "easi-customer-jssdk",
+  "name": "easi-jssdk",
+  "version": "1.0.0",
+  "description": "easi-jssdk",
   "main": "es/index.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,7 +16,7 @@
     "url": "git+https://github.com/infinitasx/easi-customer-jssdk.git"
   },
   "keywords": [
-    "easi-customer-jssdk"
+    "easi-jssdk"
   ],
   "author": "810839700@qq.com",
   "license": "ISC",

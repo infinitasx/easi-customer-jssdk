@@ -1,16 +1,12 @@
-import { EnvType } from './utils/env';
-import type { BaseParamesType } from './setup';
-import type { ConfigParamesType, CheckJsApiType } from './base';
-interface EASI {
-    config: (conf: ConfigParamesType) => void;
-    checkJsApi: (conf: CheckJsApiType) => void;
+declare const easi: {
+    config: (userOption: import("./base").ConfigParamesType) => void;
+    checkJsApi: (userOption: import("./base").CheckJsApiType) => void;
     ready: (callback: () => void) => void;
     error: (callback: (err: {
         errMsg: string;
     }) => void) => void;
-    getEnv: () => EnvType;
-    test: (conf: BaseParamesType) => void;
-}
-declare const easi: EASI;
-export type { EnvType, ConfigParamesType, BaseParamesType, CheckJsApiType };
+    getEnv: () => import("./utils/env").EnvType;
+    scanQRCode: (userOption: import("./base").scanCodeType) => void;
+    getLocation: (userOption: import("./base").locationType) => void;
+};
 export default easi;

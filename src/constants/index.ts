@@ -1,4 +1,4 @@
-export const baseInfo = {
+export const baseEasiInfo = {
   easiAgent: 'EasiCustomer/',
   easiVersion: '1.8.10',
   easiUserVersion: '1.9.59',
