@@ -162,4 +162,6 @@ const easi = {
     getLocation,
 };
 
-export default easi;
+const delivery = {};
+
+export { delivery, easi };

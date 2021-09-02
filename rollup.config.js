@@ -14,25 +14,63 @@ export default [
     output: [
       {
         file: 'lib/index.js',
-        name: 'named',
         format: 'cjs',
-        exports: 'auto',
+        exports: 'named',
       },
       {
         file: 'es/index.js',
-        name: 'easi',
         format: 'es',
-        exports: 'auto',
+        exports: 'named',
       },
     ],
     plugins: [ts()],
   },
   {
-    input: 'src/index.ts',
+    input: 'src/easi/index.ts',
     output: [
       {
-        file: 'dist/index.min.js',
+        file: 'dist/easi/index.min.js',
         name: 'easi',
+        format: 'umd',
+      },
+    ],
+    plugins: [
+      json(),
+      nodeResolve(),
+      terser(),
+      commonjs(),
+      babel({
+        exclude: 'node_modules/**',
+        runtimeHelpers: true,
+        tsconfig: 'tsconfig.json',
+      }),
+      esbuild(),
+      copy({
+        targets: [
+          {
+            src: 'README.md',
+            dest: 'dist',
+            rename: 'README.html',
+            transform: contents => {
+              return [
+                '<meta charset="utf-8">',
+                '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />',
+                '<div class="markdown-body">',
+                new MarkdownIt().render(contents.toString('utf-8')),
+                '</div>',
+              ].join('\n');
+            },
+          },
+        ],
+      }),
+    ],
+  },
+  {
+    input: 'src/delivery/index.ts',
+    output: [
+      {
+        file: 'dist/delivery/index.min.js',
+        name: 'delivery',
         format: 'umd',
       },
     ],
