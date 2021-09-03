@@ -1,12 +1,12 @@
 // app事件类型
-enum appType {
+enum appResultEventType {
   'success',
   'fail',
   'cancel',
 }
 // app返回类型
 interface AppResponseType {
-  status: appType;
+  status: appResultEventType;
   message: string | null;
   data: Object | string;
 }
@@ -49,20 +49,20 @@ const callBackOperation: CallBackOperationType = (
       errMsg: `${methodName}:complete`,
     });
   switch (response.status) {
-    case appType.success:
+    case appResultEventType.success:
       userOption.success &&
         userOption.success({
           errMsg: `${methodName}:ok`,
           result: response?.data,
         });
       break;
-    case appType.cancel:
+    case appResultEventType.cancel:
       userOption.cancel &&
         userOption.cancel({
           errMsg: `${methodName}:cancel`,
         });
       break;
-    case appType.fail:
+    case appResultEventType.fail:
       userOption.fail &&
         userOption.fail({
           message: response?.message,
@@ -122,4 +122,4 @@ const call = (methodName: string, data: any, callback: CallBackOperationType, us
 };
 
 export type { CallBackOperationType, BaseParamesType, AppResponseType };
-export { call, setupWebViewJavascriptBridge, callBackOperation, appType };
+export { call, setupWebViewJavascriptBridge, callBackOperation, appResultEventType };

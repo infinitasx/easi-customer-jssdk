@@ -1,4 +1,4 @@
-import { call, callBackOperation, appType } from '../setup';
+import { call, callBackOperation, appResultEventType } from '../setup';
 import type { BaseParamesType, AppResponseType } from '../setup';
 
 // 初始化结果
@@ -37,7 +37,7 @@ const config = (userOption: ConfigParamesType) => {
     { jsApiList: userOption.jsApiList },
     (response: AppResponseType) => {
       switch (response.status) {
-        case appType.fail:
+        case appResultEventType.fail:
           initResult.data = response.data || userOption;
           initResult.fail && initResult.fail(initResult.data);
           break;

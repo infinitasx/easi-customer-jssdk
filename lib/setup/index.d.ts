@@ -1,10 +1,10 @@
-declare enum appType {
+declare enum appResultEventType {
     'success' = 0,
     'fail' = 1,
     'cancel' = 2
 }
 interface AppResponseType {
-    status: appType;
+    status: appResultEventType;
     message: string | null;
     data: Object | string;
 }
@@ -39,4 +39,4 @@ declare const setupWebViewJavascriptBridge: (callback: (arg: any) => void) => an
  */
 declare const call: (methodName: string, data: any, callback: CallBackOperationType, userOption: any) => void;
 export type { CallBackOperationType, BaseParamesType, AppResponseType };
-export { call, setupWebViewJavascriptBridge, callBackOperation, appType };
+export { call, setupWebViewJavascriptBridge, callBackOperation, appResultEventType };
