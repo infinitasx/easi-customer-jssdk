@@ -110,13 +110,18 @@ const setupWebViewJavascriptBridge = (callback: (arg: any) => void): any => {
  * @param data 传递给app的参数
  * @param userOption 用户配置项
  */
-const call = (methodName: string, data: any, callback: CallBackOperationType, userOption: any) => {
+const call = (
+  methodName: string,
+  data?: any,
+  callback?: CallBackOperationType,
+  userOption?: any,
+) => {
   setupWebViewJavascriptBridge((bridge: BridgeType) => {
     bridge.callHandler(methodName, data, (response: AppResponseType) => {
       if (typeof response === 'string') {
         response = JSON.parse(response);
       }
-      callback(response, userOption, methodName);
+      callback && callback(response, userOption, methodName);
     });
   });
 };

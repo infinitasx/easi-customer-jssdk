@@ -1,5 +1,5 @@
 import json from '@rollup/plugin-json';
-import babel from 'rollup-plugin-babel';
+import { babel } from '@rollup/plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
@@ -23,7 +23,14 @@ export default [
         exports: 'named',
       },
     ],
-    plugins: [ts()],
+    plugins: [
+      ts(),
+      babel({
+        exclude: 'node_modules/**',
+        extensions: ['.ts', '.vue', '.js'],
+        babelHelpers: 'runtime',
+      }),
+    ],
   },
   {
     input: 'src/easi/index.ts',
@@ -37,14 +44,14 @@ export default [
     plugins: [
       json(),
       nodeResolve(),
-      terser(),
       commonjs(),
+      esbuild(),
       babel({
         exclude: 'node_modules/**',
-        runtimeHelpers: true,
-        tsconfig: 'tsconfig.json',
+        extensions: ['.ts', '.vue', '.js'],
+        babelHelpers: 'runtime',
       }),
-      esbuild(),
+      terser(),
       copy({
         targets: [
           {
@@ -77,14 +84,14 @@ export default [
     plugins: [
       json(),
       nodeResolve(),
-      terser(),
       commonjs(),
+      esbuild(),
       babel({
         exclude: 'node_modules/**',
-        runtimeHelpers: true,
-        tsconfig: 'tsconfig.json',
+        extensions: ['.ts', '.vue', '.js'],
+        babelHelpers: 'runtime',
       }),
-      esbuild(),
+      terser(),
       copy({
         targets: [
           {

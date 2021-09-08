@@ -1,12 +1,32 @@
 declare const easi: {
-    config: (userOption: import("../base").ConfigParamesType) => void;
-    checkJsApi: (userOption: import("../base").CheckJsApiType) => void;
+    config: (userOption: import("../base/interface").ConfigParamesType) => void;
     ready: (callback: () => void) => void;
     error: (callback: (err: {
         errMsg: string;
     }) => void) => void;
     getEnv: () => import("../utils/env").EnvType;
-    scanQRCode: (userOption: import("../base").scanCodeType) => void;
-    getLocation: (userOption: import("../base").locationType) => void;
+    getNetworkType: (userOption: import("../base/interface").CheckJsApiType) => void;
+    checkJsApi: (userOption: import("../base/interface").CheckJsApiType) => void;
+    updateWechatTimelineShareData: (userOption: import("../base/interface").ShareDataType) => void;
+    updateWechatMessageShareData: (userOption: import("../base/interface").ShareDataType) => void;
+    updateFacebookTimelineShareData: (userOption: import("../base/interface").ShareDataType) => void;
+    copy: (userOption: import("../base/interface").CopyType) => void;
+    chooseImage: (userOption: import("../base/interface").ChooseImageType) => void;
+    getLocalImageData: (userOption: import("../base/interface").LocalImageDataType) => void;
+    previewImage: (userOption: import("../base/interface").PreviewImageType) => void;
+    openLocation: (userOption: import("../base/interface").OpenLocationType) => void;
+    getLocation: (userOption: import("../base/interface").LocationType) => void;
+    scanQRCode: (userOption: import("../base/interface").ScanCodeType) => void;
+    scanBarcode: (userOption: import("../base/interface").ScanCodeType) => void;
+    closeWindow: () => void;
+    hideMenuBar: () => void;
+    showMenuBar: () => void;
+    hideMenuItems: (userOption: import("../base/interface").MenuItemsType) => void;
+    showMenuItems: (userOption: import("../base/interface").MenuItemsType) => void;
+    hideNavBar: () => void;
+    showNavBar: () => void;
+    openWebPage: (userOption: import("../base/interface").OpenWebPageType) => void;
+    openAppPage: (userOption: import("../base/interface").OpenAppPageType) => void;
+    getUserInfo: (userOption: import("../bridge").BaseParamesType) => void;
 };
 export default easi;

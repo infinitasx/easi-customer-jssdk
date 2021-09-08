@@ -37,6 +37,6 @@ declare const setupWebViewJavascriptBridge: (callback: (arg: any) => void) => an
  * @param data 传递给app的参数
  * @param userOption 用户配置项
  */
-declare const call: (methodName: string, data: any, callback: CallBackOperationType, userOption: any) => void;
+declare const call: (methodName: string, data?: any, callback?: CallBackOperationType | undefined, userOption?: any) => void;
 export type { CallBackOperationType, BaseParamesType, AppResponseType };
 export { call, setupWebViewJavascriptBridge, callBackOperation, appResultEventType };
