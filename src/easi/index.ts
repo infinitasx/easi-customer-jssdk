@@ -28,11 +28,12 @@ import {
   getUserInfo,
 } from '../base';
 
+const { ua, isEasi, isMalaysia, isAndroid, isIos, version } = getEnv();
+
 const easi = {
   config,
   ready,
   error,
-  getEnv,
   getNetworkType,
   checkJsApi,
   updateWechatTimelineShareData,
@@ -56,6 +57,12 @@ const easi = {
   openWebPage,
   openAppPage,
   getUserInfo,
+  ua,
+  isEasi,
+  isMalaysia,
+  isAndroid,
+  isIos,
+  version,
 };
 
 export default easi;

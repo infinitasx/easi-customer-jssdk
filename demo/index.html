@@ -104,7 +104,7 @@
         .item .label {
             display: flex;
             flex-wrap: wrap;
-
+            margin-right: 12px;
         }
 
         .item .label span {
@@ -183,9 +183,17 @@
         </section>
         <section v-if="result.success || result.complete || result.fail">
             <h6>执行结果</h6>
-            <p class="result complete" v-if="result.complete">complete:{{result.success}}</p>
-            <p class="result success" v-if="result.success">success:{{result.success}}</p>
-            <p class="result fail" v-if="result.fail">fail:{{result.fail}}</p>
+            <div class="result complete" v-if="result.complete">complete:
+                <div>{{result.success}}</div>
+            </div>
+            <div class="result success" v-if="result.success">success:
+                <div>
+                    {{result.success}}
+                </div>
+            </div>
+            <div class="result fail" v-if="result.fail">fail:
+                <div>{{result.fail}}</div>
+            </div>
         </section>
         <button @click="codeExecution">执行代码</button>
     </div>
@@ -283,17 +291,26 @@
                             _this.result.fail = res
                         }
                         try {
-                            easi[this.apiName](data)
+                            if (easi[this.apiName] === 'function') {
+                                easi[this.apiName](data)
+                            } else {
+                                alert(`${easi[this.apiName]}不是一个方法`)
+                            }
                         } catch (error) {
                             alert(error)
                         }
                     }
                     if (this.mode === '0') {
                         try {
-                            const result = easi[this.apiName]()
-                            if (result) {
-                                _this.result.success = result
+                            if (easi[this.apiName] === 'function') {
+                                const result = easi[this.apiName]()
+                                if (result) {
+                                    _this.result.success = result
+                                }
+                            } else {
+                                alert(`${this.apiName}不是一个方法`)
                             }
+
                         } catch (error) {
                             alert(error)
                         }

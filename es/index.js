@@ -417,11 +417,18 @@ var getUserInfo = function getUserInfo(userOption) {
   call('easi.getUserInfo', {}, callBackOperation, userOption);
 };
 
+var _getEnv = getEnv(),
+    ua = _getEnv.ua,
+    isEasi = _getEnv.isEasi,
+    isMalaysia = _getEnv.isMalaysia,
+    isAndroid = _getEnv.isAndroid,
+    isIos = _getEnv.isIos,
+    version = _getEnv.version;
+
 var easi = {
   config: config,
   ready: ready,
   error: error,
-  getEnv: getEnv,
   getNetworkType: getNetworkType,
   checkJsApi: checkJsApi,
   updateWechatTimelineShareData: updateWechatTimelineShareData,
@@ -444,7 +451,13 @@ var easi = {
   showNavBar: showNavBar,
   openWebPage: openWebPage,
   openAppPage: openAppPage,
-  getUserInfo: getUserInfo
+  getUserInfo: getUserInfo,
+  ua: ua,
+  isEasi: isEasi,
+  isMalaysia: isMalaysia,
+  isAndroid: isAndroid,
+  isIos: isIos,
+  version: version
 };
 
 var delivery = {};

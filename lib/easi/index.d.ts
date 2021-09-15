@@ -4,7 +4,6 @@ declare const easi: {
     error: (callback: (err: {
         errMsg: string;
     }) => void) => void;
-    getEnv: () => import("../utils/env").EnvType;
     getNetworkType: (userOption: import("../base/interface").CheckJsApiType) => void;
     checkJsApi: (userOption: import("../base/interface").CheckJsApiType) => void;
     updateWechatTimelineShareData: (userOption: import("../base/interface").ShareDataType) => void;
@@ -28,5 +27,11 @@ declare const easi: {
     openWebPage: (userOption: import("../base/interface").OpenWebPageType) => void;
     openAppPage: (userOption: import("../base/interface").OpenAppPageType) => void;
     getUserInfo: (userOption: import("../bridge").BaseParamesType) => void;
+    ua: string;
+    isEasi: boolean;
+    isMalaysia: boolean;
+    isAndroid: boolean;
+    isIos: boolean;
+    version: string | number | null;
 };
 export default easi;
