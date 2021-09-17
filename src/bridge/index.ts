@@ -1,72 +1,40 @@
-// app事件类型
-enum appResultEventType {
-  'success',
-  'fail',
-  'cancel',
-}
-// app返回类型
-interface AppResponseType {
-  status: appResultEventType;
-  message: string | null;
-  data: Object | string;
-}
-
-// Bridge类型
-interface BridgeType {
-  callHandler: (
-    methodName: string,
-    data: any,
-    callBack: (response: AppResponseType) => void,
-  ) => void;
-}
-
-// 用户参数类型
-interface BaseParamesType {
-  success?: (...args: any[]) => void;
-  fail?: (...args: any[]) => void;
-  cancel?: (...args: any[]) => void;
-  complete?: (...args: any[]) => void;
-  trigger?: (...args: any[]) => void;
-}
-
-// Bridge方法类型
-type CallBackOperationType = {
-  (response: any, userOption: BaseParamesType, methodName: string): void;
-};
+import type {
+  CallBackOperationType,
+  BaseParamesType,
+  AppResponseType,
+  BridgeType,
+} from './interface';
+import { AppResultEventEnum } from './interface';
 
 /**
  * 处理app返回数据
  * @param res app返回的原始数据
- * @param userOption 用户配置项
+ * @param userOptions 用户配置项
  */
 const callBackOperation: CallBackOperationType = (
-  response: any,
-  userOption: BaseParamesType,
+  response: AppResponseType,
+  userOptions: BaseParamesType,
   methodName: string,
 ) => {
-  userOption.complete &&
-    userOption.complete({
+  if (userOptions.complete) {
+    userOptions.complete({
       errMsg: `${methodName}:complete`,
     });
+  }
   switch (response.status) {
-    case appResultEventType.success:
-      userOption.success &&
-        userOption.success({
-          errMsg: `${methodName}:ok`,
-          result: response?.data,
+    case AppResultEventEnum.success:
+      userOptions.success && userOptions.success({ errMsg: `${methodName}:ok`, ...response.data });
+      break;
+    case AppResultEventEnum.cancel:
+      userOptions.cancel &&
+        userOptions.cancel({
+          errMsg: `${methodName}:cancel,${response.message}`,
         });
       break;
-    case appResultEventType.cancel:
-      userOption.cancel &&
-        userOption.cancel({
-          errMsg: `${methodName}:cancel`,
-        });
-      break;
-    case appResultEventType.fail:
-      userOption.fail &&
-        userOption.fail({
-          message: response?.message,
-          errMsg: `${methodName}:fail`,
+    case AppResultEventEnum.fail:
+      userOptions.fail &&
+        userOptions.fail({
+          errMsg: `${methodName}:fail,${response.message}`,
         });
     default:
       break;
@@ -108,23 +76,22 @@ const setupWebViewJavascriptBridge = (callback: (arg: any) => void): any => {
  * @param methodName Bridge方法名
  * @param callback 回调函数
  * @param data 传递给app的参数
- * @param userOption 用户配置项
+ * @param userOptions 用户配置项
  */
 const call = (
   methodName: string,
   data?: any,
   callback?: CallBackOperationType,
-  userOption?: any,
+  userOptions?: any,
 ) => {
   setupWebViewJavascriptBridge((bridge: BridgeType) => {
     bridge.callHandler(methodName, data, (response: AppResponseType) => {
       if (typeof response === 'string') {
         response = JSON.parse(response);
       }
-      callback && callback(response, userOption, methodName);
+      callback && callback(response, userOptions, methodName);
     });
   });
 };
 
-export type { CallBackOperationType, BaseParamesType, AppResponseType };
-export { call, setupWebViewJavascriptBridge, callBackOperation, appResultEventType };
+export { call, callBackOperation };

@@ -28,7 +28,7 @@ export default [
       babel({
         exclude: 'node_modules/**',
         extensions: ['.ts', '.vue', '.js'],
-        babelHelpers: 'runtime',
+        babelHelpers: 'bundled',
       }),
     ],
   },
@@ -49,7 +49,7 @@ export default [
       babel({
         exclude: 'node_modules/**',
         extensions: ['.ts', '.vue', '.js'],
-        babelHelpers: 'runtime',
+        babelHelpers: 'bundled',
       }),
       terser(),
       copy({
@@ -89,7 +89,7 @@ export default [
       babel({
         exclude: 'node_modules/**',
         extensions: ['.ts', '.vue', '.js'],
-        babelHelpers: 'runtime',
+        babelHelpers: 'bundled',
       }),
       terser(),
       copy({

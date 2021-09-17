@@ -1,5 +1,13 @@
-import type { BaseParamesType } from '../bridge';
+import type { BaseParamesType, AppResultEventEnum } from '../bridge/interface';
 declare type location = 'wgs84';
+declare type InitResultType = {
+    status: AppResultEventEnum;
+    data: {};
+    success?: (res: any) => void;
+    fail?: (err: {
+        errMsg?: string;
+    }) => void;
+};
 interface ConfigParamesType {
     debug?: boolean;
     jsApiList: string[];
@@ -49,4 +57,4 @@ interface OpenWebPageType extends BaseParamesType {
 interface OpenAppPageType extends BaseParamesType {
     scheme: string;
 }
-export type { CheckJsApiType, ConfigParamesType, LocationType, ShareDataType, CopyType, ChooseImageType, LocalImageDataType, PreviewImageType, OpenLocationType, ScanCodeType, MenuItemsType, OpenWebPageType, OpenAppPageType, };
+export type { CheckJsApiType, ConfigParamesType, LocationType, ShareDataType, CopyType, ChooseImageType, LocalImageDataType, PreviewImageType, OpenLocationType, ScanCodeType, MenuItemsType, OpenWebPageType, OpenAppPageType, InitResultType, };

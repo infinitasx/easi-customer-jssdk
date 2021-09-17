@@ -291,7 +291,7 @@
                             _this.result.fail = res
                         }
                         try {
-                            if (easi[this.apiName] === 'function') {
+                            if (typeof easi[this.apiName] === 'function') {
                                 easi[this.apiName](data)
                             } else {
                                 alert(`${easi[this.apiName]}不是一个方法`)
@@ -302,7 +302,7 @@
                     }
                     if (this.mode === '0') {
                         try {
-                            if (easi[this.apiName] === 'function') {
+                            if (typeof easi[this.apiName] === 'function') {
                                 const result = easi[this.apiName]()
                                 if (result) {
                                     _this.result.success = result

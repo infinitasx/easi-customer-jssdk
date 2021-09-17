@@ -1,6 +1,13 @@
-import type { BaseParamesType } from '../bridge';
+import type { BaseParamesType, AppResultEventEnum } from '../bridge/interface';
 
 type location = 'wgs84';
+
+type InitResultType = {
+  status: AppResultEventEnum;
+  data: {};
+  success?: (res: any) => void;
+  fail?: (err: { errMsg?: string }) => void;
+};
 
 // easi.config参数类型
 interface ConfigParamesType {
@@ -77,4 +84,5 @@ export type {
   MenuItemsType,
   OpenWebPageType,
   OpenAppPageType,
+  InitResultType,
 };
