@@ -132,19 +132,19 @@ var callBackOperation = function callBackOperation(response, userOptions, method
   }
 
   switch (response.status) {
-    case AppResultEventEnum.success:
+    case AppResultEventEnum[0]:
       userOptions.success && userOptions.success(_objectSpread2({
         errMsg: "".concat(methodName, ":ok")
       }, response.data));
       break;
 
-    case AppResultEventEnum.cancel:
+    case AppResultEventEnum[1]:
       userOptions.cancel && userOptions.cancel({
         errMsg: "".concat(methodName, ":cancel,").concat(response.message)
       });
       break;
 
-    case AppResultEventEnum.fail:
+    case AppResultEventEnum[2]:
       userOptions.fail && userOptions.fail({
         errMsg: "".concat(methodName, ":fail,").concat(response.message)
       });
@@ -190,7 +190,7 @@ var setupWebViewJavascriptBridge = function setupWebViewJavascriptBridge(callbac
 
 var call = function call(methodName, data, callback, userOptions) {
   setupWebViewJavascriptBridge(function (bridge) {
-    bridge.callHandler(methodName, data, function (response) {
+    bridge.callHandler("".concat(methodName), data, function (response) {
       if (typeof response === 'string') {
         response = JSON.parse(response);
       }
@@ -200,10 +200,7 @@ var call = function call(methodName, data, callback, userOptions) {
   });
 };
 
-var initResult = {
-  status: AppResultEventEnum.fail,
-  data: {}
-};
+var initResult = {};
 /**
  * 检测api配置项
  * @param {object} userOptions 用户配置项
@@ -213,17 +210,17 @@ var initResult = {
 
 var config = function config(userOptions) {
   if (userOptions !== null && userOptions !== void 0 && userOptions.debug) console.log("debug:".concat(JSON.stringify(userOptions)));
-  call('config', {
+  call('easi.config', {
     jsApiList: userOptions === null || userOptions === void 0 ? void 0 : userOptions.jsApiList
   }, function (response) {
     switch (response.status) {
-      case AppResultEventEnum.fail:
-        initResult.data = response.data || userOptions;
-        initResult.fail && initResult.fail(initResult.data);
+      case AppResultEventEnum[1]:
+        initResult.fail && initResult.fail({
+          errMsg: response.message || 'fail'
+        });
         break;
 
-      case AppResultEventEnum.success:
-        initResult.status = AppResultEventEnum.success;
+      case AppResultEventEnum[0]:
         initResult.success && initResult.success(response.data);
     }
   }, userOptions);

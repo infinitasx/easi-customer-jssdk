@@ -1,12 +1,10 @@
-import type { BaseParamesType, AppResultEventEnum } from '../bridge/interface';
+import type { BaseParamesType } from '../bridge/interface';
 
 // 坐标系
 type location = 'wgs84';
 
 // 初始化页面类型
 type InitResultType = {
-  status: AppResultEventEnum;
-  data: {};
   success?: (res: any) => void;
   fail?: (err: { errMsg?: string }) => void;
 };

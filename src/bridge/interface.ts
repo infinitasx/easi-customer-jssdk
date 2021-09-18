@@ -7,7 +7,7 @@ enum AppResultEventEnum {
 
 // app返回类型
 interface AppResponseType {
-  status: AppResultEventEnum;
+  status: string;
   message: string | null;
   data: Object;
 }

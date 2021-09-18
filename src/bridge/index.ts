@@ -4,6 +4,7 @@ import type {
   AppResponseType,
   BridgeType,
 } from './interface';
+
 import { AppResultEventEnum } from './interface';
 
 /**
@@ -22,17 +23,18 @@ const callBackOperation: CallBackOperationType = (
       errMsg: `${methodName}:complete`,
     });
   }
+
   switch (response.status) {
-    case AppResultEventEnum.success:
+    case AppResultEventEnum[0]:
       userOptions.success && userOptions.success({ errMsg: `${methodName}:ok`, ...response.data });
       break;
-    case AppResultEventEnum.cancel:
+    case AppResultEventEnum[1]:
       userOptions.cancel &&
         userOptions.cancel({
           errMsg: `${methodName}:cancel,${response.message}`,
         });
       break;
-    case AppResultEventEnum.fail:
+    case AppResultEventEnum[2]:
       userOptions.fail &&
         userOptions.fail({
           errMsg: `${methodName}:fail,${response.message}`,
@@ -86,7 +88,7 @@ const call = (
   userOptions?: any,
 ) => {
   setupWebViewJavascriptBridge((bridge: BridgeType) => {
-    bridge.callHandler(methodName, data, (response: AppResponseType) => {
+    bridge.callHandler(`${methodName}`, data, (response: AppResponseType) => {
       if (typeof response === 'string') {
         response = JSON.parse(response);
       }

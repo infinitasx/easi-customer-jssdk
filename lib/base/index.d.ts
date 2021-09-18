@@ -11,7 +11,7 @@ declare const config: (userOptions: ConfigParamesType) => void;
  * config调用成功后执行函数
  * @param {Function} callback 回调函数
  */
-declare const ready: (callback: (res: {
+declare const ready: (callback: (response: {
     langage?: string;
 }) => void) => void;
 /**
@@ -19,7 +19,8 @@ declare const ready: (callback: (res: {
  * @param callback 回调函数
  */
 declare const error: (callback: (err: {
-    errMsg?: string;
+    [key: string]: any;
+    errMsg?: string | undefined;
 }) => void) => void;
 /**
  * 获取网络类型

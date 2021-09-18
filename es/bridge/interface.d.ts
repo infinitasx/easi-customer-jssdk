@@ -4,7 +4,7 @@ declare enum AppResultEventEnum {
     'cancel' = 2
 }
 interface AppResponseType {
-    status: AppResultEventEnum;
+    status: string;
     message: string | null;
     data: Object;
 }

@@ -20,10 +20,7 @@ import type {
 } from './interface';
 
 // 初始化
-const initResult: InitResultType = {
-  status: AppResultEventEnum.fail,
-  data: {},
-};
+const initResult: InitResultType = {};
 
 /**
  * 检测api配置项
@@ -34,16 +31,14 @@ const initResult: InitResultType = {
 const config = (userOptions: ConfigParamesType) => {
   if (userOptions?.debug) console.log(`debug:${JSON.stringify(userOptions)}`);
   call(
-    'config',
+    'easi.config',
     { jsApiList: userOptions?.jsApiList },
     (response: AppResponseType) => {
       switch (response.status) {
-        case AppResultEventEnum.fail:
-          initResult.data = response.data || userOptions;
-          initResult.fail && initResult.fail(initResult.data);
+        case AppResultEventEnum[1]:
+          initResult.fail && initResult.fail({ errMsg: response.message || 'fail' });
           break;
-        case AppResultEventEnum.success:
-          initResult.status = AppResultEventEnum.success;
+        case AppResultEventEnum[0]:
           initResult.success && initResult.success(response.data);
         default:
           break;
@@ -57,7 +52,7 @@ const config = (userOptions: ConfigParamesType) => {
  * config调用成功后执行函数
  * @param {Function} callback 回调函数
  */
-const ready = (callback: (res: { langage?: string }) => void): void => {
+const ready = (callback: (response: { langage?: string }) => void): void => {
   initResult.success = callback;
 };
 
@@ -65,7 +60,7 @@ const ready = (callback: (res: { langage?: string }) => void): void => {
  * config调用失败后执行函数
  * @param callback 回调函数
  */
-const error = (callback: (err: { errMsg?: string }) => void): void => {
+const error = (callback: (err: { errMsg?: string; [key: string]: any }) => void): void => {
   initResult.fail = callback;
 };
 

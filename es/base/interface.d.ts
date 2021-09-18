@@ -1,8 +1,6 @@
-import type { BaseParamesType, AppResultEventEnum } from '../bridge/interface';
+import type { BaseParamesType } from '../bridge/interface';
 declare type location = 'wgs84';
 declare type InitResultType = {
-    status: AppResultEventEnum;
-    data: {};
     success?: (res: any) => void;
     fail?: (err: {
         errMsg?: string;

@@ -301,7 +301,6 @@
                             _this.result.fail = res
                         }
                         try {
-                            console.log(easi[this.apiName](data));
                             if (typeof easi[this.apiName] === 'function') {
                                 easi[this.apiName](data)
                             } else {
@@ -326,6 +325,12 @@
                             alert(error)
                         }
                     }
+                    easi.ready((res) => {
+                        alert(`ready:${JSON.stringify(res)}`)
+                    })
+                    easi.error((err) => {
+                        alert(`error:${JSON.stringify(err)}`)
+                    })
                 }
             },
         }
