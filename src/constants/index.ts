@@ -1,3 +1,4 @@
+// EASI基础数据
 export const baseEasiInfo = {
   easiAgent: 'EasiCustomer/',
   easiVersion: '1.8.10',

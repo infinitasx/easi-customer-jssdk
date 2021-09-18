@@ -1,4 +1,4 @@
-// app事件枚举
+// app事件
 enum AppResultEventEnum {
   'success',
   'fail',
@@ -32,7 +32,7 @@ interface BaseParamesType {
 
 // 调用Bridge方法类型
 type CallBackOperationType = {
-  (response: AppResponseType, userOption: BaseParamesType, methodName: string): void;
+  (response: AppResponseType, userOptions: BaseParamesType, methodName: string): void;
 };
 
 export type { CallBackOperationType, BaseParamesType, AppResponseType, BridgeType };

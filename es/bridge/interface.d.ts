@@ -19,7 +19,7 @@ interface BaseParamesType {
     trigger?: (...args: any[]) => void;
 }
 declare type CallBackOperationType = {
-    (response: AppResponseType, userOption: BaseParamesType, methodName: string): void;
+    (response: AppResponseType, userOptions: BaseParamesType, methodName: string): void;
 };
 export type { CallBackOperationType, BaseParamesType, AppResponseType, BridgeType };
 export { AppResultEventEnum };
