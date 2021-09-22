@@ -2299,8 +2299,8 @@ domexception@^2.0.1:
     webidl-conversions "^5.0.0"
 
 "easi-assets-deploy@https://github.com/infinitasx/easi-assets-deploy.git#main":
-  version "0.7.0"
-  resolved "https://github.com/infinitasx/easi-assets-deploy.git#b4f98944ad29740cbe138a147bd1f71d7fa832d1"
+  version "0.10.0"
+  resolved "https://github.com/infinitasx/easi-assets-deploy.git#555d32ace85f864395ecd1068547007b5f602bf1"
   dependencies:
     chalk "^4.1.0"
     glob "^7.1.6"
@@ -2773,7 +2773,7 @@ glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4:
 
 glob@^7.1.6:
   version "7.1.7"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.7.tgz#3b193e9233f01d42d0b3f78294bbeeb418f94a90"
+  resolved "https://registry.npmjs.org/glob/-/glob-7.1.7.tgz#3b193e9233f01d42d0b3f78294bbeeb418f94a90"
   integrity sha512-OvD9ENzPLbegENnYP5UUfJIirTg4+XwMWGaQfQTY0JenxNvvIKP3U3/tAQSPIu/lHxXYSZmpXlUHeqAIdKzBLQ==
   dependencies:
     fs.realpath "^1.0.0"
@@ -3641,7 +3641,7 @@ js-yaml@^3.13.1:
 
 js-yaml@^4.0.0:
   version "4.1.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
+  resolved "https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
   integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
   dependencies:
     argparse "^2.0.1"
@@ -3958,7 +3958,7 @@ mixin-deep@^1.2.0:
 
 mkdirp@^1.0.4:
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
+  resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
 ms@2.0.0:

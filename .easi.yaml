@@ -4,3 +4,6 @@ build: yarn install --pure-lockfile && yarn easi-assets-deploy --env ${profile} 
 artifacts:
   - destination: append-to-notification
     artifact: ./devops-notification
+notifications:
+  feishu:
+    webhook: []

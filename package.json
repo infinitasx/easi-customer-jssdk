@@ -8,8 +8,8 @@
   "scripts": {
     "build": "rm -rf dist && rm -rf lib && rm -rf es && rollup -c",
     "test": "jest",
-    "easi-assets-deploy": "easi-assets-deploy",
-    "easi-auto-tag": "easi-auto-tag"
+    "easi-auto-tag": "easi-auto-tag",
+    "easi-assets-deploy": "easi-assets-deploy"
   },
   "repository": {
     "type": "git",
@@ -24,37 +24,36 @@
     "url": "https://github.com/infinitasx/easi-customer-jssdk/issues"
   },
   "homepage": "https://github.com/infinitasx/easi-customer-jssdk#readme",
-  "dependencies": {
+  "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-transform-arrow-functions": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.15.0",
+    "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "easi-assets-deploy": "https://github.com/infinitasx/easi-assets-deploy.git#main",
     "easi-auto-tag": "https://github.com/infinitasx/easi-auto-tag.git#main",
+    "esbuild": "^0.12.22",
     "jest": "^26.6.3",
     "markdown-it": "^12.0.6",
     "rollup": "^2.38.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-esbuild": "^4.5.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^4.3.5"
   },
   "easiAssetsDeployConfig": {
     "backend": {
       "projectName": "",
       "repositoryUrl": "",
-      "templateDir": ""
+      "templateDir": "",
+      "branchName": ""
     },
     "assetsFilePattern": "*.html",
-    "asLibrary": true
-  },
-  "devDependencies": {
-    "@babel/preset-typescript": "^7.15.0",
-    "@rollup/plugin-babel": "^5.3.0",
-    "esbuild": "^0.12.22",
-    "rollup-plugin-esbuild": "^4.5.0",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "typescript": "^4.3.5"
+    "asLibrary": false
   }
 }
