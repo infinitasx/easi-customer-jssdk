@@ -1,6 +1,9 @@
 a {
   text-decoration: none;
   color: var(--base-color);
+  &:hover {
+    text-decoration: none !important;
+  }
 }
 a.header-anchor {
   float: left;
@@ -29,4 +32,42 @@ h5:focus .header-anchor,
 h6:hover .header-anchor,
 h6:focus .header-anchor {
   opacity: 1;
+}
+
+.hide-scoll-bar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+table {
+  display: block;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  overflow-x: auto;
+  font-family: var(--font-family-mono);
+  font-size: 14px;
+
+  tr {
+    border-top: 1px solid var(--border-color);
+
+    td:nth-child(2) {
+      font-family: var(--font-family);
+      white-space: pre-wrap;
+      min-width: 11.62rem;
+    }
+  }
+
+  tr:nth-child(2n) {
+    background-color: var(--bg-color-mute);
+  }
+
+  th,
+  td {
+    white-space: nowrap;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.6em 1em;
+    text-align: left;
+  }
 }

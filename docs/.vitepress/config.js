@@ -10,7 +10,21 @@ module.exports = {
       { text: '首页', link: '/' },
       { text: '关于', link: '/' },
     ],
-    sidebar: [{ text: '我的', link: '/en-US/component/affix' }],
+    sidebar: [
+      {
+        text: '侧边栏',
+        children: [
+          {
+            text: 'affix',
+            link: '/en-US/component/affix',
+          },
+          {
+            text: 'button',
+            link: '/en-US/component/button',
+          },
+        ],
+      },
+    ],
   },
   head: [
     [

@@ -17,12 +17,15 @@ onMounted(() => {
 
 <style lang="scss">
 .algolia-search-box {
-  min-width: 176.3px;
+  min-width: 180px;
+  margin: 0 20px;
 }
 .DocSearch {
   width: 100%;
-  margin: 0;
   justify-content: space-between;
+  margin: 0;
+  padding: 0 10px;
+  box-sizing: border-box;
   .DocSearch-Button-Container {
     display: flex;
     align-items: center;

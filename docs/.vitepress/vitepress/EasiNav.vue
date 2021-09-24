@@ -1,13 +1,13 @@
 <template>
-  <header class="easi-nav">
-    <section class="wrapper">
-      <a class="logo-container">
-        <img class="logo" src="/images/logo.svg" alt="" srcset="" />
-        EASI-SDK
+  <header class="border-b border-gray-100 px-10">
+    <section class="h-70 max-w-1376 w-full items-center flex flex-row justify-between mx-auto">
+      <a class="flex items-center h-30">
+        <img class="mr-10 h-full max-w-full" src="/images/logo.svg" alt="" srcset="" />
       </a>
-      <div class="col-r">
+      <div class="flex flex-row items-center">
         <Search />
         <Menus />
+        <GitHub :url="'http://localhost:3000/'" />
       </div>
     </section>
   </header>
@@ -16,34 +16,7 @@
 <script setup>
 import Menus from './navs/Menus.vue';
 import Search from './navs/Search.vue';
+import GitHub from './navs/GitHub.vue';
 </script>
 
-<style lang="scss">
-.easi-nav {
-  border-bottom: 1px solid var(--border-color);
-  .wrapper {
-    height: var(--header-height);
-    max-width: var(--app-max-width);
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    justify-content: space-between;
-    .logo-container {
-      height: var(--logo-height);
-      display: flex;
-      align-items: center;
-      font-size: 20px;
-      font-weight: 100;
-      img {
-        height: 100%;
-        max-width: 100%;
-        margin-right: 10px;
-      }
-    }
-    .col-r {
-      display: flex;
-      align-items: center;
-    }
-  }
-}
-</style>
+<style lang="scss"></style>

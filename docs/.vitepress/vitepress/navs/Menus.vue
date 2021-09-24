@@ -1,6 +1,11 @@
 <template>
-  <nav class="menus">
-    <a class="menu-item" :href="item.link" v-for="(item, index) in menus" :key="index">
+  <nav class="flex-row">
+    <a
+      class="px-10 cursor-pointer text-14 text-gray-500 hover:text-gray-900"
+      :href="item.link"
+      v-for="(item, index) in menus"
+      :key="index"
+    >
       {{ item.text }}
     </a>
   </nav>
@@ -12,12 +17,4 @@ const { theme } = useData();
 const menus = theme.value.nav;
 </script>
 
-<style lang="scss">
-.menus {
-  display: flex;
-  .menu-item {
-    padding: 0 10px;
-    cursor: pointer;
-  }
-}
-</style>
+<style lang="scss"></style>

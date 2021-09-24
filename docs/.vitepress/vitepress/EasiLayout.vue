@@ -1,5 +1,5 @@
 <template>
-  <div class="easi-layout">
+  <div class="easi-layout h-screen flex flex-col">
     <EasiNav />
     <EasiContent />
   </div>
