@@ -55,5 +55,8 @@
     },
     "assetsFilePattern": "*.html",
     "asLibrary": false
+  },
+  "dependencies": {
+    "@docsearch/js": "^3.0.0-alpha.40"
   }
 }
