@@ -1,6 +1,6 @@
 <template>
   <pre>
-      <div class="source-code" v-html="code"></div>
+      <div class="source-code language-vue" v-html="code"></div>
   </pre>
 </template>
 
@@ -17,4 +17,9 @@ const code = computed(() => {
 });
 </script>
 
-<style></style>
+<style>
+.source-code {
+  background: transparent !important;
+  margin: 0 !important;
+}
+</style>

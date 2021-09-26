@@ -6,7 +6,7 @@
       </a>
       <div class="flex flex-row items-center">
         <Search />
-        <Menus />
+        <Menus class="mr-20" />
         <GitHub :url="'http://localhost:3000/'" />
       </div>
     </section>

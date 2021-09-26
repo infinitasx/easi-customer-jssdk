@@ -2,6 +2,10 @@
 
 Fix the element to a specific visible area.
 
+```javascript
+var name = '';
+```
+
 ## Basic usage1
 
 Affix is fixed at the top of the page by default.
