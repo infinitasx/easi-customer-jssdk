@@ -8,9 +8,9 @@
       >
         <div class="flex-1 w-full flex flex-col">
           <Content class="flex-1 w-full" />
-          <Pages />
+          <Pages v-if="pagePath !== '/zh/'" />
         </div>
-        <HyperLink />
+        <HyperLink v-if="pagePath !== '/zh/'" />
       </section>
     </section>
   </div>

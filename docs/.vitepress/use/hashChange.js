@@ -1,9 +1,9 @@
 import { ref, onDeactivated, computed } from 'vue';
-import { useData, useRoute } from 'vitepress';
+import { useData, inBrowser } from 'vitepress';
 import { ensureStartingSlash } from 'vitepress/dist/client/theme-default/utils';
 
 export function useHash() {
-  let pageHash = ref(window?.location.hash.replace('#', ''));
+  let pageHash = ref(inBrowser && window?.location.hash.replace('#', ''));
   const { page } = useData();
   const pathName = computed(() => {
     return page.value?.relativePath;
@@ -14,9 +14,10 @@ export function useHash() {
     return pathArr[pathArr.length - 2];
   });
 
-  window.addEventListener('hashchange', () => {
-    pageHash.value = window?.location.hash.replace('#', '');
-  });
+  inBrowser &&
+    window.addEventListener('hashchange', () => {
+      pageHash.value = window?.location.hash.replace('#', '');
+    });
 
   onDeactivated(() => {
     window.removeEventListener('hashchange');

@@ -14,14 +14,14 @@ module.exports = {
     editLinkText: 'Edit this page on GitHub',
     lastUpdated: 'Last Updated',
     nav: [
-      { text: '规范', link: '/guide/guide1' },
+      { text: '指南', link: '/guide/guide1' },
       { text: '组件', link: '/component/text' },
     ],
     sidebar: [
       {
         '/guide/': [
           {
-            text: '规则',
+            text: '指南',
             children: [
               {
                 text: 'guide1',

@@ -1,7 +1,4 @@
 <template>
-  <!-- <el-affix :offset="120" class="md:hidden lg:block">
-    
-  </el-affix> -->
   <aside
     class="
       w-140

@@ -1,1 +1,0 @@
-import{o as t,c as a}from"./app.f7aaae08.js";const e='{"title":"","description":"","frontmatter":{},"relativePath":"index.md","lastUpdated":1632645526387}',n={};const o=Object.assign(n,{setup:function(e){if("undefined"!=typeof window){const t="zh";window.location.pathname=`/${t}/`}return(e,n)=>(t(),a("div"))}});export{e as __pageData,o as default};
