@@ -1,6 +1,6 @@
 import ElementPlus from 'element-plus';
-import EasiLayout from '../vitepress/EasiLayout.vue';
-import EasiDemo from '../vitepress/EasiDemo.vue';
+import Layout from '../vitepress/Layout.vue';
+import Demo from '../vitepress/Demo.vue';
 import 'element-plus/theme-chalk/index.css';
 import 'highlight.js/styles/arduino-light.css';
 import '../scss/index.scss';
@@ -9,9 +9,9 @@ import DefaultTheme from 'vitepress/dist/client/theme-default';
 
 export default {
   ...DefaultTheme,
-  Layout: EasiLayout,
+  Layout: Layout,
   enhanceApp({ app }) {
     app.use(ElementPlus);
-    app.component('Demo', EasiDemo);
+    app.component('Demo', Demo);
   },
 };

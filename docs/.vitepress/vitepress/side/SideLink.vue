@@ -28,6 +28,7 @@
 
 <script setup>
 import useFilePath from '../../use/pagePath';
+import { toRaw } from 'vue';
 const { pagePath } = useFilePath();
 const props = defineProps({
   sideGrpup: {

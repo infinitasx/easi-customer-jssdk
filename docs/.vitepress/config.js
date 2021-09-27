@@ -2,6 +2,7 @@ const mdPlugin = require('./plugins');
 module.exports = {
   title: 'EasiSdk',
   themeConfig: {
+    base: './',
     theme: false,
     repo: 'element-plus/element-plus',
     logo: '/images/logo.png',
@@ -13,33 +14,54 @@ module.exports = {
     editLinkText: 'Edit this page on GitHub',
     lastUpdated: 'Last Updated',
     nav: [
-      { text: '首页', link: '/' },
-      { text: '组件', link: 'component/affix' },
+      { text: '规范', link: '/guide/guide1' },
+      { text: '组件', link: '/component/text' },
     ],
     sidebar: [
       {
-        text: '侧边栏',
-        children: [
+        '/guide/': [
           {
-            text: 'affix',
-            link: '/zh/component/affix',
-          },
-          {
-            text: 'button',
-            link: '/zh/component/button',
+            text: '规则',
+            children: [
+              {
+                text: 'guide1',
+                link: '/zh/guide/guide1',
+              },
+              {
+                text: 'guide2',
+                link: '/zh/guide/guide2',
+              },
+            ],
           },
         ],
       },
       {
-        text: '侧边栏1',
-        children: [
+        '/component/': [
           {
-            text: 'text',
-            link: '/zh/component/text',
+            text: '组件',
+            children: [
+              {
+                text: 'text',
+                link: '/zh/component/text',
+              },
+              {
+                text: 'input',
+                link: '/zh/component/input',
+              },
+            ],
           },
           {
-            text: 'input',
-            link: '/zh/component/input',
+            text: '组件1',
+            children: [
+              {
+                text: 'affix',
+                link: '/zh/component/affix',
+              },
+              {
+                text: 'button',
+                link: '/zh/component/button',
+              },
+            ],
           },
         ],
       },

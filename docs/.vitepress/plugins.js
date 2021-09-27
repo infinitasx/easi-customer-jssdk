@@ -1,15 +1,14 @@
 const localMd = require('markdown-it')();
-const mdContainer = require('markdown-it-container');
+const markdownContainer = require('markdown-it-container');
 const path = require('path');
 const fs = require('fs');
-// const { highlight } = require('vitepress/dist/node/markdown/plugins/highlight');
 const { highlightAuto } = require('highlight.js');
 const { parse } = require('@vue/compiler-sfc');
 
 const scriptSetupRE = /<\s*script[^>]*\bsetup\b[^>]*/;
 
 module.exports = md => {
-  md.use(mdContainer, 'demo', {
+  md.use(markdownContainer, 'demo', {
     validate: function (params) {
       return params.trim().match(/^demo\s*(.*)$/);
     },
@@ -58,9 +57,9 @@ function generateCodePenSnippet(source) {
   const css = (styles || [{ content: '' }]).pop();
   return {
     html: encodeURIComponent(template.content),
-    js: encodeURIComponent((script || { content: '' }).content),
-    css: encodeURIComponent(css?.content || ''),
-    cssPreProcessor: css?.lang || 'none',
-    jsPreProcessor: script?.lang || 'none',
+    js: encodeURIComponent((script ?? { content: '' }).content),
+    css: encodeURIComponent(css?.content ?? ''),
+    cssPreProcessor: css?.lang ?? 'none',
+    jsPreProcessor: script?.lang ?? 'none',
   };
 }

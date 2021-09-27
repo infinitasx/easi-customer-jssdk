@@ -1,16 +1,22 @@
 const colors = require('tailwindcss/colors');
 module.exports = {
   mode: '',
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  purge: ['./index.html', './.vitepress/**/*.{vue,js,ts,jsx,tsx.md}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      inset: {
+        70: '70px',
+      },
       padding: {
         10: '10px',
+        14: '14px',
         20: '20px',
         30: '30px',
         40: '40px',
         50: '50px',
+        70: '70px',
+        280: '280px',
       },
       fontSize: {
         12: '12px',
@@ -42,11 +48,15 @@ module.exports = {
         20: '20px',
         30: '30px',
         40: '40px',
+        140: '140px',
         240: '240px',
       },
       lineHeight: {
         30: '30px',
         40: '40px',
+      },
+      translate: {
+        70: '70px',
       },
       colors: {
         ...colors,

@@ -1,14 +1,14 @@
 <template>
-  <div class="flex justify-between py-20 border-t border-gray-100 mt-20">
+  <div class="py-20 border-t border-gray-100 mt-20">
     <a
-      class="text-gray-500 hover:text-gray-900 page-arrow-left flex items-center"
+      class="text-gray-500 hover:text-gray-900 page-arrow-left flex items-center float-left"
       :href="prevPage.link"
       v-if="prevPage"
     >
       {{ prevPage.text }}
     </a>
     <a
-      class="text-gray-500 hover:text-gray-900 page-arrow-right flex items-center"
+      class="text-gray-500 hover:text-gray-900 page-arrow-right flex items-center float-right"
       :href="nextPage.link"
       v-if="nextPage"
     >
@@ -21,11 +21,17 @@
 import { computed, ref, toRaw } from 'vue';
 import { useData } from 'vitepress';
 import useFilePath from '../use/pagePath';
+import { useCurrentSide } from '../use/currentSideArr';
+const { sideArr } = useCurrentSide();
+
 const { theme, page } = useData();
 const { pagePath } = useFilePath();
 
-const pagesArr = ref([]);
-theme.value.sidebar.map(({ children }) => pagesArr.value.push(...toRaw(children)));
+const pagesArr = computed(() => {
+  const pagesArr = [];
+  sideArr.value.map(({ children }) => pagesArr.push(...toRaw(children)));
+  return pagesArr;
+});
 
 const pageIndex = computed(() => {
   return pagesArr.value.findIndex(item => {
