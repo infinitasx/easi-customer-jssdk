@@ -28,6 +28,7 @@
   "dependencies": {
     "@docsearch/js": "^3.0.0-alpha.40",
     "@vueuse/core": "^6.5.3",
-    "element-plus": "^1.1.0-beta.12"
+    "element-plus": "^1.1.0-beta.12",
+    "typed.js": "^2.0.12"
   }
 }

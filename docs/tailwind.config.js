@@ -9,6 +9,7 @@ module.exports = {
         70: '70px',
       },
       padding: {
+        5: '5px',
         10: '10px',
         14: '14px',
         20: '20px',
@@ -23,6 +24,9 @@ module.exports = {
         14: '14px',
         16: '16px',
         18: '18px',
+        36: '36px',
+        52: '52px',
+        72: '72px',
       },
       height: {
         10: '10px',
@@ -37,6 +41,8 @@ module.exports = {
       margin: {
         10: '10px',
         20: '20px',
+        30: '30px',
+        80: '80px',
       },
       maxWidth: {
         1376: '1376px',
@@ -60,6 +66,9 @@ module.exports = {
       },
       colors: {
         ...colors,
+      },
+      gridTemplateColumns: {
+        20: 'repeat(20, minmax(0, 1fr))',
       },
       backgroundImage: () => ({
         arrow: "url('/images/arrow.svg')",

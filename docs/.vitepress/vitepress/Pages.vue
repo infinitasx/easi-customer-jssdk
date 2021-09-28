@@ -1,14 +1,22 @@
 <template>
   <div class="py-20 border-t border-gray-100 mt-20">
     <a
-      class="text-gray-500 hover:text-gray-900 page-arrow-left flex items-center float-left"
+      class="text-gray-500 hover:text-gray-900 page-arrow-left flex items-center float-left text-14"
       :href="prevPage.link"
       v-if="prevPage"
     >
       {{ prevPage.text }}
     </a>
     <a
-      class="text-gray-500 hover:text-gray-900 page-arrow-right flex items-center float-right"
+      class="
+        text-gray-500
+        hover:text-gray-900
+        page-arrow-right
+        flex
+        items-center
+        float-right
+        text-14
+      "
       :href="nextPage.link"
       v-if="nextPage"
     >

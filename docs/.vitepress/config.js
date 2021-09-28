@@ -14,39 +14,43 @@ module.exports = {
     editLinkText: 'Edit this page on GitHub',
     lastUpdated: 'Last Updated',
     nav: [
-      { text: '指南', link: '/guide/guide1' },
-      { text: '组件', link: '/component/text' },
+      { text: '指南', link: '/guide/base' },
+      { text: 'API', link: '/api/text' },
     ],
     sidebar: [
       {
         '/guide/': [
           {
-            text: '指南',
+            text: '基础',
             children: [
               {
-                text: 'guide1',
-                link: '/zh/guide/guide1',
+                text: '安装',
+                link: '/zh/guide/base',
               },
               {
-                text: 'guide2',
-                link: '/zh/guide/guide2',
+                text: '快速开始',
+                link: '/zh/guide/begin',
+              },
+              {
+                text: '更热日志',
+                link: '/zh/guide/changelog',
               },
             ],
           },
         ],
       },
       {
-        '/component/': [
+        '/api/': [
           {
             text: '组件',
             children: [
               {
                 text: 'text',
-                link: '/zh/component/text',
+                link: '/zh/api/text',
               },
               {
                 text: 'input',
-                link: '/zh/component/input',
+                link: '/zh/api/input',
               },
             ],
           },
@@ -55,11 +59,11 @@ module.exports = {
             children: [
               {
                 text: 'affix',
-                link: '/zh/component/affix',
+                link: '/zh/api/affix',
               },
               {
                 text: 'button',
-                link: '/zh/component/button',
+                link: '/zh/api/button',
               },
             ],
           },

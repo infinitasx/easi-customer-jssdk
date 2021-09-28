@@ -19,6 +19,10 @@ a.header-anchor:focus {
   text-decoration: none;
 }
 
+h2 {
+  border-bottom: none !important;
+}
+
 h1:hover .header-anchor,
 h1:focus .header-anchor,
 h2:hover .header-anchor,
