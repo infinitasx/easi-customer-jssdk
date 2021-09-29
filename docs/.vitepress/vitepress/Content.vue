@@ -3,14 +3,14 @@
     <section class="flex flex-row max-w-1376 mx-auto flex-1 w-full h-full">
       <Side />
       <section
-        class="flex-1 w-full pt-30 pb-50 flex flex-row"
-        :class="{ 'pl-280': pagePath !== '/zh/' }"
+        class="flex-1 w-full pt-30 pb-50 flex flex-row pl-0"
+        :class="{ 'md:pl-280': pagePath !== '/zh/' }"
       >
         <div class="flex-1 w-full flex flex-col">
           <Content class="flex-1 w-full" />
           <Pages />
         </div>
-        <HyperLink v-if="!componentsName || componentsName !== 'guide'" />
+        <HyperLink class="hidden md:flex" v-if="!componentsName || componentsName !== 'guide'" />
       </section>
     </section>
   </div>

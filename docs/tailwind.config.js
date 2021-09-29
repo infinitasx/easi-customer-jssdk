@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+delete colors['lightBlue'];
 module.exports = {
   mode: '',
   purge: ['./index.html', './.vitepress/**/*.{vue,js,ts,jsx,tsx.md}'],
@@ -7,6 +8,7 @@ module.exports = {
     extend: {
       inset: {
         70: '70px',
+        240: '240px',
       },
       padding: {
         5: '5px',
@@ -25,6 +27,7 @@ module.exports = {
         16: '16px',
         18: '18px',
         36: '36px',
+        42: '42px',
         52: '52px',
         72: '72px',
       },
@@ -63,6 +66,7 @@ module.exports = {
       },
       translate: {
         70: '70px',
+        240: '240px',
       },
       colors: {
         ...colors,

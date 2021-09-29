@@ -1,17 +1,36 @@
 <template>
-  <div class="algolia-search-box" id="docsearch" />
+  <div class="algolia-search-box" id="docsearch" v-if="search" />
 </template>
 
 <script setup>
 import docsearch from '@docsearch/js';
 import '@docsearch/css/dist/style.css';
-import { onMounted } from 'vue';
+import { ref, onMounted, onDeactivated } from 'vue';
+import { useData } from 'vitepress';
+
+const { theme } = useData();
+const search = ref(false);
+const timer = ref(null);
+
 onMounted(() => {
-  docsearch({
-    container: '#docsearch',
-    apiKey: '25626fae796133dc1e734c6bcaaeac3c',
-    indexName: 'docsearch',
-  });
+  const { agolia } = theme.value;
+  if (agolia.apiKey && agolia.appId) {
+    search.value = true;
+    timer.value = setTimeout(() => {
+      docsearch({
+        container: '#docsearch',
+        apiKey: agolia.apiKey,
+        appId: agolia.appId,
+        debug: true,
+      });
+    }, 100);
+  }
+});
+
+onDeactivated(() => {
+  if (timer.value) {
+    clearTimeout(timer.value);
+  }
 });
 </script>
 

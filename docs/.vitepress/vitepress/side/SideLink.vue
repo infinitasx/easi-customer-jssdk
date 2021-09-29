@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full">
     <div v-for="(item, index) in sideGrpup" :key="index">
       <h3 class="text-16 text-black py-10 font-bold">{{ item.text }}</h3>
       <template v-if="item.children">

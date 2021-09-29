@@ -3,11 +3,15 @@
 </template>
 
 <script setup>
-// import marked from 'marked';
-import md from '../../../CHANGELOG.md';
-const html = md.render().children[0].children;
+// import { markdown } from 'markdown';
+import { useChangelog } from '../use/chooseChangeLog';
 
-// console.log(marked(html));
+const file = import.meta.globEager('../../../CHANGELOG.md');
+const contentArr = JSON.parse(file['../../../CHANGELOG.md'].__pageData);
+const curVersion = contentArr?.headers[0]?.title.match(/\[(\S*)\]/)[1]; // 版本号类型 1.0.0
+const { logArr } = useChangelog(contentArr?.headers, curVersion);
+
+// console.log(markdown.renderJsonML(logArr));
 </script>
 
 <style></style>

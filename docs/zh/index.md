@@ -36,8 +36,8 @@ onMounted(()=>{
     <span v-for="item in 20" class="bg-gray-50"></span>
   </div>
   <div class="fixed top-96 left-1/2 max-w-full transform -translate-x-1/2 flex justify-center flex-col items-center">
-    <h3 class="m-0 md:text-72 font-extralight tracking-widest font-sans text-52">EASI SDK</h3>
-    <div class="w-240 mt-80 items-center p-10 bg-gray-50 border-2 border-gary-200 rounded-full hover:ring-green-500 hover:ring-opacity-50">
+    <h3 class="m-0 md:text-72 font-extralight tracking-widest font-sans text-32 sm:text-52">EASI SDK</h3>
+    <div class="w-240 mt-20 sm:mt-40 md:80  items-center p-10 bg-gray-50 border-2 border-gary-200 rounded-full hover:ring-green-500 hover:ring-opacity-50">
       <span class="mr-10 text-gray-400">$</span>
       <span class="text-gray-700" ref="dom">{{typewriter}}</span>
     </div>
