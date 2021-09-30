@@ -18,7 +18,7 @@ const callBackOperation: CallBackOperationType = (
   userOptions: BaseParamesType,
   methodName: string,
 ) => {
-  if (userOptions.complete) {
+  if (userOptions?.complete) {
     userOptions.complete({
       errMsg: `${methodName}:complete`,
     });
@@ -26,17 +26,18 @@ const callBackOperation: CallBackOperationType = (
 
   switch (response.status) {
     case AppResultEventEnum[0]:
-      userOptions.success && userOptions.success({ errMsg: `${methodName}:ok`, ...response.data });
+      userOptions?.success &&
+        userOptions?.success({ errMsg: `${methodName}:ok`, ...response.data });
       break;
     case AppResultEventEnum[1]:
-      userOptions.cancel &&
-        userOptions.cancel({
+      userOptions?.cancel &&
+        userOptions?.cancel({
           errMsg: `${methodName}:cancel,${response.message}`,
         });
       break;
     case AppResultEventEnum[2]:
-      userOptions.fail &&
-        userOptions.fail({
+      userOptions?.fail &&
+        userOptions?.fail({
           errMsg: `${methodName}:fail,${response.message}`,
         });
     default:

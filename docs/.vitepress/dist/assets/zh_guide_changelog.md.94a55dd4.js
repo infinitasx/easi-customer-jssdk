@@ -1,0 +1,1 @@
+import{_ as a,g as t,c as e,h as r,a as n}from"./app.3c69434a.js";const s='{"title":"","description":"","frontmatter":{},"relativePath":"zh/guide/changelog.md","lastUpdated":1632983935644}';var o=a({},[["render",function(a,s,o,d,i,l){const c=t("Changelog",!0);return n(),e("div",null,[r(c)])}]]);export{s as __pageData,o as default};
