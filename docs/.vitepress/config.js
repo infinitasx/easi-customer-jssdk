@@ -8,9 +8,6 @@ module.exports = {
     server: {
       host: true,
     },
-    build: {
-      outDir: './dist/docs/',
-    },
   },
   vue: {},
   markdown: {
