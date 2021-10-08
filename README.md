@@ -1,21 +1,30 @@
-# easi-jssdk
+<p align="center">
+  <a href="#">
+    <img width="300px" src="./docs/public/images/logo.svg">
+  </a>
+</p>
 
-## 使用方法
+- 🔥 支持 TS
+- 💪 丰富的 Api
 
-#### es6
+# Documentation
 
-```javascript
-import { easi } from 'easi-customer-jssdk';
+For full documentation, visit tailwindcss.com.
+
+# 📦 Install
+
+```bash
+npm install https://github.com/infinitasx/easi-customer-jssdk.git
 ```
 
-#### CommonJS
+# 🔨 Usage
 
-```javascript
-const { easi } = require('easi-customer-jssdk');
-```
+```Typescript
+// main.ts
+import { easi, delivery } from 'easi-jssdk';
 
-#### Browser
-
-```javascript
-
+// easi
+easi.config({});
+// delivery
+delivery.config({});
 ```
