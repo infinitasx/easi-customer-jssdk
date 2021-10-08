@@ -52,6 +52,7 @@ const changeDrawer = () => {
 <style lang="scss">
 .drawer-container {
   @apply px-20 w-240 #{!important};
+  overflow-y: scoll;
 }
 
 div.drawer-open {

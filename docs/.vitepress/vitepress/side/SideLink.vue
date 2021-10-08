@@ -12,8 +12,10 @@
             rounded-sm
             text-14 text-gray-500
             hover:text-gray-900
+            text-ellipsis
             cursor-pointer
           "
+          :title="item.text"
           :class="{ 'side-active': pagePath === item.link }"
           v-for="(item, index) in item.children"
           :key="index"
@@ -41,5 +43,10 @@ const props = defineProps({
 <style>
 .side-active {
   @apply bg-yellow-100 text-gray-900 !important font-bold;
+}
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 </style>
