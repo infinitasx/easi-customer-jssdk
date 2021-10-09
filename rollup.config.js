@@ -22,7 +22,9 @@ export default [
       },
     ],
     plugins: [
-      ts(),
+      ts({
+        clean: true,
+      }),
       babel({
         exclude: 'node_modules/**',
         extensions: ['.ts', '.vue', '.js'],

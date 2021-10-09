@@ -31,7 +31,7 @@ const initResult: InitResultType = {};
 const config = (userOptions: ConfigParamesType) => {
   if (userOptions?.debug) console.log(`debug:${JSON.stringify(userOptions)}`);
   call(
-    'easi.config',
+    'config',
     { jsApiList: userOptions?.jsApiList },
     (response: AppResponseType) => {
       switch (response.status) {
@@ -52,7 +52,7 @@ const config = (userOptions: ConfigParamesType) => {
  * config调用成功后执行函数
  * @param {Function} callback 回调函数
  */
-const ready = (callback: (response: { langage?: string }) => void): void => {
+const ready = (callback: (response: { langage?: string; checkResult: Object }) => void): void => {
   initResult.success = callback;
 };
 
@@ -71,8 +71,8 @@ const error = (callback: (err: { errMsg?: string; [key: string]: any }) => void)
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const getNetworkType = (userOptions: CheckJsApiType) => {
-  call('easi.getNetworkType', {}, callBackOperation, userOptions);
+const getNetworkType = (userOptions: BaseParamesType) => {
+  call('getNetworkType', {}, callBackOperation, userOptions);
 };
 
 /**
@@ -83,7 +83,7 @@ const getNetworkType = (userOptions: CheckJsApiType) => {
  * @param {Function} userOptions.complete 完成回调
  */
 const checkJsApi = (userOptions: CheckJsApiType) => {
-  call('easi.checkJsApi', { jsApiList: userOptions.jsApiList }, callBackOperation, userOptions);
+  call('checkJsApi', { jsApiList: userOptions.jsApiList }, callBackOperation, userOptions);
 };
 
 /**
@@ -99,7 +99,7 @@ const checkJsApi = (userOptions: CheckJsApiType) => {
  */
 const updateWechatMessageShareData = (userOptions: ShareDataType) => {
   call(
-    'easi.updateWechatMessageShareData',
+    'updateWechatMessageShareData',
     {
       title: userOptions.title,
       link: userOptions.link,
@@ -124,7 +124,7 @@ const updateWechatMessageShareData = (userOptions: ShareDataType) => {
  */
 const updateWechatTimelineShareData = (userOptions: ShareDataType) => {
   call(
-    'easi.updateWechatTimelineShareData',
+    'updateWechatTimelineShareData',
     { title: userOptions.title, link: userOptions.link, imgUrl: userOptions.imgUrl },
     callBackOperation,
     userOptions,
@@ -144,7 +144,7 @@ const updateWechatTimelineShareData = (userOptions: ShareDataType) => {
  */
 const updateFacebookTimelineShareData = (userOptions: ShareDataType) => {
   call(
-    'easi.updateFacebookTimelineShareData',
+    'updateFacebookTimelineShareData',
     { title: userOptions.title, link: userOptions.link, imgUrl: userOptions.imgUrl },
     callBackOperation,
     userOptions,
@@ -160,7 +160,7 @@ const updateFacebookTimelineShareData = (userOptions: ShareDataType) => {
  * @param {Function} userOptions.complete 完成回调
  */
 const copy = (userOptions: CopyType) => {
-  call('easi.copy', { content: userOptions.content }, callBackOperation, userOptions);
+  call('copy', { content: userOptions.content }, callBackOperation, userOptions);
 };
 
 /**
@@ -176,7 +176,7 @@ const copy = (userOptions: CopyType) => {
  */
 const chooseImage = (userOptions: ChooseImageType) => {
   call(
-    'easi.chooseImage',
+    'chooseImage',
     {
       accept: userOptions.accept,
       compressImage: userOptions.compressImage,
@@ -198,7 +198,7 @@ const chooseImage = (userOptions: ChooseImageType) => {
  */
 const getLocalImageData = (userOptions: LocalImageDataType) => {
   call(
-    'easi.getLocalImageData',
+    'getLocalImageData',
     {
       localId: userOptions.localId,
     },
@@ -218,7 +218,7 @@ const getLocalImageData = (userOptions: LocalImageDataType) => {
  */
 const previewImage = (userOptions: PreviewImageType) => {
   call(
-    'easi.previewImage',
+    'previewImage',
     {
       current: userOptions.current,
       urls: userOptions.urls,
@@ -240,7 +240,7 @@ const previewImage = (userOptions: PreviewImageType) => {
  */
 const openLocation = (userOptions: OpenLocationType) => {
   call(
-    'easi.openLocation',
+    'openLocation',
     {
       latitude: userOptions.latitude,
       longitude: userOptions.longitude,
@@ -261,7 +261,7 @@ const openLocation = (userOptions: OpenLocationType) => {
  */
 const getDeviceLocation = (userOptions: LocationType) => {
   call(
-    'easi.getDeviceLocation',
+    'getDeviceLocation',
     {
       type: userOptions.type || 'wgs84',
     },
@@ -280,7 +280,7 @@ const getDeviceLocation = (userOptions: LocationType) => {
  */
 const scanQRCode = (userOptions: ScanCodeType) => {
   call(
-    'easi.scanQRCode',
+    'scanQRCode',
     {
       needContent: userOptions.needContent,
     },
@@ -299,7 +299,7 @@ const scanQRCode = (userOptions: ScanCodeType) => {
  */
 const scanBarcode = (userOptions: ScanCodeType) => {
   call(
-    'easi.scanBarcode',
+    'scanBarcode',
     {
       needContent: userOptions.needContent,
     },
@@ -313,7 +313,7 @@ const scanBarcode = (userOptions: ScanCodeType) => {
  * @param 无
  */
 const closeWindow = () => {
-  call('easi.closeWindow');
+  call('closeWindow');
 };
 
 /**
@@ -321,7 +321,7 @@ const closeWindow = () => {
  * @param 无
  */
 const hideMenuBar = () => {
-  call('easi.hideMenuBar');
+  call('hideMenuBar');
 };
 
 /**
@@ -329,7 +329,7 @@ const hideMenuBar = () => {
  * @param 无
  */
 const showMenuBar = () => {
-  call('easi.showMenuBar');
+  call('showMenuBar');
 };
 
 /**
@@ -339,7 +339,7 @@ const showMenuBar = () => {
  */
 const hideMenuItems = (userOptions: MenuItemsType) => {
   call(
-    'easi.hideMenuItems',
+    'hideMenuItems',
     {
       menuItems: userOptions.menuItems,
     },
@@ -355,7 +355,7 @@ const hideMenuItems = (userOptions: MenuItemsType) => {
  */
 const showMenuItems = (userOptions: MenuItemsType) => {
   call(
-    'easi.showMenuItems',
+    'showMenuItems',
     {
       menuItems: userOptions.menuItems,
     },
@@ -369,7 +369,7 @@ const showMenuItems = (userOptions: MenuItemsType) => {
  * @param 无
  */
 const hideNavBar = () => {
-  call('easi.hideNavBar');
+  call('hideNavBar');
 };
 
 /**
@@ -377,7 +377,7 @@ const hideNavBar = () => {
  * @param 无
  */
 const showNavBar = () => {
-  call('easi.showNavBar');
+  call('showNavBar');
 };
 
 /**
@@ -386,7 +386,7 @@ const showNavBar = () => {
  * @param {string} userOptions.url 目标页面
  */
 const openWebPage = (userOptions: OpenWebPageType) => {
-  call('easi.openWebPage', {
+  call('openWebPage', {
     url: userOptions.url,
   });
 };
@@ -397,7 +397,7 @@ const openWebPage = (userOptions: OpenWebPageType) => {
  * @param {string} userOptions.scheme scheme地址
  */
 const openAppPage = (userOptions: OpenAppPageType) => {
-  call('easi.openWebPage', {
+  call('openWebPage', {
     scheme: userOptions.scheme,
   });
 };
@@ -410,7 +410,7 @@ const openAppPage = (userOptions: OpenAppPageType) => {
  * @param {Function} userOptions.complete 完成回调
  */
 const getUserInfo = (userOptions: BaseParamesType) => {
-  call('easi.getUserInfo', {}, callBackOperation, userOptions);
+  call('getUserInfo', {}, callBackOperation, userOptions);
 };
 
 export {

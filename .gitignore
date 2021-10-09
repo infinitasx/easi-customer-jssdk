@@ -1,24 +1,9 @@
-*.pyc
 .idea
 logs
-app/static/uploads/photos
-management_application/static/uploads/photos
-!management_application/static/uploads/photos/adlsc-shop-pic-default@2x.png
-cron/nohup.out
-config/development.py
-
-
-# Created by https://www.gitignore.io/api/visualstudiocode
-
-### VisualStudioCode ###
 .vscode/*
 .history
-
+.log
 node_modules
 npm-debug.log
+yarn-error.log
 .DS_Store
-helper/test*.py
-run_management.py
-*.csv
-venv
-management_application/templates/merchant_portal/package-lock.json

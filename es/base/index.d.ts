@@ -13,6 +13,7 @@ declare const config: (userOptions: ConfigParamesType) => void;
  */
 declare const ready: (callback: (response: {
     langage?: string;
+    checkResult: Object;
 }) => void) => void;
 /**
  * config调用失败后执行函数
@@ -29,7 +30,7 @@ declare const error: (callback: (err: {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const getNetworkType: (userOptions: CheckJsApiType) => void;
+declare const getNetworkType: (userOptions: BaseParamesType) => void;
 /**
  * 检查是否支持指定API
  * @param {object} userOptions 用户配置项

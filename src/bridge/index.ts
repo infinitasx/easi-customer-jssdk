@@ -89,7 +89,7 @@ const call = (
   userOptions?: any,
 ) => {
   setupWebViewJavascriptBridge((bridge: BridgeType) => {
-    bridge.callHandler(`${methodName}`, data, (response: AppResponseType) => {
+    bridge.callHandler(`easi.${methodName}`, data, (response: AppResponseType) => {
       if (typeof response === 'string') {
         response = JSON.parse(response);
       }

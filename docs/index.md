@@ -46,11 +46,11 @@ onMounted(()=>{
       <span class="mr-10 text-gray-400">$</span>
       <span class="text-gray-700" ref="dom">{{typewriter}}</span>
     </div>
-    <div class="tags max-w-screen-md flex flex-wrap my-30 justify-center">
+    <!-- <div class="tags max-w-screen-md flex flex-wrap my-30 justify-center">
       <i class="text-12 text-gray-50 not-italic py-5 px-10 rounded-full border mx-10 mb-20" :class="`border-${item.color}-600 bg-${item.color}-600`" v-for="item in support">
         {{item.name}}
       </i>
-    </div>
+    </div> -->
   </div>
   <div class="absolute top-20 sm:top-36 left-1/2 transform -translate-x-1/2">
     <img class="w-56" :src="withBase('images/logo1.svg')" />

@@ -1,1 +1,0 @@
-import{_ as t,c as n,a,g as s}from"./app.14889706.js";const e='{"title":"easi.getDeviceLocation","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/devicelocation.md","lastUpdated":1633683651121}',p={},o=[s('',8)];var c=t(p,[["render",function(t,s,e,p,c,d){return a(),n("div",null,o)}]]);export{e as __pageData,c as default};

@@ -14,7 +14,7 @@ For full documentation, visit tailwindcss.com.
 # 📦 Install
 
 ```bash
-npm install https://github.com/infinitasx/easi-customer-jssdk.git
+npm install https://github.com/infinitasx/easi-customer-jssdk.git#next
 ```
 
 # 🔨 Usage

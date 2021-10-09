@@ -9,7 +9,16 @@
 ### Added
 
 - 支持外卖配送
-- 增加业务和基础接口
+- 增加基础接口
+- 增加使用文档 website
+
+### Changed
+
+- 只是 ts
+
+### Removed
+
+- 移除老的 api: scan、user、wx_share、login、addCart、showCart
 
 ### Changed
 

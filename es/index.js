@@ -190,7 +190,7 @@ var setupWebViewJavascriptBridge = function setupWebViewJavascriptBridge(callbac
 
 var call = function call(methodName, data, callback, userOptions) {
   setupWebViewJavascriptBridge(function (bridge) {
-    bridge.callHandler("".concat(methodName), data, function (response) {
+    bridge.callHandler("easi.".concat(methodName), data, function (response) {
       if (typeof response === 'string') {
         response = JSON.parse(response);
       }
@@ -210,7 +210,7 @@ var initResult = {};
 
 var config = function config(userOptions) {
   if (userOptions !== null && userOptions !== void 0 && userOptions.debug) console.log("debug:".concat(JSON.stringify(userOptions)));
-  call('easi.config', {
+  call('config', {
     jsApiList: userOptions === null || userOptions === void 0 ? void 0 : userOptions.jsApiList
   }, function (response) {
     switch (response.status) {
@@ -253,7 +253,7 @@ var error = function error(callback) {
 
 
 var getNetworkType = function getNetworkType(userOptions) {
-  call('easi.getNetworkType', {}, callBackOperation, userOptions);
+  call('getNetworkType', {}, callBackOperation, userOptions);
 };
 /**
  * 检查是否支持指定API
@@ -265,7 +265,7 @@ var getNetworkType = function getNetworkType(userOptions) {
 
 
 var checkJsApi = function checkJsApi(userOptions) {
-  call('easi.checkJsApi', {
+  call('checkJsApi', {
     jsApiList: userOptions.jsApiList
   }, callBackOperation, userOptions);
 };
@@ -283,7 +283,7 @@ var checkJsApi = function checkJsApi(userOptions) {
 
 
 var updateWechatMessageShareData = function updateWechatMessageShareData(userOptions) {
-  call('easi.updateWechatMessageShareData', {
+  call('updateWechatMessageShareData', {
     title: userOptions.title,
     link: userOptions.link,
     imgUrl: userOptions.imgUrl,
@@ -304,7 +304,7 @@ var updateWechatMessageShareData = function updateWechatMessageShareData(userOpt
 
 
 var updateWechatTimelineShareData = function updateWechatTimelineShareData(userOptions) {
-  call('easi.updateWechatTimelineShareData', {
+  call('updateWechatTimelineShareData', {
     title: userOptions.title,
     link: userOptions.link,
     imgUrl: userOptions.imgUrl
@@ -324,7 +324,7 @@ var updateWechatTimelineShareData = function updateWechatTimelineShareData(userO
 
 
 var updateFacebookTimelineShareData = function updateFacebookTimelineShareData(userOptions) {
-  call('easi.updateFacebookTimelineShareData', {
+  call('updateFacebookTimelineShareData', {
     title: userOptions.title,
     link: userOptions.link,
     imgUrl: userOptions.imgUrl
@@ -341,7 +341,7 @@ var updateFacebookTimelineShareData = function updateFacebookTimelineShareData(u
 
 
 var copy = function copy(userOptions) {
-  call('easi.copy', {
+  call('copy', {
     content: userOptions.content
   }, callBackOperation, userOptions);
 };
@@ -359,7 +359,7 @@ var copy = function copy(userOptions) {
 
 
 var chooseImage = function chooseImage(userOptions) {
-  call('easi.chooseImage', {
+  call('chooseImage', {
     accept: userOptions.accept,
     compressImage: userOptions.compressImage,
     capture: userOptions.capture,
@@ -377,7 +377,7 @@ var chooseImage = function chooseImage(userOptions) {
 
 
 var getLocalImageData = function getLocalImageData(userOptions) {
-  call('easi.getLocalImageData', {
+  call('getLocalImageData', {
     localId: userOptions.localId
   }, callBackOperation, userOptions);
 };
@@ -393,7 +393,7 @@ var getLocalImageData = function getLocalImageData(userOptions) {
 
 
 var previewImage = function previewImage(userOptions) {
-  call('easi.previewImage', {
+  call('previewImage', {
     current: userOptions.current,
     urls: userOptions.urls
   }, callBackOperation, userOptions);
@@ -411,7 +411,7 @@ var previewImage = function previewImage(userOptions) {
 
 
 var openLocation = function openLocation(userOptions) {
-  call('easi.openLocation', {
+  call('openLocation', {
     latitude: userOptions.latitude,
     longitude: userOptions.longitude,
     zoom: userOptions.zoom
@@ -428,7 +428,7 @@ var openLocation = function openLocation(userOptions) {
 
 
 var getDeviceLocation = function getDeviceLocation(userOptions) {
-  call('easi.getDeviceLocation', {
+  call('getDeviceLocation', {
     type: userOptions.type || 'wgs84'
   }, callBackOperation, userOptions);
 };
@@ -443,7 +443,7 @@ var getDeviceLocation = function getDeviceLocation(userOptions) {
 
 
 var scanQRCode = function scanQRCode(userOptions) {
-  call('easi.scanQRCode', {
+  call('scanQRCode', {
     needContent: userOptions.needContent
   }, callBackOperation, userOptions);
 };
@@ -458,7 +458,7 @@ var scanQRCode = function scanQRCode(userOptions) {
 
 
 var scanBarcode = function scanBarcode(userOptions) {
-  call('easi.scanBarcode', {
+  call('scanBarcode', {
     needContent: userOptions.needContent
   }, callBackOperation, userOptions);
 };
@@ -469,7 +469,7 @@ var scanBarcode = function scanBarcode(userOptions) {
 
 
 var closeWindow = function closeWindow() {
-  call('easi.closeWindow');
+  call('closeWindow');
 };
 /**
  * 隐藏菜单栏
@@ -478,7 +478,7 @@ var closeWindow = function closeWindow() {
 
 
 var hideMenuBar = function hideMenuBar() {
-  call('easi.hideMenuBar');
+  call('hideMenuBar');
 };
 /**
  * 显示菜单栏
@@ -487,7 +487,7 @@ var hideMenuBar = function hideMenuBar() {
 
 
 var showMenuBar = function showMenuBar() {
-  call('easi.showMenuBar');
+  call('showMenuBar');
 };
 /**
  * 批量隐藏菜单项
@@ -497,7 +497,7 @@ var showMenuBar = function showMenuBar() {
 
 
 var hideMenuItems = function hideMenuItems(userOptions) {
-  call('easi.hideMenuItems', {
+  call('hideMenuItems', {
     menuItems: userOptions.menuItems
   }, callBackOperation, userOptions);
 };
@@ -509,7 +509,7 @@ var hideMenuItems = function hideMenuItems(userOptions) {
 
 
 var showMenuItems = function showMenuItems(userOptions) {
-  call('easi.showMenuItems', {
+  call('showMenuItems', {
     menuItems: userOptions.menuItems
   }, callBackOperation, userOptions);
 };
@@ -520,7 +520,7 @@ var showMenuItems = function showMenuItems(userOptions) {
 
 
 var hideNavBar = function hideNavBar() {
-  call('easi.hideNavBar');
+  call('hideNavBar');
 };
 /**
  * 显示导航栏
@@ -529,7 +529,7 @@ var hideNavBar = function hideNavBar() {
 
 
 var showNavBar = function showNavBar() {
-  call('easi.showNavBar');
+  call('showNavBar');
 };
 /**
  * 在新窗口打开一个Web页面
@@ -539,7 +539,7 @@ var showNavBar = function showNavBar() {
 
 
 var openWebPage = function openWebPage(userOptions) {
-  call('easi.openWebPage', {
+  call('openWebPage', {
     url: userOptions.url
   });
 };
@@ -551,7 +551,7 @@ var openWebPage = function openWebPage(userOptions) {
 
 
 var openAppPage = function openAppPage(userOptions) {
-  call('easi.openWebPage', {
+  call('openWebPage', {
     scheme: userOptions.scheme
   });
 };
@@ -565,7 +565,7 @@ var openAppPage = function openAppPage(userOptions) {
 
 
 var getUserInfo = function getUserInfo(userOptions) {
-  call('easi.getUserInfo', {}, callBackOperation, userOptions);
+  call('getUserInfo', {}, callBackOperation, userOptions);
 };
 
 var _getEnv = getEnv(),

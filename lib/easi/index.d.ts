@@ -1,12 +1,14 @@
 declare const easi: {
     config: (userOptions: import("../base/interface").ConfigParamesType) => void;
-    ready: (callback: (res: {
+    ready: (callback: (response: {
         langage?: string | undefined;
+        checkResult: Object;
     }) => void) => void;
     error: (callback: (err: {
+        [key: string]: any;
         errMsg?: string | undefined;
     }) => void) => void;
-    getNetworkType: (userOptions: import("../base/interface").CheckJsApiType) => void;
+    getNetworkType: (userOptions: import("../bridge/interface").BaseParamesType) => void;
     checkJsApi: (userOptions: import("../base/interface").CheckJsApiType) => void;
     updateWechatTimelineShareData: (userOptions: import("../base/interface").ShareDataType) => void;
     updateWechatMessageShareData: (userOptions: import("../base/interface").ShareDataType) => void;
