@@ -5,7 +5,7 @@ module.exports = {
   title: config.title,
   themeConfig: config.themeConfig,
   head: config.head,
-  base: './',
+  base: 'https://static.melbdelivery.com/easi-jssdk/2.0.0/docs/',
   vite: {
     server: {
       host: true,
