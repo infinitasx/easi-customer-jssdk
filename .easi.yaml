@@ -6,4 +6,5 @@ artifacts:
     artifact: ./devops-notification
 notifications:
   feishu:
-    webhook: []
+    webhook:
+      - https://open.feishu.cn/open-apis/bot/v2/hook/1fe451dd-3aff-4319-924c-5186329a33f3
