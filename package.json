@@ -6,8 +6,8 @@
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build:lib": "rm -rf dist/delivery && rm -rf dist/easi && rm -rf lib && rm -rf es && rollup -c",
-    "build": "yarn build:lib && cd docs && yarn build",
+    "build": "rm -rf dist/delivery && rm -rf dist/easi && rm -rf lib && rm -rf es && rollup -c",
+    "build:docs": "cd docs && yarn build",
     "test": "jest",
     "easi-auto-tag": "easi-auto-tag",
     "easi-assets-deploy": "easi-assets-deploy"
