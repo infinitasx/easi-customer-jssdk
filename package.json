@@ -6,7 +6,7 @@
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build:lib": "rm -rf dist && rm -rf lib && rm -rf es && rollup -c",
+    "build:lib": "rm -rf dist/delivery && rm -rf dist/easi && rm -rf lib && rm -rf es && rollup -c",
     "build": "yarn build:lib && cd docs && yarn build",
     "test": "jest",
     "easi-auto-tag": "easi-auto-tag",
