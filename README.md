@@ -9,7 +9,7 @@
 
 # Documentation
 
-For full documentation, visit tailwindcss.com.
+For full documentation, visit [easi-sdk](https://static.melbdelivery.com/easi-jssdk/2.0.0/)
 
 # 📦 Install
 
