@@ -397,7 +397,7 @@ const openWebPage = (userOptions: OpenWebPageType) => {
  * @param {string} userOptions.scheme scheme地址
  */
 const openAppPage = (userOptions: OpenAppPageType) => {
-  call('openWebPage', {
+  call('openAppPage', {
     scheme: userOptions.scheme,
   });
 };

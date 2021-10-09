@@ -551,7 +551,7 @@ var openWebPage = function openWebPage(userOptions) {
 
 
 var openAppPage = function openAppPage(userOptions) {
-  call('openWebPage', {
+  call('openAppPage', {
     scheme: userOptions.scheme
   });
 };
