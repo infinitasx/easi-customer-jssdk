@@ -1,0 +1,1 @@
+import{_ as a,c as e,a as n,g as s}from"./app.90db3295.js";const i='{"title":"easi.hideMenuBar","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/hidemenubar.md","lastUpdated":1633686787365}',t={},p=[s('',8)];var r=a(t,[["render",function(a,s,i,t,r,d){return n(),e("div",null,p)}]]);export{i as __pageData,r as default};
