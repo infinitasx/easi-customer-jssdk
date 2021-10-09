@@ -53,7 +53,7 @@
       "branchName": ""
     },
     "assetsFilePattern": "*.html",
-    "asLibrary": false
+    "asLibrary": true
   },
   "dependencies": {}
 }
