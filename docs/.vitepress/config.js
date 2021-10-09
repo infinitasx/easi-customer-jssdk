@@ -5,7 +5,7 @@ module.exports = {
   title: config.title,
   themeConfig: config.themeConfig,
   head: config.head,
-  base: '../',
+  base: './',
   vite: {
     server: {
       host: true,
