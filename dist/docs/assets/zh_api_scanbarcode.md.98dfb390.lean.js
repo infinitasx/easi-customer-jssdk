@@ -1,1 +1,0 @@
-import{_ as t,c as n,a,g as s}from"./app.3d271a4f.js";const e='{"title":"easi.scanBarcode","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/scanbarcode.md","lastUpdated":1633686787371}',o={},p=[s('',8)];var d=t(o,[["render",function(t,s,e,o,d,c){return a(),n("div",null,p)}]]);export{e as __pageData,d as default};

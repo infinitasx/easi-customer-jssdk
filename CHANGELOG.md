@@ -14,7 +14,7 @@
 
 ### Changed
 
-- 只是 ts
+- 支持 ts
 
 ### Removed
 
