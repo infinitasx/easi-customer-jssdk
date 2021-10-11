@@ -1,0 +1,1 @@
+import{_ as a,c as e,a as s,g as n}from"./app.4dca4ffe.js";const i='{"title":"easi.closeWindow","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/closewindow.md","lastUpdated":1633686787361}',t={},p=[n('',8)];var o=a(t,[["render",function(a,n,i,t,o,d){return s(),e("div",null,p)}]]);export{i as __pageData,o as default};
