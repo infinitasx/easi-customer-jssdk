@@ -4,7 +4,7 @@
       <a
         class="px-10 cursor-pointer text-14 text-gray-500 hover:text-gray-900"
         :class="{ 'text-gray-900': item.link.includes(componentsName) }"
-        :href="`/zh${item.link}`"
+        :href="`${basePath}/zh${item.link}`"
         v-for="(item, index) in menus"
         :key="index"
       >
@@ -16,7 +16,7 @@
         <a
           class="px-10 cursor-pointer text-14 text-gray-500 hover:text-gray-900 h-30 leading-30"
           :class="{ 'text-gray-900': item.link.includes(componentsName) }"
-          :href="`/zh${item.link}`"
+          :href="`${basePath}/zh${item.link}`"
           v-for="(item, index) in menus"
           :key="index"
         >
@@ -36,9 +36,11 @@
 import { ref } from 'vue';
 import { useData } from 'vitepress';
 import { useHash } from '../../use/hashChange';
+import useFilePath from '../../use/pagePath';
 
 const { theme } = useData();
 const { componentsName } = useHash();
+const { basePath } = useFilePath();
 
 const menus = theme.value.nav;
 const showMenu = ref(false);

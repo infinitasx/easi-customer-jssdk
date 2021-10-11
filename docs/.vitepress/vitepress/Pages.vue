@@ -2,7 +2,7 @@
   <div class="py-20 border-t border-gray-100 mt-20">
     <a
       class="text-gray-500 hover:text-gray-900 page-arrow-left flex items-center float-left text-14"
-      :href="prevPage.link"
+      :href="`${basePath}${prevPage.link}`"
       v-if="prevPage"
     >
       {{ prevPage.text }}
@@ -17,7 +17,7 @@
         float-right
         text-14
       "
-      :href="nextPage.link"
+      :href="`${basePath}${nextPage.link}`"
       v-if="nextPage"
     >
       {{ nextPage.text }}
@@ -33,7 +33,7 @@ import { useCurrentSide } from '../use/currentSideArr';
 const { sideArr } = useCurrentSide();
 
 const { theme, page } = useData();
-const { pagePath } = useFilePath();
+const { pagePath, basePath } = useFilePath();
 
 const pagesArr = computed(() => {
   const pagesArr = [];

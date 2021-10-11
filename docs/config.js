@@ -2,8 +2,8 @@
 // https://fttp.jjf-tech.cn/vitepress/config/basics.html
 module.exports = {
   title: 'EasiSdk',
+  base: '/easi-jssdk/2.0.0/dist/docs/',
   themeConfig: {
-    base: './',
     theme: false,
     repo: 'infinitasx/easi-customer-jssdk',
     logo: '/images/logo.png',

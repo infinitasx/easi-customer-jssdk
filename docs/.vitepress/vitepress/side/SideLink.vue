@@ -19,7 +19,7 @@
           :class="{ 'side-active': pagePath === item.link }"
           v-for="(item, index) in item.children"
           :key="index"
-          :href="item.link"
+          :href="`${basePath}${item.link}`"
         >
           {{ item.text }}
         </a>
@@ -31,7 +31,7 @@
 <script setup>
 import useFilePath from '../../use/pagePath';
 import { toRaw } from 'vue';
-const { pagePath } = useFilePath();
+const { pagePath, basePath } = useFilePath();
 const props = defineProps({
   sideGrpup: {
     type: Array,

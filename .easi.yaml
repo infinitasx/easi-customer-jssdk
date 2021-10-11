@@ -7,4 +7,4 @@ artifacts:
 notifications:
   feishu:
     webhook:
-      - https://open.feishu.cn/open-apis/bot/v2/hook/1fe451dd-3aff-4319-924c-5186329a33f3
+      - https://open.feishu.cn/open-apis/bot/v2/hook/7232fb5a-8ef2-4b77-8045-ce009bc8b637

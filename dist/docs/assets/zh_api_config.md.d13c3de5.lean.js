@@ -1,0 +1,1 @@
+import{_ as t,c as a,a as n,g as s}from"./app.3d271a4f.js";const e='{"title":"easi.config","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/config.md","lastUpdated":1633686787361}',p={},o=[s('',7)];var d=t(p,[["render",function(t,s,e,p,d,i){return n(),a("div",null,o)}]]);export{e as __pageData,d as default};
