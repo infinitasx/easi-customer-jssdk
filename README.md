@@ -9,7 +9,7 @@
 
 # Documentation
 
-For full documentation, visit [easi-jssdk](https://https://static.melbdelivery.com/easi-jssdk/2.0.0/docs/index.html)
+For full documentation, visit [easi-jssdk](https://static.melbdelivery.com/easi-jssdk/2.0.0/docs/index.html)
 
 # 📦 Install
 
