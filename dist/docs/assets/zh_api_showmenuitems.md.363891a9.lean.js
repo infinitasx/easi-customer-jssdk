@@ -1,1 +1,0 @@
-import{_ as t,c as a,a as e,g as s}from"./app.e4147315.js";const n='{"title":"easi.showMenuItems","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/showmenuitems.md","lastUpdated":1633686787372}',p={},o=[s('',8)];var d=t(p,[["render",function(t,s,n,p,d,i){return e(),a("div",null,o)}]]);export{n as __pageData,d as default};

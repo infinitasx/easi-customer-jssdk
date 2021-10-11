@@ -1,4 +1,11 @@
-import ElementPlus from 'element-plus';
+import {
+  ElDrawer,
+  ElButton,
+  ElPopover,
+  ElTooltip,
+  ElCollapseTransition,
+  ElRow,
+} from 'element-plus';
 import 'element-plus/theme-chalk/index.css';
 import 'highlight.js/styles/arduino-light.css';
 import '../scss/index.scss';
@@ -13,7 +20,12 @@ export default {
   ...DefaultTheme,
   Layout: Layout,
   enhanceApp({ app }) {
-    app.use(ElementPlus);
+    app.use(ElDrawer);
+    app.use(ElButton);
+    app.use(ElPopover);
+    app.use(ElTooltip);
+    app.use(ElCollapseTransition);
+    app.use(ElRow);
     app.component('Changelog', Changelog);
     app.component('Demo', Demo);
   },
