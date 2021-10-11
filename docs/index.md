@@ -28,7 +28,7 @@ const support = ref([{
 const dom = ref(null)
 onMounted(()=>{
   var typed = new Typed(dom.value, {
-    strings: ["npm install easi-jssdk", "yarn add easi-jssdk"],
+    strings: ["npm install https://github.com/infinitasx/easi-customer-jssdk.git#next", "yarn add https://github.com/infinitasx/easi-customer-jssdk.git#next"],
     typeSpeed: 30,
     loop: true,
     backDelay:2000
@@ -41,10 +41,10 @@ onMounted(()=>{
     <span v-for="item in 20" class="bg-gray-50"></span>
   </div>
   <div class="fixed top-72 sm:top-96 left-1/2 max-w-full transform -translate-x-1/2 flex justify-center flex-col items-center">
-    <h3 class="m-0 md:text-72 font-extralight tracking-widest font-sans text-42 sm:text-52">EASI SDK</h3>
-    <div class="w-240 mt-20 sm:mt-40 md:80  items-center p-10 bg-gray-50 border-2 border-gary-200 rounded-full hover:ring-green-500 hover:ring-opacity-50">
+    <h3 class="m-0 md:text-72 font-extralight tracking-widest font-sans text-42 sm:text-52">EASI JSSDK</h3>
+    <div class="w-600 mt-20 sm:mt-40 md:80  items-center p-10 bg-gray-50 border-2 border-gary-200 rounded-full hover:ring-green-500 hover:ring-opacity-50">
       <span class="mr-10 text-gray-400">$</span>
-      <span class="text-gray-700" ref="dom">{{typewriter}}</span>
+      <span class="text-gray-700" ref="dom"></span>
     </div>
     <!-- <div class="tags max-w-screen-md flex flex-wrap my-30 justify-center">
       <i class="text-12 text-gray-50 not-italic py-5 px-10 rounded-full border mx-10 mb-20" :class="`border-${item.color}-600 bg-${item.color}-600`" v-for="item in support">

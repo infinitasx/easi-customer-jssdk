@@ -1,0 +1,1 @@
+import{_ as n,c as t,a as s,g as a}from"./app.e4147315.js";const p='{"title":"easi.getUserInfo","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/userinfo.md","lastUpdated":1633686787374}',e={},o=[a('',9)];var c=n(e,[["render",function(n,a,p,e,c,u){return s(),t("div",null,o)}]]);export{p as __pageData,c as default};

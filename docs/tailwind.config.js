@@ -59,6 +59,7 @@ module.exports = {
         40: '40px',
         140: '140px',
         240: '240px',
+        600: '600px',
       },
       lineHeight: {
         30: '30px',

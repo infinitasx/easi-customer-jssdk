@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center" style="margin-top:100px">
   <a href="#">
     <img width="300px" src="./docs/public/images/logo.svg">
   </a>
@@ -9,7 +9,7 @@
 
 # Documentation
 
-For full documentation, visit [easi-sdk](https://static.melbdelivery.com/easi-jssdk/2.0.0/docs/index.html)
+For full documentation, visit [easi-jssdk](https://https://static.melbdelivery.com/easi-jssdk/2.0.0/docs/index.html)
 
 # 📦 Install
 
