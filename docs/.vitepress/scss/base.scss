@@ -72,13 +72,17 @@ table {
 }
 div[class*='language-'] {
   position: relative;
-  margin: 1rem -1.5rem;
   overflow-x: auto;
   @apply bg-gray-50 #{!important};
   code {
     background: none;
     color: initial;
   }
+}
+
+div[class*='language-'] {
+  width: 100%;
+  margin: 0 !important;
 }
 
 div[class*='language-']:before {
