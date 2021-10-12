@@ -1,1 +1,0 @@
-import{_ as n,c as a,a as t,g as s}from"./app.af2c92ab.js";const p='{"title":"easi.getNetworkType","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/getnetworktype.md","lastUpdated":1633686787364}',e={},o=[s('',8)];var c=n(e,[["render",function(n,s,p,e,c,u){return t(),a("div",null,o)}]]);export{p as __pageData,c as default};

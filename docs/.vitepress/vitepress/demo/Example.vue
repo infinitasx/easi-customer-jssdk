@@ -1,5 +1,7 @@
 <template>
-  <component v-if="demo" :is="demo" v-bind="$attrs" />
+  <diiv>
+    <component v-if="demo" :is="demo" v-bind="$attrs" />
+  </diiv>
 </template>
 
 <script setup>

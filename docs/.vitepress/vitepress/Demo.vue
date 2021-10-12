@@ -7,11 +7,7 @@
         @showCode="showCode"
         :code="rawSource"
       />
-      <Example
-        :file="path"
-        :demo="formatPathDemos[path]"
-        class="p-20 border border-gray-100 border-t-0"
-      />
+      <Example :file="path" :demo="formatPathDemos[path]" />
       <el-collapse-transition>
         <SourceCode
           v-if="showSource"
