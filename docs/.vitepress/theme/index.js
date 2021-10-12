@@ -6,6 +6,8 @@ import {
   ElCollapseTransition,
   ElRow,
 } from 'element-plus';
+import initPlugins from '../../config/client';
+
 import 'element-plus/theme-chalk/index.css';
 import 'highlight.js/styles/arduino-light.css';
 import '../scss/index.scss';
@@ -20,6 +22,7 @@ export default {
   ...DefaultTheme,
   Layout: Layout,
   enhanceApp({ app }) {
+    initPlugins(app);
     app.use(ElDrawer);
     app.use(ElButton);
     app.use(ElPopover);

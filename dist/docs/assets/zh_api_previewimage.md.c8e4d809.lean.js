@@ -1,1 +1,0 @@
-import{_ as t,c as a,a as n,g as s}from"./app.6a34fb71.js";const e='{"title":"easi.previewImage","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/previewimage.md","lastUpdated":1633686787370}',d={},p=[s('',8)];var r=t(d,[["render",function(t,s,e,d,r,o){return n(),a("div",null,p)}]]);export{e as __pageData,r as default};

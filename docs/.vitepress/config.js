@@ -1,5 +1,5 @@
 const mdPlugin = require('./plugins');
-const config = require('../config');
+const config = require('../config/node/index');
 // const build = argv.build || false;
 module.exports = {
   title: config.title,
