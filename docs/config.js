@@ -165,7 +165,7 @@ module.exports = {
       'link',
       {
         rel: 'icon',
-        href: '/favicon.ico',
+        href: '/easi-jssdk/2.0.0/docs/public/favicon.ico',
       },
     ],
   ],
