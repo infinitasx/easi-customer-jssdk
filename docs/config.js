@@ -1,8 +1,9 @@
 // title、themeConfig、head参考官网配置
-// https://fttp.jjf-tech.cn/vitepress/config/basics.html
+// https://vitepress.vuejs.org/config/basics.html
+const { version, name } = require('../package.json');
 module.exports = {
-  title: 'EasiSdk',
-  base: '/easi-jssdk/2.0.0/docs/', // 部署路径
+  title: name,
+  base: `/${name}/${version}/docs/`, // 部署路径
   themeConfig: {
     theme: false,
     repo: 'infinitasx/easi-customer-jssdk',
@@ -165,7 +166,7 @@ module.exports = {
       'link',
       {
         rel: 'icon',
-        href: '/easi-jssdk/2.0.0/docs/images/favicon.ico',
+        href: `/${name}/${version}/docs/images/favicon.ico`,
       },
     ],
   ],
