@@ -28,6 +28,8 @@ import {
   getUserInfo,
 } from '../base';
 
+import oldEasi from './oldEasi';
+
 const { ua, isEasi, isMalaysia, isAndroid, isIos, version } = getEnv();
 
 const easi = {
@@ -65,4 +67,10 @@ const easi = {
   version,
 };
 
-export default easi;
+let target: any = easi;
+const isNew = navigator.userAgent.includes('JssdkVersion');
+if (!isNew) {
+  target = oldEasi;
+}
+
+export default target;

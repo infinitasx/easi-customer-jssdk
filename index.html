@@ -1,0 +1,53 @@
+<!--
+ * @Author: huyanhai
+ * @since: 2021-10-28 17:25:21
+ * @LastAuthor: huyanhai
+ * @lastTime: 2021-10-28 17:25:21
+ * @FilePath: /easi-customer-jssdk/index.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="app"></div>
+    <script src="https://unpkg.com/vconsole/dist/vconsole.min.js"></script>
+    <script src="./dist/easi/index.min.js"></script>
+    <script>
+        var vConsole = new window.VConsole();
+        easi.addCart && easi.addCart(
+            result => {
+                if (result.code === 0) {
+                    // 调用成功
+                    console.log(result.data);
+                }
+            }, {
+                itemId: 1234,
+                openDetails: true,
+            },
+        );
+
+        easi.config && easi.config({
+            debug: true, // 开发模式，打印日志
+            jsApiList: ['chooseImage']
+        })
+
+        easi.ready && easi.ready((e) => {
+            easi.getDeviceLocation({
+                type: "wgs84",
+                success: (res) => {
+                    alert(JSON.stringify(res))
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>

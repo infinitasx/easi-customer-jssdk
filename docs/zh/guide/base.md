@@ -4,7 +4,9 @@
 
 ##### 我们建议使用软件包管理器 (NPM, [Yarn](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.io/)) 安装 EASI JSSdk, 您可以使用捆绑程序，例如 [Vite](https://vitejs.dev) 和 [webpack](https://webpack.js.org/).
 
-```shell
+## 通过 npm 包安装
+
+```bash
 # Choose a package manager you like.
 
 # NPM
@@ -17,7 +19,7 @@ $ yarn add https://github.com/infinitasx/easi-customer-jssdk.git#next
 $ pnpm install https://github.com/infinitasx/easi-customer-jssdk.git#next
 ```
 
-## 浏览器直接引入
+## 通过 CDN 安装
 
 ```html
 <head>

@@ -2,9 +2,7 @@
 
 本节介绍如何在您的项目中使用 EASI JSSdk。
 
-## 用法
-
-### ES modules
+## ES modules
 
 ```typescript
 // main.ts
@@ -16,7 +14,7 @@ easi.config({});
 delivery.config({});
 ```
 
-### 浏览器
+## 浏览器
 
 ```html
 <html>
@@ -35,9 +33,9 @@ delivery.config({});
 </html>
 ```
 
-### 使用示例
+## 使用示例
 
-```Typescript
+```js
 easi.getXXX({
   param1: 1,
   param2: 'string',
@@ -63,9 +61,9 @@ easi.getXXX({
 })
 ```
 
-### sdk 响应示例
+## sdk 响应示例
 
-```Typescript
+```js
 // 成功响应
 {
   errMsg:"config:ok",

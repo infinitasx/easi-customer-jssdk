@@ -1,26 +1,27 @@
 a {
-  text-decoration: none;
-  color: var(--link-color);
-  &:hover {
-    text-decoration: none !important;
-  }
+    text-decoration: none;
+    color: var(--link-color);
+    &:hover {
+        text-decoration: none !important;
+    }
 }
+
 a.header-anchor {
-  float: left;
-  margin-top: 0.125em;
-  margin-left: -0.87em;
-  padding-right: 0.23em;
-  font-size: 0.85em;
-  opacity: 0;
+    float: left;
+    margin-top: 0.125em;
+    margin-left: -0.87em;
+    padding-right: 0.23em;
+    font-size: 0.85em;
+    opacity: 0;
 }
 
 a.header-anchor:hover,
 a.header-anchor:focus {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 h2 {
-  border-bottom: none !important;
+    border-bottom: none !important;
 }
 
 h1:hover .header-anchor,
@@ -35,152 +36,153 @@ h5:hover .header-anchor,
 h5:focus .header-anchor,
 h6:hover .header-anchor,
 h6:focus .header-anchor {
-  opacity: 1;
+    opacity: 1;
 }
 
 .hide-scoll-bar {
-  &::-webkit-scrollbar {
-    display: none;
-  }
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 table {
-  display: block;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  overflow-x: auto;
-  font-size: 14px;
-  tr {
-    border-top: 1px solid #dedede;
-    td:nth-child(2) {
-      white-space: pre-wrap;
-      min-width: 11.62rem;
+    display: block;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    overflow-x: auto;
+    font-size: 14px;
+    tr {
+        border-top: 1px solid #dedede;
+        td:nth-child(2) {
+            white-space: pre-wrap;
+            min-width: 11.62rem;
+        }
     }
-  }
-  tr:nth-child(2n) {
-    background-color: var(--bg-color-mute);
-  }
-  th,
-  td {
-    white-space: nowrap;
-    border: 0;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    padding: 0.6em 1em;
-    text-align: left;
-  }
-}
-div[class*='language-'] {
-  position: relative;
-  overflow-x: auto;
-  @apply bg-gray-50 #{!important};
-  code {
-    background: none;
-    color: initial;
-  }
+    tr:nth-child(2n) {
+        background-color: var(--bg-color-mute);
+    }
+    th,
+    td {
+        white-space: nowrap;
+        border: 0;
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+        padding: 0.6em 1em;
+        text-align: left;
+    }
 }
 
 div[class*='language-'] {
-  width: 100%;
-  margin: 0 !important;
+    position: relative;
+    overflow-x: auto;
+    @apply bg-gray-50 #{!important};
+    code {
+        background: none;
+        color: initial;
+    }
+}
+
+div[class*='language-'] {
+    width: 100%;
+    margin: 0 !important;
 }
 
 div[class*='language-']:before {
-  position: absolute;
-  top: 0.6em;
-  right: 1em;
-  z-index: 2;
-  font-size: 0.8rem;
-  color: #888;
+    position: absolute;
+    top: 0.6em;
+    right: 1em;
+    z-index: 2;
+    font-size: 0.8rem;
+    color: #888;
 }
 
 div[class~='language-html']:before,
 div[class~='language-markup']:before {
-  content: 'html';
+    content: 'html';
 }
 
 div[class~='language-md']:before,
 div[class~='language-markdown']:before {
-  content: 'md';
+    content: 'md';
 }
 
 div[class~='language-css']:before {
-  content: 'css';
+    content: 'css';
 }
 
 div[class~='language-sass']:before {
-  content: 'sass';
+    content: 'sass';
 }
 
 div[class~='language-scss']:before {
-  content: 'scss';
+    content: 'scss';
 }
 
 div[class~='language-less']:before {
-  content: 'less';
+    content: 'less';
 }
 
 div[class~='language-stylus']:before {
-  content: 'styl';
+    content: 'styl';
 }
 
 div[class~='language-js']:before,
 div[class~='language-javascript']:before {
-  content: 'js';
+    content: 'js';
 }
 
 div[class~='language-ts']:before,
 div[class~='language-typescript']:before {
-  content: 'ts';
+    content: 'ts';
 }
 
 div[class~='language-json']:before {
-  content: 'json';
+    content: 'json';
 }
 
 div[class~='language-rb']:before,
 div[class~='language-ruby']:before {
-  content: 'rb';
+    content: 'rb';
 }
 
 div[class~='language-py']:before,
 div[class~='language-python']:before {
-  content: 'py';
+    content: 'py';
 }
 
 div[class~='language-sh']:before,
 div[class~='language-bash']:before {
-  content: 'sh';
+    content: 'sh';
 }
 
 div[class~='language-php']:before {
-  content: 'php';
+    content: 'php';
 }
 
 div[class~='language-go']:before {
-  content: 'go';
+    content: 'go';
 }
 
 div[class~='language-rust']:before {
-  content: 'rust';
+    content: 'rust';
 }
 
 div[class~='language-java']:before {
-  content: 'java';
+    content: 'java';
 }
 
 div[class~='language-c']:before {
-  content: 'c';
+    content: 'c';
 }
 
 div[class~='language-yaml']:before {
-  content: 'yaml';
+    content: 'yaml';
 }
 
 div[class~='language-dockerfile']:before {
-  content: 'dockerfile';
+    content: 'dockerfile';
 }
 
 div[class~='language-vue']:before {
-  content: 'vue';
+    content: 'vue';
 }
