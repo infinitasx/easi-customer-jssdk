@@ -1,70 +1,21 @@
 import { getEnv } from '../utils/env';
-import {
-  config,
-  ready,
-  error,
-  getNetworkType,
-  checkJsApi,
-  updateWechatTimelineShareData,
-  updateWechatMessageShareData,
-  updateFacebookTimelineShareData,
-  copy,
-  chooseImage,
-  getLocalImageData,
-  previewImage,
-  openLocation,
-  getDeviceLocation,
-  scanQRCode,
-  scanBarcode,
-  closeWindow,
-  hideMenuBar,
-  showMenuBar,
-  hideMenuItems,
-  showMenuItems,
-  hideNavBar,
-  showNavBar,
-  openWebPage,
-  openAppPage,
-  getUserInfo,
-} from '../base';
+import * as base from '../base';
+
+import * as operational from './operational';
 
 import oldEasi from './oldEasi';
 
 const { ua, isEasi, isMalaysia, isAndroid, isIos, version } = getEnv();
 
 const easi = {
-  config,
-  ready,
-  error,
-  getNetworkType,
-  checkJsApi,
-  updateWechatTimelineShareData,
-  updateWechatMessageShareData,
-  updateFacebookTimelineShareData,
-  copy,
-  chooseImage,
-  getLocalImageData,
-  previewImage,
-  openLocation,
-  getDeviceLocation,
-  scanQRCode,
-  scanBarcode,
-  closeWindow,
-  hideMenuBar,
-  showMenuBar,
-  hideMenuItems,
-  showMenuItems,
-  hideNavBar,
-  showNavBar,
-  openWebPage,
-  openAppPage,
-  getUserInfo,
   ua,
   isEasi,
   isMalaysia,
   isAndroid,
   isIos,
   version,
+  ...base,
+  ...operational,
 };
 
 let target: any = easi;

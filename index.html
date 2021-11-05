@@ -2,7 +2,7 @@
  * @Author: huyanhai
  * @since: 2021-10-28 17:25:21
  * @LastAuthor: huyanhai
- * @lastTime: 2021-10-28 17:25:21
+ * @lastTime: 2021-11-04 15:55:12
  * @FilePath: /easi-customer-jssdk/index.html
  * @Description: 
 -->
@@ -22,6 +22,8 @@
     <script src="./dist/easi/index.min.js"></script>
     <script>
         var vConsole = new window.VConsole();
+
+        console.log(easi);
         easi.addCart && easi.addCart(
             result => {
                 if (result.code === 0) {
