@@ -1,12 +1,12 @@
 import type { BaseParamesType } from '../bridge/interface';
-import type { CheckJsApiType, ConfigParamesType, LocationType, ShareDataType, CopyType, ChooseImageType, LocalImageDataType, PreviewImageType, OpenLocationType, ScanCodeType, MenuItemsType, OpenWebPageType, OpenAppPageType } from './interface';
+import { IBase } from "./interface";
 /**
  * 检测api配置项
  * @param {object} userOptions 用户配置项
  * @param {boolean} userOptions.debug 是否启用debug
  * @param {Array} userOptions.jsApiList 待检测的api列表
  */
-declare const config: (userOptions: ConfigParamesType) => void;
+declare const config: (userOptions: IBase.ConfigParamesType) => void;
 /**
  * config调用成功后执行函数
  * @param {Function} callback 回调函数
@@ -38,7 +38,7 @@ declare const getNetworkType: (userOptions: BaseParamesType) => void;
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const checkJsApi: (userOptions: CheckJsApiType) => void;
+declare const checkJsApi: (userOptions: IBase.CheckJsApiType) => void;
 /**
  * 分享到微信联系人
  * @param {object} userOptions 用户配置项
@@ -50,7 +50,7 @@ declare const checkJsApi: (userOptions: CheckJsApiType) => void;
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const updateWechatMessageShareData: (userOptions: ShareDataType) => void;
+declare const updateWechatMessageShareData: (userOptions: IBase.ShareDataType) => void;
 /**
  * 分享到朋友圈
  * @param {object} userOptions 用户配置项
@@ -62,7 +62,7 @@ declare const updateWechatMessageShareData: (userOptions: ShareDataType) => void
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const updateWechatTimelineShareData: (userOptions: ShareDataType) => void;
+declare const updateWechatTimelineShareData: (userOptions: IBase.ShareDataType) => void;
 /**
  * 分享到Facebook时间线
  * @param {object} userOptions 用户配置项
@@ -74,7 +74,7 @@ declare const updateWechatTimelineShareData: (userOptions: ShareDataType) => voi
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const updateFacebookTimelineShareData: (userOptions: ShareDataType) => void;
+declare const updateFacebookTimelineShareData: (userOptions: IBase.ShareDataType) => void;
 /**
  * 复制文本内容
  * @param {object} userOptions 用户配置项
@@ -83,7 +83,7 @@ declare const updateFacebookTimelineShareData: (userOptions: ShareDataType) => v
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const copy: (userOptions: CopyType) => void;
+declare const copy: (userOptions: IBase.CopyType) => void;
 /**
  * 选取图片
  * @param {object} userOptions 用户配置项
@@ -95,7 +95,7 @@ declare const copy: (userOptions: CopyType) => void;
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const chooseImage: (userOptions: ChooseImageType) => void;
+declare const chooseImage: (userOptions: IBase.ChooseImageType) => void;
 /**
  * 获取本地图片Base64数据
  * @param {object} userOptions 用户配置项
@@ -104,7 +104,7 @@ declare const chooseImage: (userOptions: ChooseImageType) => void;
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const getLocalImageData: (userOptions: LocalImageDataType) => void;
+declare const getLocalImageData: (userOptions: IBase.LocalImageDataType) => void;
 /**
  * 预览图片
  * @param {object} userOptions 用户配置项
@@ -114,7 +114,7 @@ declare const getLocalImageData: (userOptions: LocalImageDataType) => void;
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const previewImage: (userOptions: PreviewImageType) => void;
+declare const previewImage: (userOptions: IBase.PreviewImageType) => void;
 /**
  * 第三方地图打开地址
  * @param {object} userOptions 用户配置项
@@ -125,7 +125,7 @@ declare const previewImage: (userOptions: PreviewImageType) => void;
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const openLocation: (userOptions: OpenLocationType) => void;
+declare const openLocation: (userOptions: IBase.OpenLocationType) => void;
 /**
  * 获取设备地址
  * @param {object} userOptions 用户配置项
@@ -134,7 +134,7 @@ declare const openLocation: (userOptions: OpenLocationType) => void;
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const getDeviceLocation: (userOptions: LocationType) => void;
+declare const getDeviceLocation: (userOptions: IBase.LocationType) => void;
 /**
  * 扫描二维码
  * @param {object} userOptions 用户配置项
@@ -143,7 +143,7 @@ declare const getDeviceLocation: (userOptions: LocationType) => void;
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const scanQRCode: (userOptions: ScanCodeType) => void;
+declare const scanQRCode: (userOptions: IBase.ScanCodeType) => void;
 /**
  * 扫描条形码
  * @param {object} userOptions 用户配置项
@@ -152,7 +152,7 @@ declare const scanQRCode: (userOptions: ScanCodeType) => void;
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const scanBarcode: (userOptions: ScanCodeType) => void;
+declare const scanBarcode: (userOptions: IBase.ScanCodeType) => void;
 /**
  * 关闭当前窗口
  * @param 无
@@ -173,13 +173,13 @@ declare const showMenuBar: () => void;
  * @param {object} userOptions 用户配置项
  * @param {Array} userOptions.menuItems 隐藏的菜单项
  */
-declare const hideMenuItems: (userOptions: MenuItemsType) => void;
+declare const hideMenuItems: (userOptions: IBase.MenuItemsType) => void;
 /**
  * 批量显示菜单项
  * @param {object} userOptions 用户配置项
  * @param {Array} userOptions.menuItems 显示的菜单项
  */
-declare const showMenuItems: (userOptions: MenuItemsType) => void;
+declare const showMenuItems: (userOptions: IBase.MenuItemsType) => void;
 /**
  * 隐藏导航栏
  * @param 无
@@ -195,13 +195,13 @@ declare const showNavBar: () => void;
  * @param {object} userOptions 用户配置项
  * @param {string} userOptions.url 目标页面
  */
-declare const openWebPage: (userOptions: OpenWebPageType) => void;
+declare const openWebPage: (userOptions: IBase.OpenWebPageType) => void;
 /**
  * 在新窗口打开一个Web页面
  * @param {object} userOptions 用户配置项
  * @param {string} userOptions.scheme scheme地址
  */
-declare const openAppPage: (userOptions: OpenAppPageType) => void;
+declare const openAppPage: (userOptions: IBase.OpenAppPageType) => void;
 /**
  * 获取用户信息
  * @param {Object} userOptions 用户配置项

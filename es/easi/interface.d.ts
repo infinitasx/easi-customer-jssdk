@@ -7,8 +7,7 @@ interface addToCartParamesType extends BaseParamesType {
     itemId: Number;
     openDetails?: boolean;
 }
-interface removeFromCartParamesType extends BaseParamesType {
-    itemId: Number;
+interface removeFromCartParamesType extends Omit<addToCartParamesType, 'openDetails'> {
 }
 interface favouritesParamesType extends BaseParamesType {
     shopId: Number;

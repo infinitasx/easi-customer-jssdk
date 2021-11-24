@@ -15,9 +15,8 @@ interface addToCartParamesType extends BaseParamesType {
 }
 
 // 从全局购物车中移除
-interface removeFromCartParamesType extends BaseParamesType {
-  itemId: Number;
-}
+interface removeFromCartParamesType extends Omit<addToCartParamesType,'openDetails'> {}
+
 
 // 收藏夹
 interface favouritesParamesType extends BaseParamesType {

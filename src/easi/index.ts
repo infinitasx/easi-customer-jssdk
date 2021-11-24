@@ -1,19 +1,12 @@
 import { getEnv } from '../utils/env';
-import * as base from '../base';
 
+import * as base from '../base';
 import * as operational from './operational';
 
 import oldEasi from './oldEasi';
 
-const { ua, isEasi, isMalaysia, isAndroid, isIos, version } = getEnv();
-
 const easi = {
-  ua,
-  isEasi,
-  isMalaysia,
-  isAndroid,
-  isIos,
-  version,
+  ...getEnv(),
   ...base,
   ...operational,
 };

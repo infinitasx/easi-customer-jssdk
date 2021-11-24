@@ -1089,22 +1089,7 @@ var Easi = /*#__PURE__*/function () {
 
 var oldEasi = new Easi();
 
-var _getEnv = getEnv(),
-    ua = _getEnv.ua,
-    isEasi = _getEnv.isEasi,
-    isMalaysia = _getEnv.isMalaysia,
-    isAndroid = _getEnv.isAndroid,
-    isIos = _getEnv.isIos,
-    version = _getEnv.version;
-
-var easi = _objectSpread2(_objectSpread2({
-  ua: ua,
-  isEasi: isEasi,
-  isMalaysia: isMalaysia,
-  isAndroid: isAndroid,
-  isIos: isIos,
-  version: version
-}, base), operational);
+var easi = _objectSpread2(_objectSpread2(_objectSpread2({}, getEnv()), base), operational);
 
 var target = easi;
 var isNew = navigator.userAgent.includes('JssdkVersion');

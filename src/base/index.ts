@@ -2,25 +2,10 @@ import { call, callBackOperation } from '../bridge';
 
 import { AppResultEventEnum } from '../bridge/interface';
 import type { BaseParamesType, AppResponseType } from '../bridge/interface';
-import type {
-  InitResultType,
-  CheckJsApiType,
-  ConfigParamesType,
-  LocationType,
-  ShareDataType,
-  CopyType,
-  ChooseImageType,
-  LocalImageDataType,
-  PreviewImageType,
-  OpenLocationType,
-  ScanCodeType,
-  MenuItemsType,
-  OpenWebPageType,
-  OpenAppPageType,
-} from './interface';
+import  {IBase} from "./interface"
 
 // 初始化
-const initResult: InitResultType = {};
+const initResult: IBase.InitResultType = {};
 
 /**
  * 检测api配置项
@@ -28,7 +13,7 @@ const initResult: InitResultType = {};
  * @param {boolean} userOptions.debug 是否启用debug
  * @param {Array} userOptions.jsApiList 待检测的api列表
  */
-const config = (userOptions: ConfigParamesType) => {
+const config = (userOptions: IBase.ConfigParamesType) => {
   if (userOptions?.debug) console.log(`debug:${JSON.stringify(userOptions)}`);
   call(
     'config',
@@ -82,7 +67,7 @@ const getNetworkType = (userOptions: BaseParamesType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const checkJsApi = (userOptions: CheckJsApiType) => {
+const checkJsApi = (userOptions: IBase.CheckJsApiType) => {
   call('checkJsApi', { jsApiList: userOptions.jsApiList }, callBackOperation, userOptions);
 };
 
@@ -97,7 +82,7 @@ const checkJsApi = (userOptions: CheckJsApiType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const updateWechatMessageShareData = (userOptions: ShareDataType) => {
+const updateWechatMessageShareData = (userOptions: IBase.ShareDataType) => {
   call(
     'updateWechatMessageShareData',
     {
@@ -122,7 +107,7 @@ const updateWechatMessageShareData = (userOptions: ShareDataType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const updateWechatTimelineShareData = (userOptions: ShareDataType) => {
+const updateWechatTimelineShareData = (userOptions: IBase.ShareDataType) => {
   call(
     'updateWechatTimelineShareData',
     { title: userOptions.title, link: userOptions.link, imgUrl: userOptions.imgUrl },
@@ -142,7 +127,7 @@ const updateWechatTimelineShareData = (userOptions: ShareDataType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const updateFacebookTimelineShareData = (userOptions: ShareDataType) => {
+const updateFacebookTimelineShareData = (userOptions: IBase.ShareDataType) => {
   call(
     'updateFacebookTimelineShareData',
     { title: userOptions.title, link: userOptions.link, imgUrl: userOptions.imgUrl },
@@ -159,7 +144,7 @@ const updateFacebookTimelineShareData = (userOptions: ShareDataType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const copy = (userOptions: CopyType) => {
+const copy = (userOptions: IBase.CopyType) => {
   call('copy', { content: userOptions.content }, callBackOperation, userOptions);
 };
 
@@ -174,7 +159,7 @@ const copy = (userOptions: CopyType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const chooseImage = (userOptions: ChooseImageType) => {
+const chooseImage = (userOptions: IBase.ChooseImageType) => {
   call(
     'chooseImage',
     {
@@ -196,7 +181,7 @@ const chooseImage = (userOptions: ChooseImageType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const getLocalImageData = (userOptions: LocalImageDataType) => {
+const getLocalImageData = (userOptions: IBase.LocalImageDataType) => {
   call(
     'getLocalImageData',
     {
@@ -216,7 +201,7 @@ const getLocalImageData = (userOptions: LocalImageDataType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const previewImage = (userOptions: PreviewImageType) => {
+const previewImage = (userOptions: IBase.PreviewImageType) => {
   call(
     'previewImage',
     {
@@ -238,7 +223,7 @@ const previewImage = (userOptions: PreviewImageType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const openLocation = (userOptions: OpenLocationType) => {
+const openLocation = (userOptions: IBase.OpenLocationType) => {
   call(
     'openLocation',
     {
@@ -259,7 +244,7 @@ const openLocation = (userOptions: OpenLocationType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const getDeviceLocation = (userOptions: LocationType) => {
+const getDeviceLocation = (userOptions: IBase.LocationType) => {
   call(
     'getDeviceLocation',
     {
@@ -278,7 +263,7 @@ const getDeviceLocation = (userOptions: LocationType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const scanQRCode = (userOptions: ScanCodeType) => {
+const scanQRCode = (userOptions: IBase.ScanCodeType) => {
   call(
     'scanQRCode',
     {
@@ -297,7 +282,7 @@ const scanQRCode = (userOptions: ScanCodeType) => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const scanBarcode = (userOptions: ScanCodeType) => {
+const scanBarcode = (userOptions: IBase.ScanCodeType) => {
   call(
     'scanBarcode',
     {
@@ -337,7 +322,7 @@ const showMenuBar = () => {
  * @param {object} userOptions 用户配置项
  * @param {Array} userOptions.menuItems 隐藏的菜单项
  */
-const hideMenuItems = (userOptions: MenuItemsType) => {
+const hideMenuItems = (userOptions: IBase.MenuItemsType) => {
   call(
     'hideMenuItems',
     {
@@ -353,7 +338,7 @@ const hideMenuItems = (userOptions: MenuItemsType) => {
  * @param {object} userOptions 用户配置项
  * @param {Array} userOptions.menuItems 显示的菜单项
  */
-const showMenuItems = (userOptions: MenuItemsType) => {
+const showMenuItems = (userOptions: IBase.MenuItemsType) => {
   call(
     'showMenuItems',
     {
@@ -385,7 +370,7 @@ const showNavBar = () => {
  * @param {object} userOptions 用户配置项
  * @param {string} userOptions.url 目标页面
  */
-const openWebPage = (userOptions: OpenWebPageType) => {
+const openWebPage = (userOptions: IBase.OpenWebPageType) => {
   call('openWebPage', {
     url: userOptions.url,
   });
@@ -396,7 +381,7 @@ const openWebPage = (userOptions: OpenWebPageType) => {
  * @param {object} userOptions 用户配置项
  * @param {string} userOptions.scheme scheme地址
  */
-const openAppPage = (userOptions: OpenAppPageType) => {
+const openAppPage = (userOptions: IBase.OpenAppPageType) => {
   call('openAppPage', {
     scheme: userOptions.scheme,
   });
