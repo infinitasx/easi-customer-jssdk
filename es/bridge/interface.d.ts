@@ -12,11 +12,11 @@ interface BridgeType {
     callHandler: (methodName: string, data: any, callBack: (response: AppResponseType) => void) => void;
 }
 interface BaseParamesType {
-    success?: (...args: any[]) => void;
-    fail?: (...args: any[]) => void;
-    cancel?: (...args: any[]) => void;
-    complete?: (...args: any[]) => void;
-    trigger?: (...args: any[]) => void;
+    success?: (...args: any) => void;
+    fail?: (...args: any) => void;
+    cancel?: (...args: any) => void;
+    complete?: (...args: any) => void;
+    trigger?: (...args: any) => void;
 }
 declare type CallBackOperationType = {
     (response: AppResponseType, userOptions: BaseParamesType, methodName: string): void;

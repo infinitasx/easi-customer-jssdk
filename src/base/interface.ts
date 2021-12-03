@@ -79,6 +79,13 @@ export interface OpenWebPageType extends BaseParamesType {
   url: string;
 }
 
+// 打开web页面接口类型
+export interface LoadingType {
+  show: boolean;
+}
+
+
+
 // 打开App页面接口类型
 export interface OpenAppPageType extends BaseParamesType {
   scheme: string;

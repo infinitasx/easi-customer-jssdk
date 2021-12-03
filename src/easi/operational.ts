@@ -112,7 +112,7 @@ const addToFavourites = (userOptions: favouritesParamesType) => {
  */
 const removeFromFavourites = (userOptions: favouritesParamesType) => {
   call(
-    'removeFromFavourites ',
+    'removeFromFavourites',
     {
       shopId: userOptions.shopId,
     },
@@ -131,7 +131,7 @@ const removeFromFavourites = (userOptions: favouritesParamesType) => {
  */
 const openAppShop = (userOptions: favouritesParamesType) => {
   call(
-    'openAppShop ',
+    'openAppShop',
     {
       shopId: userOptions.shopId,
     },

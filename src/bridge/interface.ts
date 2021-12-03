@@ -23,11 +23,11 @@ interface BridgeType {
 
 // 用户参数类型
 interface BaseParamesType {
-  success?: (...args: any[]) => void;
-  fail?: (...args: any[]) => void;
-  cancel?: (...args: any[]) => void;
-  complete?: (...args: any[]) => void;
-  trigger?: (...args: any[]) => void;
+  success?: (...args: any) => void;
+  fail?: (...args: any) => void;
+  cancel?: (...args: any) => void;
+  complete?: (...args: any) => void;
+  trigger?: (...args: any) => void;
 }
 
 // 调用Bridge方法类型

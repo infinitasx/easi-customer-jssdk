@@ -210,4 +210,12 @@ declare const openAppPage: (userOptions: IBase.OpenAppPageType) => void;
  * @param {Function} userOptions.complete 完成回调
  */
 declare const getUserInfo: (userOptions: BaseParamesType) => void;
-export { config, ready, error, getNetworkType, checkJsApi, updateWechatTimelineShareData, updateWechatMessageShareData, updateFacebookTimelineShareData, copy, chooseImage, getLocalImageData, previewImage, openLocation, getDeviceLocation, scanQRCode, scanBarcode, closeWindow, hideMenuBar, showMenuBar, hideMenuItems, showMenuItems, hideNavBar, showNavBar, openWebPage, openAppPage, getUserInfo, };
+/**
+ * 显示客户端的loading
+ */
+declare const showLoading: () => void;
+/**
+ * 隐藏客户端的loading
+ */
+declare const hideLoading: () => void;
+export { config, ready, error, getNetworkType, checkJsApi, updateWechatTimelineShareData, updateWechatMessageShareData, updateFacebookTimelineShareData, copy, chooseImage, getLocalImageData, previewImage, openLocation, getDeviceLocation, scanQRCode, scanBarcode, closeWindow, hideMenuBar, showMenuBar, hideMenuItems, showMenuItems, hideNavBar, showNavBar, openWebPage, openAppPage, getUserInfo, showLoading, hideLoading };

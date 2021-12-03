@@ -50,7 +50,7 @@ const callBackOperation: CallBackOperationType = (
  * @param {Function} callback 回调函数
  * @returns
  */
-const setupWebViewJavascriptBridge = (callback: (arg: any) => void): any => {
+const setupWebViewJavascriptBridge = (callback: (arg: BridgeType) => void): string[] | void => {
   if (window.WebViewJavascriptBridge) {
     return callback(window.WebViewJavascriptBridge);
   } else {

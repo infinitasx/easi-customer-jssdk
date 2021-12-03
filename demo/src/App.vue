@@ -23,6 +23,7 @@
     <button @click="openAppPage">打开一个原生页面</button>
     <button @click="getUserInfo">获取用户信息</button>
     <button @click="goTowPage">跳转二级页面web</button>
+    <button @click="showLoading">打开Loading</button>
   </div>
   <div>业务接口</div>
   <div class="op-box">
@@ -53,6 +54,7 @@ let localtion = reactive({
   longitude: 0.0,
 });
 let result = reactive({ data: {} });
+let timer = ref<number | null>(null);
 
 easi.config({
   debug: false,
@@ -217,6 +219,16 @@ const openAppPage = () => {
   });
 };
 
+const showLoading = () => {
+  easi.showLoading();
+  if (timer.value) {
+    clearTimeout(timer.value);
+  }
+  timer.value = setTimeout(() => {
+    easi.hideLoading();
+  }, 2e3);
+};
+
 const getUserInfo = () => {
   easi.getUserInfo({
     success: (res: any) => {
@@ -233,6 +245,10 @@ const goTowPage = () => {
 const getEASILocation = () => {
   easi.getEASILocation({
     type: 'wgs84',
+    success: (res: any) => {
+      console.log(res);
+      result.data = res;
+    },
   });
 };
 
@@ -248,35 +264,55 @@ const addToCart = () => {
   easi.addToCart({
     itemId: '4167467',
     openDetails: true,
+    success: (res: any) => {
+      console.log(res);
+      result.data = res;
+    },
   });
 };
 
 const removeFromCart = () => {
   easi.removeFromCart({
     itemId: '4167467',
+    success: (res: any) => {
+      console.log(res);
+      result.data = res;
+    },
   });
 };
 
 const addToFavourites = () => {
   easi.addToFavourites({
     shopId: '2',
+    success: (res: any) => {
+      console.log(res);
+      result.data = res;
+    },
   });
 };
 
 const removeFromFavourites = () => {
   easi.removeFromFavourites({
     shopId: '2',
+    success: (res: any) => {
+      console.log(res);
+      result.data = res;
+    },
   });
 };
 
 const openAppShop = () => {
   easi.openAppShop({
     shopId: '2',
+    success: (res: any) => {
+      console.log(res);
+      result.data = res;
+    },
   });
 };
 
 const openAppCoupons = () => {
-  easi.openAppShop();
+  easi.openAppCoupons();
 };
 
 const openAppAddress = () => {
@@ -298,6 +334,10 @@ const openAppCustomerService = () => {
 const openAppTabBar = () => {
   easi.openAppTabBar({
     id: 'home',
+    success: (res: any) => {
+      console.log(res);
+      result.data = res;
+    },
   });
 };
 

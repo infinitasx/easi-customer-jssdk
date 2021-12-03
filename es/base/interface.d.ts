@@ -53,6 +53,9 @@ export declare namespace IBase {
     interface OpenWebPageType extends BaseParamesType {
         url: string;
     }
+    interface LoadingType {
+        show: boolean;
+    }
     interface OpenAppPageType extends BaseParamesType {
         scheme: string;
     }

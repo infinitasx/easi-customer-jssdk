@@ -589,6 +589,22 @@ var openAppPage = function openAppPage(userOptions) {
 var getUserInfo = function getUserInfo(userOptions) {
   call('getUserInfo', {}, callBackOperation, userOptions);
 };
+/**
+ * 显示客户端的loading
+ */
+
+
+var showLoading = function showLoading() {
+  call('showLoading');
+};
+/**
+ * 隐藏客户端的loading
+ */
+
+
+var hideLoading = function hideLoading() {
+  call('hideLoading');
+};
 
 var base = /*#__PURE__*/Object.freeze({
   __proto__: null,
@@ -617,7 +633,9 @@ var base = /*#__PURE__*/Object.freeze({
   showNavBar: showNavBar,
   openWebPage: openWebPage,
   openAppPage: openAppPage,
-  getUserInfo: getUserInfo
+  getUserInfo: getUserInfo,
+  showLoading: showLoading,
+  hideLoading: hideLoading
 });
 
 /**
@@ -711,7 +729,7 @@ var addToFavourites = function addToFavourites(userOptions) {
 
 
 var removeFromFavourites = function removeFromFavourites(userOptions) {
-  call('removeFromFavourites ', {
+  call('removeFromFavourites', {
     shopId: userOptions.shopId
   }, callBackOperation, userOptions);
 };
@@ -726,7 +744,7 @@ var removeFromFavourites = function removeFromFavourites(userOptions) {
 
 
 var openAppShop = function openAppShop(userOptions) {
-  call('openAppShop ', {
+  call('openAppShop', {
     shopId: userOptions.shopId
   }, callBackOperation, userOptions);
 };

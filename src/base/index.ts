@@ -398,6 +398,21 @@ const getUserInfo = (userOptions: BaseParamesType) => {
   call('getUserInfo', {}, callBackOperation, userOptions);
 };
 
+
+/**
+ * 显示客户端的loading
+ */
+ const showLoading = () => {
+  call('showLoading');
+};
+
+/**
+ * 隐藏客户端的loading
+ */
+ const hideLoading = () => {
+  call('hideLoading');
+};
+
 export {
   config,
   ready,
@@ -425,4 +440,6 @@ export {
   openWebPage,
   openAppPage,
   getUserInfo,
+  showLoading,
+  hideLoading
 };

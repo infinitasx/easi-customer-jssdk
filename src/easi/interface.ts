@@ -25,7 +25,7 @@ interface favouritesParamesType extends BaseParamesType {
 
 // 收藏夹
 interface tabBarParamesType extends BaseParamesType {
-  id: 'home' | '';
+  id: 'home' | 'orders' | 'me';
 }
 
 export type {

@@ -13,6 +13,6 @@ interface favouritesParamesType extends BaseParamesType {
     shopId: Number;
 }
 interface tabBarParamesType extends BaseParamesType {
-    id: 'home' | '';
+    id: 'home' | 'orders' | 'me';
 }
 export type { LocationParamesType, addToCartParamesType, removeFromCartParamesType, favouritesParamesType, tabBarParamesType, };
