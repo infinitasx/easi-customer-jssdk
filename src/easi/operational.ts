@@ -150,13 +150,21 @@ const openAppCoupons = () => {
 
 /**
  * 打开地址管理页面
+ * @param 无
+ */
+const openAppAddress = () => {
+  call('openAppAddress');
+};
+
+/**
+ * 选择地址
  * @param {object} userOptions 用户配置项
  * @param {Function} userOptions.success 成功回调
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-const openAppAddress = (userOptions: BaseParamesType) => {
-  call('openAppAddress', {}, callBackOperation, userOptions);
+ const selectAppAddress = (userOptions: BaseParamesType) => {
+  call('selectAppAddress', {}, callBackOperation, userOptions);
 };
 
 /**
@@ -216,6 +224,7 @@ export {
   openAppShop,
   openAppCoupons,
   openAppAddress,
+  selectAppAddress,
   openAppFavourites,
   openAppLanguages,
   openAppCustomerService,

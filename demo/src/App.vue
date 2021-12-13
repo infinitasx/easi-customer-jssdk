@@ -37,6 +37,7 @@
     <button @click="openAppShop">打开商家详情</button>
     <button @click="openAppCoupons">打开优惠券页面</button>
     <button @click="openAppAddress">打开地址管理页面</button>
+    <button @click="selectAppAddress">选择地址</button>
     <button @click="openAppFavourites">打开收藏夹</button>
     <button @click="openAppLanguages">打开语言选择</button>
     <button @click="openAppCustomerService">打开联系客服页面</button>
@@ -262,7 +263,7 @@ const hideGlobalCart = () => {
 
 const addToCart = () => {
   easi.addToCart({
-    itemId: '4167467',
+    itemId: '4167464',
     openDetails: true,
     success: (res: any) => {
       console.log(res);
@@ -273,7 +274,7 @@ const addToCart = () => {
 
 const removeFromCart = () => {
   easi.removeFromCart({
-    itemId: '4167467',
+    itemId: '4167464',
     success: (res: any) => {
       console.log(res);
       result.data = res;
@@ -317,6 +318,15 @@ const openAppCoupons = () => {
 
 const openAppAddress = () => {
   easi.openAppAddress();
+};
+
+const selectAppAddress = () => {
+  easi.selectAppAddress({
+    success: (res: any) => {
+      console.log(res);
+      result.data = res;
+    },
+  });
 };
 
 const openAppFavourites = () => {

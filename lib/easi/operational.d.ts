@@ -71,12 +71,17 @@ declare const openAppShop: (userOptions: favouritesParamesType) => void;
 declare const openAppCoupons: () => void;
 /**
  * 打开地址管理页面
+ * @param 无
+ */
+declare const openAppAddress: () => void;
+/**
+ * 选择地址
  * @param {object} userOptions 用户配置项
  * @param {Function} userOptions.success 成功回调
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
-declare const openAppAddress: (userOptions: BaseParamesType) => void;
+declare const selectAppAddress: (userOptions: BaseParamesType) => void;
 /**
  * 打开收藏夹
  * @param 无
@@ -104,4 +109,4 @@ declare const openAppCustomerService: () => void;
  * @param {Function} userOptions.complete 完成回调
  */
 declare const openAppTabBar: (userOptions: tabBarParamesType) => void;
-export { getEASILocation, showGlobalCart, hideGlobalCart, addToCart, removeFromCart, addToFavourites, removeFromFavourites, openAppShop, openAppCoupons, openAppAddress, openAppFavourites, openAppLanguages, openAppCustomerService, openAppTabBar, };
+export { getEASILocation, showGlobalCart, hideGlobalCart, addToCart, removeFromCart, addToFavourites, removeFromFavourites, openAppShop, openAppCoupons, openAppAddress, selectAppAddress, openAppFavourites, openAppLanguages, openAppCustomerService, openAppTabBar, };
