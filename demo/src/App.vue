@@ -1,5 +1,6 @@
 <template>
-  <component :is="componentsName"></component>
+  <component :is="componentsName" v-if="componentsShow"></component>
+  <p class="tips">请使用EASI App访问</p>
 </template>
 
 <script setup>
@@ -7,7 +8,9 @@ import { onMounted, ref } from 'vue';
 import newVersion from './newVersion.vue';
 import oldVersion from './oldVersion.vue';
 const componentsName = ref(null);
+const componentsShow = ref(false);
 onMounted(() => {
+  componentsShow.value = navigator.userAgent.toLocaleLowerCase().includes('easi');
   componentsName.value = navigator.userAgent.includes('JssdkVersion') ? newVersion : oldVersion;
 });
 </script>
@@ -18,6 +21,12 @@ onMounted(() => {
 }
 body {
   background: #f5f6f8;
+}
+.tips {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -400%);
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -45,7 +54,7 @@ body {
   line-height: 30px;
 }
 .op-box {
-  padding: 0 20px;
+  padding: 0 20px 20px 20px;
   display: flex;
   flex-wrap: wrap;
 }
