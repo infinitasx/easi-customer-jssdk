@@ -5,16 +5,13 @@ import * as operational from './operational';
 
 import oldEasi from './oldEasi';
 
-const easi = {
-  ...getEnv(),
-  ...base,
-  ...operational,
-};
+let easi: any = {};
 
-let target: any = easi;
 const isNew = navigator.userAgent.includes('JssdkVersion');
 if (!isNew) {
-  target = oldEasi;
+  easi = oldEasi;
+} else {
+  easi = Object.assign(oldEasi, getEnv(), base, operational);
 }
 
-export default target;
+export default easi;

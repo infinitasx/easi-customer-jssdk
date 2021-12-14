@@ -1,2 +1,2 @@
-declare let target: any;
-export default target;
+declare let easi: any;
+export default easi;

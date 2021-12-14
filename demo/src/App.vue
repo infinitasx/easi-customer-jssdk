@@ -1,6 +1,6 @@
 <template>
   <component :is="componentsName" v-if="componentsShow"></component>
-  <p class="tips">请使用EASI App访问</p>
+  <p class="tips" v-else>请使用EASI App访问</p>
 </template>
 
 <script setup>

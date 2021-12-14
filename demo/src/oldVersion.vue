@@ -19,7 +19,7 @@
 
 <script setup>
 import { easi } from '../../es/index';
-
+console.log(easi);
 const getLocation = () => {
   easi.getLocation &&
     easi.getLocation(res => {

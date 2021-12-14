@@ -55,7 +55,6 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import { easi } from '../../es/index';
-
 let img = ref('');
 let localtion = reactive({
   latitude: 0.0,

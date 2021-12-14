@@ -1,3 +1,60 @@
+// EASI基础数据
+var baseEasiInfo = {
+  easiAgent: 'EasiCustomer/',
+  easiVersion: '1.8.10',
+  easiUserVersion: '1.9.59',
+  easiMalaysiaAgent: 'EasiMalaysia/',
+  easiMalaysiaVersion: '4.9.39',
+  easiMalaysiaUserVersion: '4.9.39'
+};
+
+/**
+ * 获取系统版本信息
+ * @param {Object} parmes 配置数据
+ * @param {string} parmes.ua 系统ua
+ * @param {boolean} parmes.isMalaysia 是否是马来西亚
+ */
+
+var getVersion = function getVersion(parmes) {
+  var uaFragments = parmes.ua.split(' ');
+
+  if (uaFragments.length > 0) {
+    var easiMark = parmes.isMalaysia ? baseEasiInfo.easiMalaysiaAgent : baseEasiInfo.easiAgent;
+    var easiUaStart = uaFragments[0].includes(easiMark);
+
+    if (easiUaStart) {
+      return uaFragments[0].replace(easiMark, '');
+    }
+  }
+
+  return null;
+};
+/**
+ * 获取系统环境
+ * @returns {Object} ua, isEasi, isMalaysia, isAndroid, isIos, version 返回的数据
+ */
+
+
+var getEnv = function getEnv() {
+  var ua = navigator.userAgent;
+  var isEasi = ua.includes(baseEasiInfo.easiAgent);
+  var isMalaysia = ua.includes(baseEasiInfo.easiMalaysiaAgent);
+  var isAndroid = ua.includes('Android') || ua.includes('android') || ua.includes('Linux');
+  var isIos = ua.includes('iPhone') || ua.includes('iOS');
+  var version = getVersion({
+    ua: ua,
+    isMalaysia: isMalaysia
+  });
+  return {
+    ua: ua,
+    isEasi: isEasi,
+    isMalaysia: isMalaysia,
+    isAndroid: isAndroid,
+    isIos: isIos,
+    version: version
+  };
+};
+
 function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
 
@@ -72,63 +129,6 @@ function _defineProperty(obj, key, value) {
 
   return obj;
 }
-
-// EASI基础数据
-var baseEasiInfo = {
-  easiAgent: 'EasiCustomer/',
-  easiVersion: '1.8.10',
-  easiUserVersion: '1.9.59',
-  easiMalaysiaAgent: 'EasiMalaysia/',
-  easiMalaysiaVersion: '4.9.39',
-  easiMalaysiaUserVersion: '4.9.39'
-};
-
-/**
- * 获取系统版本信息
- * @param {Object} parmes 配置数据
- * @param {string} parmes.ua 系统ua
- * @param {boolean} parmes.isMalaysia 是否是马来西亚
- */
-
-var getVersion = function getVersion(parmes) {
-  var uaFragments = parmes.ua.split(' ');
-
-  if (uaFragments.length > 0) {
-    var easiMark = parmes.isMalaysia ? baseEasiInfo.easiMalaysiaAgent : baseEasiInfo.easiAgent;
-    var easiUaStart = uaFragments[0].includes(easiMark);
-
-    if (easiUaStart) {
-      return uaFragments[0].replace(easiMark, '');
-    }
-  }
-
-  return null;
-};
-/**
- * 获取系统环境
- * @returns {Object} ua, isEasi, isMalaysia, isAndroid, isIos, version 返回的数据
- */
-
-
-var getEnv = function getEnv() {
-  var ua = navigator.userAgent;
-  var isEasi = ua.includes(baseEasiInfo.easiAgent);
-  var isMalaysia = ua.includes(baseEasiInfo.easiMalaysiaAgent);
-  var isAndroid = ua.includes('Android') || ua.includes('android') || ua.includes('Linux');
-  var isIos = ua.includes('iPhone') || ua.includes('iOS');
-  var version = getVersion({
-    ua: ua,
-    isMalaysia: isMalaysia
-  });
-  return {
-    ua: ua,
-    isEasi: isEasi,
-    isMalaysia: isMalaysia,
-    isAndroid: isAndroid,
-    isIos: isIos,
-    version: version
-  };
-};
 
 // app事件
 var AppResultEventEnum;
@@ -1117,17 +1117,17 @@ var Easi = /*#__PURE__*/function () {
 
 var oldEasi = new Easi();
 
-var easi = _objectSpread2(_objectSpread2(_objectSpread2({}, getEnv()), base), operational);
-
-var target = easi;
+var easi = {};
 var isNew = navigator.userAgent.includes('JssdkVersion');
 
 if (!isNew) {
-  target = oldEasi;
+  easi = oldEasi;
+} else {
+  easi = Object.assign(oldEasi, getEnv(), base, operational);
 }
 
-var target$1 = target;
+var easi$1 = easi;
 
 var delivery = {};
 
-export { delivery, target$1 as easi };
+export { delivery, easi$1 as easi };
