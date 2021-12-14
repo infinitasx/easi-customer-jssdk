@@ -2,9 +2,8 @@
   <component :is="componentsName"></component>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { onMounted, ref } from 'vue';
-import type {} from 'vue';
 import newVersion from './newVersion.vue';
 import oldVersion from './oldVersion.vue';
 const componentsName = ref(null);

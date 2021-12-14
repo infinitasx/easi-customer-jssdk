@@ -55,7 +55,6 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import { easi } from '../../es/index';
-console.log(easi);
 
 let img = ref('');
 let localtion = reactive({

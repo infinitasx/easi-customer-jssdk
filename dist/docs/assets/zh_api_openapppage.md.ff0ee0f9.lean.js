@@ -1,0 +1,1 @@
+import{_ as a,c as e,a as t,g as n}from"./app.039d7064.js";const s='{"title":"easi.openAppPage","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/openapppage.md","lastUpdated":1639465365074}',p={},o=[n('',8)];var r=a(p,[["render",function(a,n,s,p,r,i){return t(),e("div",null,o)}]]);export{s as __pageData,r as default};

@@ -1,0 +1,1 @@
+import{_ as a,c as n,a as t,g as s}from"./app.039d7064.js";const e='{"title":"easi.error","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/error.md","lastUpdated":1639465365069}',p={},o=[s('',8)];var r=a(p,[["render",function(a,s,e,p,r,c){return t(),n("div",null,o)}]]);export{e as __pageData,r as default};

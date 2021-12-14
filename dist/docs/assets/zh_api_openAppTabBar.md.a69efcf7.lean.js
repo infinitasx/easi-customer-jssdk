@@ -1,0 +1,1 @@
+import{_ as t,c as a,a as d,g as n}from"./app.039d7064.js";const e='{"title":"easi.openAppTabBar","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/openAppTabBar.md","lastUpdated":1639467902688}',s={},p=[n('',8)];var r=t(s,[["render",function(t,n,e,s,r,o){return d(),a("div",null,p)}]]);export{e as __pageData,r as default};

@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --port=3010 --host",
-    "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
+    "build": "vue-tsc --noEmit && vite build && yarn mv",
+    "serve": "vite preview",
+    "mv": "bash ./movefile.sh"
   },
   "dependencies": {
     "vue": "^3.2.16"

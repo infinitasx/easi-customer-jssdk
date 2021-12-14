@@ -1,0 +1,1 @@
+import{_ as a,c as s,a as e,g as n}from"./app.039d7064.js";const t='{"title":"easi.showNavBar","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/shownavbar.md","lastUpdated":1639465365079}',p={},r=[n('',8)];var i=a(p,[["render",function(a,n,t,p,i,o){return e(),s("div",null,r)}]]);export{t as __pageData,i as default};
