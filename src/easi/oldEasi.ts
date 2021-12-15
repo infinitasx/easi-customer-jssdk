@@ -1,4 +1,4 @@
-class Easi {
+export class Easi {
   SYS_ERROR = {
     code: 100,
     data: '获取数据异常',

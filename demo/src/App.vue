@@ -35,11 +35,13 @@ body {
   color: #2c3e50;
 }
 .page-title {
-  background: #ffda00;
+  background: #fff;
   margin-bottom: 20px;
   height: 50px;
   line-height: 50px;
   text-align: center;
+  color: red;
+  border-bottom: 1px solid #e2e2e2;
 }
 .api-item {
   background: #ffffff;

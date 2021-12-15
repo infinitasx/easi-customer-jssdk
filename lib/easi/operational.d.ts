@@ -1,5 +1,22 @@
 import { BaseParamesType } from '../bridge/interface';
 import type { LocationParamesType, addToCartParamesType, removeFromCartParamesType, favouritesParamesType, tabBarParamesType } from './interface';
+export declare type TOperational = {
+    getEASILocation: (userOptions: LocationParamesType) => void;
+    showGlobalCart: () => void;
+    hideGlobalCart: () => void;
+    addToCart: (userOptions: addToCartParamesType) => void;
+    removeFromCart: (userOptions: removeFromCartParamesType) => void;
+    addToFavourites: (userOptions: favouritesParamesType) => void;
+    removeFromFavourites: (userOptions: favouritesParamesType) => void;
+    openAppShop: (userOptions: favouritesParamesType) => void;
+    openAppCoupons: () => void;
+    openAppAddress: () => void;
+    selectAppAddress: (userOptions: BaseParamesType) => void;
+    openAppFavourites: () => void;
+    openAppLanguages: (userOptions: BaseParamesType) => void;
+    openAppCustomerService: () => void;
+    openAppTabBar: (userOptions: tabBarParamesType) => void;
+};
 /**
  * 获取当前选择的配送地址或首页定位地址
  * @param {object} userOptions 用户配置项

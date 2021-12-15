@@ -9,6 +9,24 @@ import type {
   tabBarParamesType,
 } from './interface';
 
+export type TOperational = {
+  getEASILocation: (userOptions: LocationParamesType) => void;
+  showGlobalCart: () => void;
+  hideGlobalCart: () => void;
+  addToCart: (userOptions: addToCartParamesType) => void;
+  removeFromCart: (userOptions: removeFromCartParamesType) => void;
+  addToFavourites: (userOptions: favouritesParamesType) => void;
+  removeFromFavourites: (userOptions: favouritesParamesType) => void;
+  openAppShop: (userOptions: favouritesParamesType) => void;
+  openAppCoupons: () => void;
+  openAppAddress: () => void;
+  selectAppAddress: (userOptions: BaseParamesType) => void;
+  openAppFavourites: () => void;
+  openAppLanguages: (userOptions: BaseParamesType) => void;
+  openAppCustomerService: () => void;
+  openAppTabBar: (userOptions: tabBarParamesType) => void;
+};
+
 /**
  * 获取当前选择的配送地址或首页定位地址
  * @param {object} userOptions 用户配置项
@@ -163,7 +181,7 @@ const openAppAddress = () => {
  * @param {Function} userOptions.fail 失败回调
  * @param {Function} userOptions.complete 完成回调
  */
- const selectAppAddress = (userOptions: BaseParamesType) => {
+const selectAppAddress = (userOptions: BaseParamesType) => {
   call('selectAppAddress', {}, callBackOperation, userOptions);
 };
 

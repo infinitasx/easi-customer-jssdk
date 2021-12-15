@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="page-title">老版Api</div>
+    <div class="page-title">*** 老web容器 ***</div>
     <div class="api-item">
       <div class="api-title">基础接口</div>
       <div class="op-box">
@@ -19,7 +19,6 @@
 
 <script setup>
 import { easi } from '../../es/index';
-console.log(easi);
 const getLocation = () => {
   easi.getLocation &&
     easi.getLocation(res => {
@@ -69,9 +68,14 @@ const addCart = () => {
 
 const showCart = () => {
   easi.showCart &&
-    easi.showCart(res => {
-      alert(JSON.stringify(res));
-    });
+    easi.showCart(
+      res => {
+        alert(JSON.stringify(res));
+      },
+      {
+        show: true,
+      },
+    );
 };
 
 const reload = () => {

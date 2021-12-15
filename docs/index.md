@@ -7,6 +7,7 @@ if (typeof window !== 'undefined') {
 import { ref, onMounted } from 'vue'
 import { withBase } from 'vitepress'
 import Typed from 'typed.js';
+import { name, version } from "../package.json"
 
 const support = ref([{
   name: 'Type Strong',
@@ -42,6 +43,7 @@ onMounted(()=>{
   </div>
   <div class="fixed top-72 sm:top-96 left-1/2 max-w-full transform -translate-x-1/2 flex justify-center flex-col items-center">
     <h3 class="m-0 md:text-72 font-extralight tracking-widest font-sans text-42 sm:text-52">EASI JSSDK</h3>
+    <a target="_blank" :href="`https://static.melbdelivery.com/${name}/${version}/demo/index.html`">访问demo</a>
     <div class="w-600 mt-20 sm:mt-40 md:80  items-center p-10 bg-gray-50 border-2 border-gary-200 rounded-full hover:ring-green-500 hover:ring-opacity-50">
       <span class="mr-10 text-gray-400">$</span>
       <span class="text-gray-700" ref="dom"></span>

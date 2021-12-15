@@ -1,7 +1,15 @@
 <template>
   <div>
-    <div class="page-title">新版Api</div>
+    <div class="page-title">*** 新web容器 ***</div>
     <img :src="img" alt="" v-if="img" />
+    <div class="api-item">
+      <div class="api-title">scheme</div>
+      <div class="op-box">
+        <button @click="headless(0)">隐藏顶部/底部-0</button>
+        <button @click="headless(1)">隐藏顶部/底部-1</button>
+        <button @click="headless(2)">隐藏顶部/底部-2</button>
+      </div>
+    </div>
     <div class="api-item">
       <div class="api-title">基础接口</div>
       <div class="op-box">
@@ -49,12 +57,25 @@
         <button @click="openAppTabBar">切换底部导航栏</button>
       </div>
     </div>
+    <div class="api-item">
+      <div class="api-title">老版本api</div>
+      <div class="op-box">
+        <button @click="getLocation">获取经纬度</button>
+        <button @click="scan">扫一扫</button>
+        <button @click="user">获取用户信息</button>
+        <button @click="wx_share">微信分享</button>
+        <button @click="login">唤起登录</button>
+        <button @click="addCart">添加到购物车</button>
+        <button @click="showCart">显示购物车</button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, reactive } from 'vue';
 import { easi } from '../../es/index';
+
 let img = ref('');
 let localtion = reactive({
   latitude: 0.0,
@@ -62,7 +83,11 @@ let localtion = reactive({
 });
 let result = reactive({ data: {} });
 let timer = ref(null);
-
+const headless = type => {
+  window.location.href = `au.com.easi.customer://web/redirect?url=${encodeURIComponent(
+    'https://www.baidu.com?headless=' + type,
+  )}`;
+};
 easi.config &&
   easi.config({
     debug: false,
@@ -381,6 +406,65 @@ const openAppTabBar = () => {
         result.data = res;
       },
     });
+};
+
+const getLocation = () => {
+  easi.getLocation &&
+    easi.getLocation(res => {
+      alert(JSON.stringify(res));
+    });
+};
+
+const scan = () => {
+  easi.scan &&
+    easi.scan(res => {
+      alert(JSON.stringify(res));
+    });
+};
+
+const user = () => {
+  easi.user &&
+    easi.user(res => {
+      alert(JSON.stringify(res));
+    });
+};
+
+const wx_share = () => {
+  easi.wx_share &&
+    easi.wx_share(res => {
+      alert(JSON.stringify(res));
+    });
+};
+
+const login = () => {
+  easi.login &&
+    easi.login(res => {
+      alert(JSON.stringify(res));
+    });
+};
+
+const addCart = () => {
+  easi.addCart &&
+    easi.addCart(
+      res => {
+        alert(JSON.stringify(res));
+      },
+      {
+        itemId: '4167464',
+      },
+    );
+};
+
+const showCart = () => {
+  easi.showCart &&
+    easi.showCart(
+      res => {
+        alert(JSON.stringify(res));
+      },
+      {
+        show: true,
+      },
+    );
 };
 
 const reload = () => {

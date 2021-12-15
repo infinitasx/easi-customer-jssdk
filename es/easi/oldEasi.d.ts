@@ -1,4 +1,4 @@
-declare class Easi {
+export declare class Easi {
     SYS_ERROR: {
         code: number;
         data: string;

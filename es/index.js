@@ -1114,7 +1114,6 @@ var Easi = /*#__PURE__*/function () {
 
   return Easi;
 }();
-
 var oldEasi = new Easi();
 
 var easi = {};

@@ -3,9 +3,11 @@ import { getEnv } from '../utils/env';
 import * as base from '../base';
 import * as operational from './operational';
 
-import oldEasi from './oldEasi';
+import oldEasi, { Easi as old } from './oldEasi';
 
-let easi: any = {};
+type TEasi = Partial<base.TBase & operational.TOperational & old>;
+
+let easi: TEasi = {};
 
 const isNew = navigator.userAgent.includes('JssdkVersion');
 if (!isNew) {

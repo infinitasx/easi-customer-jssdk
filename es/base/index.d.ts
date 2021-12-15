@@ -1,5 +1,41 @@
 import type { BaseParamesType } from '../bridge/interface';
-import { IBase } from "./interface";
+import { IBase } from './interface';
+export declare type TBase = {
+    config: (userOptions: IBase.ConfigParamesType) => void;
+    ready: (callback: (response: {
+        langage?: string;
+        checkResult: Object;
+    }) => void) => void;
+    error: (callback: (err: {
+        [key: string]: any;
+        errMsg?: string | undefined;
+    }) => void) => void;
+    getNetworkType: (userOptions: BaseParamesType) => void;
+    checkJsApi: (userOptions: IBase.CheckJsApiType) => void;
+    updateWechatMessageShareData: (userOptions: IBase.ShareDataType) => void;
+    updateWechatTimelineShareData: (userOptions: IBase.ShareDataType) => void;
+    updateFacebookTimelineShareData: (userOptions: IBase.ShareDataType) => void;
+    copy: (userOptions: IBase.CopyType) => void;
+    chooseImage: (userOptions: IBase.ChooseImageType) => void;
+    getLocalImageData: (userOptions: IBase.LocalImageDataType) => void;
+    previewImage: (userOptions: IBase.PreviewImageType) => void;
+    openLocation: (userOptions: IBase.OpenLocationType) => void;
+    getDeviceLocation: (userOptions: IBase.LocationType) => void;
+    scanQRCode: (userOptions: IBase.ScanCodeType) => void;
+    scanBarcode: (userOptions: IBase.ScanCodeType) => void;
+    closeWindow: () => void;
+    hideMenuBar: () => void;
+    showMenuBar: () => void;
+    hideMenuItems: (userOptions: IBase.MenuItemsType) => void;
+    showMenuItems: (userOptions: IBase.MenuItemsType) => void;
+    hideNavBar: () => void;
+    showNavBar: () => void;
+    openWebPage: (userOptions: IBase.OpenWebPageType) => void;
+    openAppPage: (userOptions: IBase.OpenAppPageType) => void;
+    getUserInfo: (userOptions: BaseParamesType) => void;
+    showLoading: () => void;
+    hideLoading: () => void;
+};
 /**
  * 检测api配置项
  * @param {object} userOptions 用户配置项
@@ -218,4 +254,4 @@ declare const showLoading: () => void;
  * 隐藏客户端的loading
  */
 declare const hideLoading: () => void;
-export { config, ready, error, getNetworkType, checkJsApi, updateWechatTimelineShareData, updateWechatMessageShareData, updateFacebookTimelineShareData, copy, chooseImage, getLocalImageData, previewImage, openLocation, getDeviceLocation, scanQRCode, scanBarcode, closeWindow, hideMenuBar, showMenuBar, hideMenuItems, showMenuItems, hideNavBar, showNavBar, openWebPage, openAppPage, getUserInfo, showLoading, hideLoading };
+export { config, ready, error, getNetworkType, checkJsApi, updateWechatTimelineShareData, updateWechatMessageShareData, updateFacebookTimelineShareData, copy, chooseImage, getLocalImageData, previewImage, openLocation, getDeviceLocation, scanQRCode, scanBarcode, closeWindow, hideMenuBar, showMenuBar, hideMenuItems, showMenuItems, hideNavBar, showNavBar, openWebPage, openAppPage, getUserInfo, showLoading, hideLoading, };

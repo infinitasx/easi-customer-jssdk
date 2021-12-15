@@ -2,7 +2,38 @@ import { call, callBackOperation } from '../bridge';
 
 import { AppResultEventEnum } from '../bridge/interface';
 import type { BaseParamesType, AppResponseType } from '../bridge/interface';
-import  {IBase} from "./interface"
+import { IBase } from './interface';
+
+export type TBase = {
+  config: (userOptions: IBase.ConfigParamesType) => void;
+  ready: (callback: (response: { langage?: string; checkResult: Object }) => void) => void;
+  error: (callback: (err: { [key: string]: any; errMsg?: string | undefined }) => void) => void;
+  getNetworkType: (userOptions: BaseParamesType) => void;
+  checkJsApi: (userOptions: IBase.CheckJsApiType) => void;
+  updateWechatMessageShareData: (userOptions: IBase.ShareDataType) => void;
+  updateWechatTimelineShareData: (userOptions: IBase.ShareDataType) => void;
+  updateFacebookTimelineShareData: (userOptions: IBase.ShareDataType) => void;
+  copy: (userOptions: IBase.CopyType) => void;
+  chooseImage: (userOptions: IBase.ChooseImageType) => void;
+  getLocalImageData: (userOptions: IBase.LocalImageDataType) => void;
+  previewImage: (userOptions: IBase.PreviewImageType) => void;
+  openLocation: (userOptions: IBase.OpenLocationType) => void;
+  getDeviceLocation: (userOptions: IBase.LocationType) => void;
+  scanQRCode: (userOptions: IBase.ScanCodeType) => void;
+  scanBarcode: (userOptions: IBase.ScanCodeType) => void;
+  closeWindow: () => void;
+  hideMenuBar: () => void;
+  showMenuBar: () => void;
+  hideMenuItems: (userOptions: IBase.MenuItemsType) => void;
+  showMenuItems: (userOptions: IBase.MenuItemsType) => void;
+  hideNavBar: () => void;
+  showNavBar: () => void;
+  openWebPage: (userOptions: IBase.OpenWebPageType) => void;
+  openAppPage: (userOptions: IBase.OpenAppPageType) => void;
+  getUserInfo: (userOptions: BaseParamesType) => void;
+  showLoading: () => void;
+  hideLoading: () => void;
+};
 
 // 初始化
 const initResult: IBase.InitResultType = {};
@@ -398,18 +429,17 @@ const getUserInfo = (userOptions: BaseParamesType) => {
   call('getUserInfo', {}, callBackOperation, userOptions);
 };
 
-
 /**
  * 显示客户端的loading
  */
- const showLoading = () => {
+const showLoading = () => {
   call('showLoading');
 };
 
 /**
  * 隐藏客户端的loading
  */
- const hideLoading = () => {
+const hideLoading = () => {
   call('hideLoading');
 };
 
@@ -441,5 +471,5 @@ export {
   openAppPage,
   getUserInfo,
   showLoading,
-  hideLoading
+  hideLoading,
 };
