@@ -154,6 +154,14 @@ module.exports = {
                 text: 'getUserInfo 获取用户信息',
                 link: '/zh/api/userinfo',
               },
+              {
+                text: 'showLoading 显示Loading',
+                link: '/zh/api/showLoading',
+              },
+              {
+                text: 'hideLoading 隐藏Loading',
+                link: '/zh/api/hideLoading',
+              },
             ],
           },
           {
