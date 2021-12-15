@@ -235,14 +235,14 @@ const showMenuBar = () => {
 const hideMenuItems = () => {
   easi.hideMenuItems &&
     easi.hideMenuItems({
-      menuItems: ['refresh'],
+      menuItems: ['refresh', 'copy'],
     });
 };
 
 const showMenuItems = () => {
   easi.showMenuItems &&
     easi.showMenuItems({
-      menuItems: ['refresh'],
+      menuItems: ['refresh', 'copy'],
     });
 };
 
