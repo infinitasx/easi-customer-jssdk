@@ -1,0 +1,1 @@
+import{_ as a,c as p,a as e,g as n}from"./app.3f980b06.js";const s='{"title":"easi.openAppCoupons","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/openAppCoupons.md","lastUpdated":1639466632921}',o={},t=[n('',7)];var i=a(o,[["render",function(a,n,s,o,i,r){return e(),p("div",null,t)}]]);export{s as __pageData,i as default};

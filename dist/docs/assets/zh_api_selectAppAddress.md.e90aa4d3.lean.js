@@ -1,1 +1,0 @@
-import{_ as t,c as s,a,g as n}from"./app.039d7064.js";const e='{"title":"easi.selectAppAddress","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/selectAppAddress.md","lastUpdated":1639466912815}',p={},d=[n('',8)];var o=t(p,[["render",function(t,n,e,p,o,c){return a(),s("div",null,d)}]]);export{e as __pageData,o as default};

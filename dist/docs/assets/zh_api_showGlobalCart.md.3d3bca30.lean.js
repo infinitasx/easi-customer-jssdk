@@ -1,1 +1,0 @@
-import{_ as a,c as s,a as e,g as t}from"./app.039d7064.js";const n='{"title":"easi.showGlobalCart","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/showGlobalCart.md","lastUpdated":1639465902077}',r={},o=[t('',7)];var l=a(r,[["render",function(a,t,n,r,l,p){return e(),s("div",null,o)}]]);export{n as __pageData,l as default};

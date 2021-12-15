@@ -1,0 +1,1 @@
+import{_ as a,c as e,a as t,g as s}from"./app.3f980b06.js";const n='{"title":"easi.hideGlobalCart","description":"","frontmatter":{},"headers":[{"level":2,"title":"参数","slug":"参数"}],"relativePath":"zh/api/hideGlobalCart.md","lastUpdated":1639465960320}',i={},r=[s('',7)];var l=a(i,[["render",function(a,s,n,i,l,p){return t(),e("div",null,r)}]]);export{n as __pageData,l as default};
