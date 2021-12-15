@@ -6,7 +6,7 @@ sdk 成功返回值
 
 ```TypeScript
 {
-    errMsg:"getDeviceLocation:ok",
+    errMsg:"getEASILocation:ok",
     data:{address: "", latitude:"",longitude:""},
 }
 ```
@@ -14,7 +14,7 @@ sdk 成功返回值
 示例
 
 ```TypeScript
-easi.getLocation({
+easi.getEASILocation({
   type: 'wgs84',
   success(res) =>  {
   },
