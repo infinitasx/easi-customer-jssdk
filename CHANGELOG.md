@@ -10,6 +10,7 @@
 
 - 支持外卖配送
 - 增加基础接口
+- 增加业务接口
 - 增加使用文档 website
 - 兼容 1.x
 - 添加 1.x 和 2.x 的 demo 界面
@@ -17,15 +18,16 @@
 ### Changed
 
 - 支持 ts
+- 修改打包配置支持外卖和配送
+- 重构 sdk
 
 ### Removed
 
-- 移除老的 api: scan、user、wx_share、login、addCart、showCart
+- 2.x 移除老的 api: scan、user、wx_share、login、addCart、showCart
 
-### Changed
+### Deprecated
 
-- 修改打包配置支持外卖和配送
-- 重构 sdk
+- 1.x api 后续不做长期支持包括 scan、user、wx_share、login、addCart、showCart
 
 ## [1.3.3] - 2021-08-6
 
