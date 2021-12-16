@@ -172,12 +172,12 @@ const chooseImage = count => {
           });
         }
         setTimeout(() => {
+          console.log('imgs:', imgs);
           easi.previewImage({
             current: imgs[0],
             urls: imgs,
-            success: res => {},
           });
-        }, 500);
+        }, 10);
       },
     });
 };
