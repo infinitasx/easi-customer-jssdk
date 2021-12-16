@@ -18,7 +18,8 @@
         <button @click="checkJsApi">检查是否支持指定API</button>
         <button @click="updateWechatMessageShareData">分享到微信联系人</button>
         <button @click="copy">复制文本内容</button>
-        <button @click="chooseImage">选取图片</button>
+        <button @click="chooseImage(1)">选取图片-单选</button>
+        <button @click="chooseImage(9)">选取图片-多选</button>
         <button @click="previewImage">预览图片</button>
         <button @click="openLocation">打开第三方地图</button>
         <button @click="scanQRCode">扫描二维码</button>
@@ -153,22 +154,30 @@ const copy = () => {
     });
 };
 
-const chooseImage = () => {
+const chooseImage = count => {
   easi.chooseImage &&
     easi.chooseImage({
       accept: 'image/*',
       compressImage: true,
       capture: 'environment',
-      count: 1,
-      success: res => {
-        easi.getLocalImageData({
-          localId: res.localIds[0],
-          success: res => {
-            img.value = `${res.localData}`;
-            result.data = res.localData.length / 1024;
-            alert(JSON.stringify(res));
-          },
-        });
+      count: count,
+      success: async res => {
+        const imgs = [];
+        for (let item of res.localIds) {
+          easi.getLocalImageData({
+            localId: item,
+            success: res => {
+              imgs.push(res.localData);
+            },
+          });
+        }
+        setTimeout(() => {
+          easi.previewImage({
+            current: imgs[0],
+            urls: imgs,
+            success: res => {},
+          });
+        }, 500);
       },
     });
 };
