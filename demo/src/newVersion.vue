@@ -55,7 +55,7 @@
         <button @click="openAppFavourites">打开收藏夹</button>
         <button @click="openAppLanguages">打开语言选择</button>
         <button @click="openAppCustomerService">打开联系客服页面</button>
-        <button @click="openAppTabBar">切换底部导航栏</button>
+        <button @click="openAppTabBar">切换底部TabBar-我的界面</button>
       </div>
     </div>
     <div class="api-item">
@@ -276,7 +276,7 @@ const openWebPage = () => {
 const openAppPage = () => {
   easi.openAppPage &&
     easi.openAppPage({
-      scheme: 'au.com.easi.customer://shop/6129',
+      scheme: 'au.com.easi.customer://shop/2',
     });
 };
 
@@ -412,7 +412,7 @@ const openAppCustomerService = () => {
 const openAppTabBar = () => {
   easi.openAppTabBar &&
     easi.openAppTabBar({
-      id: 'home',
+      id: 'me',
       success: res => {
         alert(JSON.stringify(res));
         result.data = res;
