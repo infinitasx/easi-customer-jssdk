@@ -165,6 +165,12 @@ const chooseImage = count => {
       capture: 'environment',
       count: count,
       success: async res => {
+        if (easi.isAndroid) {
+          return easi.previewImage({
+            current: res.localIds[0],
+            urls: res.localIds,
+          });
+        }
         const imgs = [];
         for (let item of res.localIds) {
           easi.getLocalImageData({
@@ -175,7 +181,6 @@ const chooseImage = count => {
           });
         }
         setTimeout(() => {
-          console.log('imgs:', imgs);
           easi.previewImage({
             current: imgs[0],
             urls: imgs,
