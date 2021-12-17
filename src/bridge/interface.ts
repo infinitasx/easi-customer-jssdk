@@ -1,8 +1,8 @@
 // app事件
 enum AppResultEventEnum {
   'success',
-  'fail',
   'cancel',
+  'fail',
 }
 
 // app返回类型

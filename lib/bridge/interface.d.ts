@@ -1,7 +1,7 @@
 declare enum AppResultEventEnum {
     'success' = 0,
-    'fail' = 1,
-    'cancel' = 2
+    'cancel' = 1,
+    'fail' = 2
 }
 interface AppResponseType {
     status: string;

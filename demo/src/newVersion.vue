@@ -140,6 +140,9 @@ const updateWechatMessageShareData = () => {
       link: 'https://www.baidu.com',
       imgUrl: 'https://img.yzcdn.cn/vant/logo.png',
       desc: '这是一段描述',
+      fail: err => {
+        alert(JSON.stringify(err));
+      },
     });
 };
 
