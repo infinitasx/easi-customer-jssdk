@@ -165,27 +165,26 @@ const chooseImage = count => {
       capture: 'environment',
       count: count,
       success: async res => {
-        if (easi.isAndroid) {
-          return easi.previewImage({
-            current: res.localIds[0],
-            urls: res.localIds,
-          });
-        }
         const imgs = [];
+        const promises = [];
         for (let item of res.localIds) {
-          easi.getLocalImageData({
-            localId: item,
-            success: res => {
-              imgs.push(res.localData);
-            },
-          });
+          promises.push(
+            new Promise(resolve => {
+              easi.getLocalImageData({
+                localId: item,
+                success: res => {
+                  imgs.push(res.localData);
+                  resolve();
+                },
+              });
+            }),
+          );
         }
-        setTimeout(() => {
-          easi.previewImage({
-            current: imgs[0],
-            urls: imgs,
-          });
-        }, 10);
+        await Promise.all(promises);
+        easi.previewImage({
+          current: imgs[0],
+          urls: imgs,
+        });
       },
     });
 };
